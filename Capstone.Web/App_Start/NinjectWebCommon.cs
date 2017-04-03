@@ -10,6 +10,10 @@ namespace Capstone.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using Capstone.Web.Models;
+    using DAL.Parent;
+    using DAL.Child;
+    using System.Configuration;
 
     public static class NinjectWebCommon 
     {
@@ -27,7 +31,7 @@ namespace Capstone.Web.App_Start
         
         /// <summary>
         /// Stops the application.
-        /// </summary>
+        /// </summary>s
         public static void Stop()
         {
             bootstrapper.ShutDown();
@@ -61,6 +65,8 @@ namespace Capstone.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IParentDAL>().To<ParentSqlDAL>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["HopToIt"].ConnectionString);
+            kernel.Bind<IChildDAL>().To<ChildSqlDAL>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["HopToIt"].ConnectionString);
         }        
     }
 }

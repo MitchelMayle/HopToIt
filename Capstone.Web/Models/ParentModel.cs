@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Capstone.Web.Models
 {
-    public class Parent
+    public class ParentModel
     {
         public int Parent_ID { get; set; }
         public string First_Name { get; set; }

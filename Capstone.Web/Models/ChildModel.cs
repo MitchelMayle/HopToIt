@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Capstone.Web.Models
 {
-    public class Child
+    public class ChildModel
     {
         public int Child_Id { get; set; }
         public string UserName { get; set; }
