@@ -20,7 +20,7 @@ namespace Capstone.Web.DAL.Parent
             this.connectionString = connectionString;
         }
 
-        bool CreateParent(ParentModel newParent)
+        public bool CreateParent(ParentModel newParent)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace Capstone.Web.DAL.Parent
             }
         }
 
-        ParentModel GetParent(ParentModel searchParent)
+        public ParentModel GetParent(ParentModel searchParent)
         {
             ParentModel parent = null;
 
@@ -70,13 +70,49 @@ namespace Capstone.Web.DAL.Parent
                             Password = Convert.ToString(reader["p_word"]),
                         };
                     }
-                    return parent;
                 }
             }
             catch (SqlException e)
             {
                 throw;
             }
+            return parent;
+        }
+
+        public List<ChildModel> GetChildren(int parent_Id)
+        {
+            List<ChildModel> children = null;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_GetChildren, conn);
+                    cmd.Parameters.AddWithValue("@parent_id", parent_Id);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while(reader.Read())
+                    {
+                        ChildModel child = new ChildModel
+                        {
+                            Child_Id = Convert.ToInt32(reader["child_id"]),
+                            First_Name = Convert.ToString(reader["first_name"]),
+                            UserName = Convert.ToString(reader["username"]),
+                            Password = Convert.ToString(reader["p_word"]),
+                            Steps = Convert.ToInt32(reader["steps"]),
+                            Active_Minutes = Convert.ToInt32("active_minutes"),
+                        };
+                        children.Add(child);
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                throw;
+            }
+            return children;
         }
     }
 }
