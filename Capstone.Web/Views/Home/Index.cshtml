@@ -1,20 +1,8 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-</head>
-<body>
-    <h2>
-        Hop To It
-    </h2>
-    <nav>
-        <ul>
-            <li>@Html.ActionLink("Parent Login", "", "")</li>
-            <li>@Html.ActionLink("Child Login", "", "")</li>
-            <li>@Html.ActionLink("Parent Register", "", "")</li> 
-        </ul>
-    </nav>
-</body>
-</html>
+<h2>Welcome to HOP TO IT!</h2>
+

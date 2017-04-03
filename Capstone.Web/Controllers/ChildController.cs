@@ -8,9 +8,9 @@ namespace Capstone.Web.Controllers
 {
     public class ChildController : Controller
     {
-        public ActionResult ChildLogin()
+        public ActionResult Login()
         {
-            return View("ChildLogin");
+            return View("Login");
         }
     }
 }

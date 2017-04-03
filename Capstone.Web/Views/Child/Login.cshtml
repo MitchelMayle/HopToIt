@@ -5,14 +5,9 @@
 
 <h2>Child Login</h2>
 
-<nav>
-    <ul>
-        <li>
-            @Html.ActionLink("Home", "Index")
-        </li>
-    </ul>
-</nav>
-<body>
+@using (Html.BeginForm("Login", "Child", FormMethod.Post))
+{
+
     <div>
         <label>User Name</label>
         @Html.TextBoxFor(m => m.UserName)
@@ -22,4 +17,5 @@
         @Html.TextBoxFor(m => m.Password)
     </div>
     <button> Submit </button>
-</body>
+
+}

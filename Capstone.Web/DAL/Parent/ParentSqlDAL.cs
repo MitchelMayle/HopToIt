@@ -20,7 +20,7 @@ namespace Capstone.Web.DAL.Parent
             this.connectionString = connectionString;
         }
 
-        public bool CreateParent(ParentModel newParent)
+        public void CreateParent(ParentModel newParent)
         {
             try
             {

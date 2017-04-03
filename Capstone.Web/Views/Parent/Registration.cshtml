@@ -1,0 +1,41 @@
+﻿@using Capstone.Web.Models;
+@model ParentModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Parent Registration</h2>
+
+
+
+@using (Html.BeginForm("Registration", "Parent", FormMethod.Post))
+{
+    <div>
+        <label>First Name</label>
+        @Html.TextBoxFor(m => m.First_Name )
+        @Html.ValidationMessageFor(m => m.First_Name)
+    </div>
+    <div>
+        <label>Last Name</label>
+        @Html.TextBoxFor(m => m.Last_Name )
+        @Html.ValidationMessageFor(m => m.Last_Name)
+    </div>
+    <div>
+        <label>E-mail Address</label>
+        @Html.TextBoxFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+    <div>
+        <label>Password</label>
+        @Html.TextBoxFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+    <div>
+        <label>Confirm Password</label>
+        @Html.TextBoxFor(m => m.ConfirmPassword)
+        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+    </div>
+
+    <button> Submit </button>
+}

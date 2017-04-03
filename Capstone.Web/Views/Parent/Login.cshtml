@@ -2,17 +2,17 @@
 @model ParentModel
 
 
-
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Parent Login";
+}
 <h2>Parent Login</h2>
 
-<nav>
-    <ul>
-        <li>
-            @Html.ActionLink("Home","Index")
-        </li>
-    </ul>
-</nav>
-<body>
+
+
+@using (Html.BeginForm("Login", "Parent", FormMethod.Post))
+{
+
     <div>
         <label>E-mail Address</label>
         @Html.TextBoxFor(m => m.Email)
@@ -22,4 +22,4 @@
         @Html.TextBoxFor( m => m.Password)
     </div>
     <button> Submit </button>
-</body>
+    }

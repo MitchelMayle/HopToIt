@@ -8,7 +8,7 @@ namespace Capstone.Web.DAL.Parent
 {
     public interface IParentDAL
     {
-        bool CreateParent(ParentModel newParent);
+        void CreateParent(ParentModel newParent);
         ParentModel GetParent(ParentModel searchParent);
         List<ChildModel> GetChildren(int parent_Id);
 

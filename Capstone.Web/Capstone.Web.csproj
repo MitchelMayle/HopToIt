@@ -109,12 +109,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="DAL\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="DAL\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="DAL\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="DAL\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="DAL\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
@@ -139,7 +139,7 @@
     <Compile Include="Controllers\ChildController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ParentController.cs" />
-    <Compile Include="Crypto\HashProvider.cs" />
+    <Compile Include="Controllers\Crypto\HashProvider.cs" />
     <Compile Include="DAL\Child\ChildSqlDAL.cs" />
     <Compile Include="DAL\Child\IChildDAL.cs" />
     <Compile Include="DAL\Parent\IParentDAL.cs" />
@@ -150,6 +150,7 @@
     <Compile Include="Models\ChildModel.cs" />
     <Compile Include="Models\ParentModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionKeys.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -157,9 +158,11 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Parent\ParentLogin.cshtml" />
-    <Content Include="Views\Child\ChildLogin.cshtml" />
-    <Content Include="Views\Child\ParentRegistration.cshtml" />
+    <Content Include="Views\Parent\Login.cshtml" />
+    <Content Include="Views\Child\Login.cshtml" />
+    <Content Include="Views\Parent\Registration.cshtml" />
+    <Content Include="Views\Parent\Dashboard.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -169,7 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
