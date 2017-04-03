@@ -1,0 +1,25 @@
+﻿@using Capstone.Web.Models;
+@model Child
+
+<!DOCTYPE html>
+
+<h2>Child Login</h2>
+
+<nav>
+    <ul>
+        <li>
+            @Html.ActionLink("Home", "Index")
+        </li>
+    </ul>
+</nav>
+<body>
+    <div>
+        <label>User Name</label>
+        @Html.TextBoxFor(m => m.UserName)
+    </div>
+    <div>
+        <label>Password</label>
+        @Html.TextBoxFor(m => m.Password)
+    </div>
+    <button> Submit </button>
+</body>

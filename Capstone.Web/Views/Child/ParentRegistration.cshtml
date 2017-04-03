@@ -1,0 +1,25 @@
+﻿@using Capstone.Web.Models;
+@model Parent
+
+
+
+<h2>Parent Registration</h2>
+
+<nav>
+    <ul>
+        <li>
+            @Html.ActionLink("Home", "Index")
+        </li>
+    </ul>
+</nav>
+<body>
+    <div>
+        <label>E-mail Address</label>
+        @Html.TextBoxFor(m => m.Email)
+    </div>
+    <div>
+        <label>Password</label>
+        @Html.TextBoxFor(m => m.Password)
+    </div>
+    <button> Submit </button>
+</body>
