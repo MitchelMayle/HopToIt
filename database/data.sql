@@ -2,8 +2,10 @@
 -- This script contains INSERT statements for populating tables with seed data
 -- *****************************************************************************
 
-BEGIN;
+INSERT INTO parent
+VALUES  ('Anita','Torrence','anita@email.com','password'),
+		('Mitchel','Mayle','mitchel@email.com','password');
 
--- INSERT statements go here
-
-COMMIT;
+INSERT INTO child
+VALUES  ('1','LittleBridge','Bridget','1000','10'),
+		('2','LittlePete','Pete','1500','15');
