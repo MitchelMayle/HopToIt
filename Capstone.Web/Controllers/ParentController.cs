@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using Capstone.Web.Crypto;
+using Capstone.Web.Models.ViewModels;
 
 namespace Capstone.Web.Controllers
 {
@@ -26,19 +27,18 @@ namespace Capstone.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(ParentModel model)
+        public ActionResult Login(ParentLoginModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View("Login", model);
             }
 
-            ParentModel parent = dal.GetParent(model);
+            ParentModel parent = dal.GetParent(model.Email);
 
             HashProvider hash = new HashProvider();
-            string hashPassword = hash.HashPassword(model.Password);
 
-            if (parent == null || parent.Password != hashPassword)
+            if (parent == null || !hash.VerifyPasswordMatch(parent.Password, model.Password, parent.Salt))
             {
                 ModelState.AddModelError("invalid-credentials", "Invalid email password combination");
                 return View("Login", model);
@@ -49,7 +49,7 @@ namespace Capstone.Web.Controllers
                 Session[SessionKeys.ParentId] = parent.Parent_ID;
             }
 
-            return RedirectToAction("Dashboard", "Parent", model);
+            return RedirectToAction("Dashboard", "Parent", parent);
         }
 
         [HttpGet]
@@ -59,28 +59,41 @@ namespace Capstone.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Registration(ParentModel model)
+        public ActionResult Registration(ParentRegistrationModel viewModel)
         {
             if (!ModelState.IsValid)
             {
-                return View("Registration", model);
+                return View("Registration", viewModel);
             }
 
-            ParentModel parent = dal.GetParent(model);
+            ParentModel parent = dal.GetParent(viewModel.Email);
 
             if (parent != null)
             {
                 ModelState.AddModelError("email-exists", "That email address is already registered.");
-                return View("Registration", model);
+                return View("Registration", viewModel);
             }
             else
             {
-                HashProvider hash = new HashProvider();
-                model.Password = hash.HashPassword(model.Password);
+                parent = new ParentModel
+                {
+                    First_Name = viewModel.First_Name,
+                    Last_Name = viewModel.Last_Name,
+                    Email = viewModel.Email,
+                };
 
-                dal.CreateParent(model);
+                HashProvider hash = new HashProvider();
+                parent.Password = hash.HashPassword(viewModel.Password);
+                parent.Salt = hash.SaltValue;
+
+                dal.CreateParent(parent);
             }
-            return RedirectToAction("Dashboard", "Parent", model);
+            return RedirectToAction("Dashboard", "Parent", parent);
+        }
+
+        public ActionResult Dashboard()
+        {
+            return View("Dashboard");
         }
 
         public ActionResult Logout()

@@ -9,6 +9,7 @@ namespace Capstone.Web.Models
     public class ChildModel
     {
         public int Child_Id { get; set; }
+        public string Salt { get; set; }
         public int Parent_Id { get; set; }
 
         [Required(ErrorMessage = "UserName is required.")]

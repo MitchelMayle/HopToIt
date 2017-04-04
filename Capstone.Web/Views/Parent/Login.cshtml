@@ -1,5 +1,5 @@
-﻿@using Capstone.Web.Models;
-@model ParentModel
+﻿@using Capstone.Web.Models.ViewModels;
+@model ParentLoginModel
 
 
 @{ 
@@ -19,7 +19,7 @@
     </div>
     <div>
         <label>Password</label>
-        @Html.TextBoxFor( m => m.Password)
+        @Html.PasswordFor( m => m.Password)
     </div>
     <button> Submit </button>
     }

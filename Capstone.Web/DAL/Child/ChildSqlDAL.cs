@@ -10,7 +10,7 @@ namespace Capstone.Web.DAL.Child
     public class ChildSqlDAL : IChildDAL
     {
         private readonly string connectionString;
-        private const string SQL_CreateChild = "INSERT INTO child VALUES (@parent_id, @username, @first_name, 0, 0, @password);";
+        private const string SQL_CreateChild = "INSERT INTO child VALUES (@parent_id, @username, @first_name, 0, 0, @password, @salt);";
         private const string SQL_GetChild = "SELECT * FROM child WHERE child.child_id = @child_id;";
 
         public ChildSqlDAL(string connectionString)
@@ -30,6 +30,7 @@ namespace Capstone.Web.DAL.Child
                     cmd.Parameters.AddWithValue("@username", newChild.UserName);
                     cmd.Parameters.AddWithValue("@first_name", newChild.First_Name);
                     cmd.Parameters.AddWithValue("@password", newChild.Password);
+                    cmd.Parameters.AddWithValue("@salt", newChild.Salt);
 
                     int result = cmd.ExecuteNonQuery();
 
@@ -66,6 +67,7 @@ namespace Capstone.Web.DAL.Child
                             Child_Id = Convert.ToInt32(reader["child_id"]),
                             Parent_Id = Convert.ToInt32(reader["parent_id"]),
                             Password = Convert.ToString(reader["p_word"]),
+                            Salt = Convert.ToString(reader["salt"]),
                             Active_Minutes = Convert.ToInt32(reader["active_minutes"]),
                             Steps = Convert.ToInt32(reader["steps"]),
                         };
