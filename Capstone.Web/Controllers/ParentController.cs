@@ -101,12 +101,7 @@ namespace Capstone.Web.Controllers
             return View("Dashboard", parent);
         }
 
-        public ActionResult Logout()
-        {                  
-            Session.Abandon();
 
-            return RedirectToAction("Index", "Home");
-        }
 
     }
 }

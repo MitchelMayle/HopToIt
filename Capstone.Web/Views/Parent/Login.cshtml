@@ -6,27 +6,34 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Parent Login";
 }
-<h2>Parent Login</h2>
+<section class="formcontainer">
+    
+   
 
 
-@using (Html.BeginForm("Login", "Parent", FormMethod.Post))
-{
+    <div class="formdiv">
+        <h2>Parent Login</h2>
+        @using (Html.BeginForm("Login", "Parent", FormMethod.Post))
+        {
 
-    <div>
-        <label>E-mail Address</label>
-        @Html.TextBoxFor(m => m.Email)
-        @Html.ValidationMessageFor(m => m.Email)
+            <div class="form-group">
+                <label>E-mail Address</label>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Email)
 
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Password)
+
+            </div>
+            <div>
+                @Html.ValidationMessage("invalid-credentials")
+
+            </div>
+            <button> Submit </button>
+        }
     </div>
-    <div>
-        <label>Password</label>
-        @Html.PasswordFor( m => m.Password)
-        @Html.ValidationMessageFor(m=> m.Password)
-       
-    </div>
-    <div>
-        @Html.ValidationMessage("invalid-credentials")
+</section>
 
-    </div>
-    <button> Submit </button>
-    }

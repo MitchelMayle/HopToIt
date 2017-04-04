@@ -5,18 +5,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Child Login";
 }
-<h2>Child Login</h2>
 
-@using (Html.BeginForm("Login", "Child", FormMethod.Post))
-{
+<section class="formcontainer">
+    <div class="formdiv">
+        <h2>Child Login</h2>
 
-    <div>
-        <label>User Name</label>
-        @Html.TextBoxFor(m => m.UserName)
+        @using (Html.BeginForm("Login", "Child", FormMethod.Post))
+        {
+
+            <div class="form-group">
+                <label>User Name</label>
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control"})
+            </div>
+            <button> Submit </button>
+        }
     </div>
-    <div>
-        <label>Password</label>
-        @Html.PasswordFor(m => m.Password)
-    </div>
-    <button> Submit </button>
-}
+</section>

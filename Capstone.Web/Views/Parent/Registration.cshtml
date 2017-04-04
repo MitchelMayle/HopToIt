@@ -5,38 +5,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Parent Registration</h2>
+<section class="formcontainer">
+    <div class="formdiv">
+        <h2>Parent Registration</h2>
 
 
 
-@using (Html.BeginForm("Registration", "Parent", FormMethod.Post))
-{
-    <div>
-        <label>First Name</label>
-        @Html.TextBoxFor(m => m.First_Name )
-        @Html.ValidationMessageFor(m => m.First_Name)
-    </div>
-    <div>
-        <label>Last Name</label>
-        @Html.TextBoxFor(m => m.Last_Name )
-        @Html.ValidationMessageFor(m => m.Last_Name)
-    </div>
-    <div>
-        <label>E-mail Address</label>
-        @Html.TextBoxFor(m => m.Email)
-        @Html.ValidationMessageFor(m => m.Email)
-    </div>
-    <div>
-        <label>Password</label>
-        @Html.PasswordFor(m => m.Password)
-        @Html.ValidationMessageFor(m => m.Password)
-        
-    </div>
-    <div>
-        <label>Confirm Password</label>
-        @Html.PasswordFor(m => m.ConfirmPassword)
-        @Html.ValidationMessageFor(m => m.ConfirmPassword)
-    </div>
+        @using (Html.BeginForm("Registration", "Parent", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label>First Name</label>
+                @Html.TextBoxFor(m => m.First_Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.First_Name)
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                @Html.TextBoxFor(m => m.Last_Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Last_Name)
+            </div>
+            <div class="form-group">
+                <label>E-mail Address</label>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+            <div class="form-group">
+                @Html.ValidationMessage("email-exists")
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Password)
 
-    <button> Submit </button>
-}
+            </div>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            </div>
+
+            <button> Submit </button>
+        }
+    </div>
+</section>

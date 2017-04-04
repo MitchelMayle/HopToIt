@@ -12,5 +12,11 @@ namespace Capstone.Web.Controllers
         {
             return View("Index");
         }
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

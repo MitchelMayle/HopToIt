@@ -1,0 +1,12 @@
+﻿.formdiv{
+    width: 50%;
+
+}
+.formcontainer{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+h2{
+    display: block;
+}
