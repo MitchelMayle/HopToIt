@@ -112,12 +112,12 @@ namespace Capstone.Web.Controllers
             return View("Dashboard", child);
         }
 
-        //public ActionResult Logout()
-        //{
-        //    FormsAuthentication.SignOut();
-        //    Session.Remove(SessionKeys.ParentId);
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Remove(SessionKeys.ChildId);
 
-        //    return RedirectToAction("Index", "Home");
-        //}
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
