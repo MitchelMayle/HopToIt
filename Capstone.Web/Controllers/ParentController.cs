@@ -48,8 +48,8 @@ namespace Capstone.Web.Controllers
                 FormsAuthentication.SetAuthCookie(parent.Email, true);
                 Session[SessionKeys.ParentId] = parent.Parent_ID;
             }
-
-            return RedirectToAction("Dashboard", "Parent", parent);
+            Session["parent"] = parent;
+            return RedirectToAction("Dashboard");
         }
 
         [HttpGet]
@@ -88,12 +88,15 @@ namespace Capstone.Web.Controllers
 
                 dal.CreateParent(parent);
             }
-            return RedirectToAction("Dashboard", "Parent", parent);
+            Session["parent"] = parent;
+            return RedirectToAction("Dashboard");
         }
 
         public ActionResult Dashboard()
         {
-            return View("Dashboard");
+            ParentModel parent = Session["parent"] as ParentModel;
+
+            return View("Dashboard", parent);
         }
 
         public ActionResult Logout()
