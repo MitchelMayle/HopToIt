@@ -150,6 +150,7 @@
     <Compile Include="Models\ChildModel.cs" />
     <Compile Include="Models\ParentModel.cs" />
     <Compile Include="Models\ViewModels\ChildLoginModel.cs" />
+    <Compile Include="Models\ViewModels\ChildRegistrationModel.cs" />
     <Compile Include="Models\ViewModels\ParentLoginModel.cs" />
     <Compile Include="Models\ViewModels\ParentRegistrationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -167,6 +168,9 @@
     <Content Include="Views\Parent\Dashboard.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Child\Dashboard.cshtml" />
+    <Content Include="Views\Shared\_AuthenticatedNav.cshtml" />
+    <Content Include="Views\Shared\_AnonymousNav.cshtml" />
+    <Content Include="Views\Child\Registration.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

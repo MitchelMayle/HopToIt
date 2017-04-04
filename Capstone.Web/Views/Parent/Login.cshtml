@@ -15,10 +15,18 @@
     <div>
         <label>E-mail Address</label>
         @Html.TextBoxFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email)
+
     </div>
     <div>
         <label>Password</label>
         @Html.PasswordFor( m => m.Password)
+        @Html.ValidationMessageFor(m=> m.Password)
+       
+    </div>
+    <div>
+        @Html.ValidationMessage("invalid-credentials")
+
     </div>
     <button> Submit </button>
     }

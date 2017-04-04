@@ -1,0 +1,36 @@
+﻿@using Capstone.Web.Models.ViewModels
+@model ChildRegistrationModel
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registration</h2>
+
+
+@using (Html.BeginForm("Registration", "Child", FormMethod.Post))
+{
+    <div>
+        <label>First Name</label>
+        @Html.TextBoxFor(m => m.First_Name)
+        @Html.ValidationMessageFor(m => m.First_Name)
+    </div>
+    <div>
+        <label>User Name</label>
+        @Html.TextBoxFor(m => m.User_Name)
+        @Html.ValidationMessageFor(m => m.User_Name)
+    </div>
+    <div>
+        <label>Password</label>
+        @Html.PasswordFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password)
+
+    </div>
+    <div>
+        <label>Confirm Password</label>
+        @Html.PasswordFor(m => m.ConfirmPassword)
+        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+    </div>
+
+    <button> Submit </button>
+}

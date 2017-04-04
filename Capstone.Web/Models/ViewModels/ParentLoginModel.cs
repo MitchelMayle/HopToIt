@@ -9,9 +9,11 @@ namespace Capstone.Web.Models.ViewModels
     public class ParentLoginModel
     {
         [Required(ErrorMessage = "*")]
+        [Display(Name = "User Name:")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "*")]
+        [Display(Name = "Password:")]
         public string Password { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace Capstone.Web.Controllers
     public class ChildController : Controller
     {
         private readonly IChildDAL dal;
-        public ChildController (IChildDAL dal)
+        public ChildController(IChildDAL dal)
         {
             this.dal = dal;
         }
@@ -25,7 +25,60 @@ namespace Capstone.Web.Controllers
             return View("Login");
         }
 
+        [HttpGet]
+        public ActionResult Registration()
+        {
+            if (Session["parent"] == null)
+            {
+                return RedirectToAction("Login", "Parent", null);
+            }
+            return View("Registration");
+        }
+
         [HttpPost]
+        public ActionResult Registration(ChildRegistrationModel viewModel)
+        {
+
+            if(Session["parent"] == null)
+            {
+                return RedirectToAction("Login", "Parent", null);
+            }
+            if (!ModelState.IsValid)
+            {
+                return View("Registration", viewModel);
+            }
+
+            ChildModel child = dal.GetChild(viewModel.User_Name);
+
+            if (child != null)
+            {
+                ModelState.AddModelError("user name-exists", "That user name is already registered.");
+                return View("Registration", viewModel);
+            }
+            else
+            {
+                
+                child = new ChildModel
+                {
+                    First_Name = viewModel.First_Name,
+                    UserName = viewModel.User_Name,
+
+                };
+
+                HashProvider hash = new HashProvider();
+                child.Password = hash.HashPassword(viewModel.Password);
+                child.Salt = hash.SaltValue;
+                ParentModel parent = Session["parent"] as ParentModel;
+                child.Parent_Id = parent.Parent_ID;
+
+                dal.CreateChild(child);
+            }
+            Session["child"] = child;
+            return RedirectToAction("Dashboard", "Parent");
+        }
+
+        [HttpPost]
+        [Route("ChildLogin")]
         public ActionResult Login(ChildLoginModel model)
         {
             if (!ModelState.IsValid)
@@ -42,18 +95,21 @@ namespace Capstone.Web.Controllers
                 ModelState.AddModelError("invalid-credentials", "Invalid email password combination");
                 return View("Login", model);
             }
-            else
-            {
-                FormsAuthentication.SetAuthCookie(child.UserName, true);
-                Session[SessionKeys.ChildId] = child.Child_Id;
-            }
 
+            Session["child"] = child;
             return RedirectToAction("Dashboard", "Child", child);
         }
 
+        [Route("ChildDashboard")]
         public ActionResult Dashboard()
         {
-            return View("Dashboard");
+
+            if (Session["child"] == null)
+            {
+                return View("Login");
+            }
+            ChildModel child = Session["child"] as ChildModel;
+            return View("Dashboard", child);
         }
 
         //public ActionResult Logout()

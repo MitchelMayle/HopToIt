@@ -27,6 +27,7 @@ namespace Capstone.Web.Controllers
         }
 
         [HttpPost]
+        [Route("Login")]
         public ActionResult Login(ParentLoginModel model)
         {
             if (!ModelState.IsValid)
@@ -43,11 +44,7 @@ namespace Capstone.Web.Controllers
                 ModelState.AddModelError("invalid-credentials", "Invalid email password combination");
                 return View("Login", model);
             }
-            else
-            {
-                FormsAuthentication.SetAuthCookie(parent.Email, true);
-                Session[SessionKeys.ParentId] = parent.Parent_ID;
-            }
+        
             Session["parent"] = parent;
             return RedirectToAction("Dashboard");
         }
@@ -92,19 +89,24 @@ namespace Capstone.Web.Controllers
             return RedirectToAction("Dashboard");
         }
 
+        [Route("Dashboard")]
         public ActionResult Dashboard()
         {
+            if(Session["parent"] == null)
+            {
+                return View("Login");
+            }
             ParentModel parent = Session["parent"] as ParentModel;
-
+            
             return View("Dashboard", parent);
         }
 
         public ActionResult Logout()
-        {
-            FormsAuthentication.SignOut();
-            Session.Remove(SessionKeys.ParentId);
+        {                  
+            Session.Abandon();
 
             return RedirectToAction("Index", "Home");
         }
+
     }
 }
