@@ -35,8 +35,6 @@ namespace Capstone.Web.DAL.Parent
                     cmd.Parameters.AddWithValue("@password", newParent.Password);
 
                     int result = cmd.ExecuteNonQuery();
-
-                    return result > 0;
                 }
             }
             catch (SqlException e)

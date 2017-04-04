@@ -19,6 +19,7 @@ namespace Capstone.Web.Controllers
             this.dal = dal;
         }
 
+        [HttpGet]
         public ActionResult Login()
         {
             return View("Login");
@@ -48,10 +49,10 @@ namespace Capstone.Web.Controllers
                 Session[SessionKeys.ParentId] = parent.Parent_ID;
             }
 
-
             return RedirectToAction("Dashboard", "Parent", model);
         }
 
+        [HttpGet]
         public ActionResult Registration()
         {
             return View("Registration");
