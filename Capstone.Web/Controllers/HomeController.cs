@@ -12,6 +12,22 @@ namespace Capstone.Web.Controllers
         {
             return View("Index");
         }
+
+        [ChildActionOnly]
+        public ActionResult Navigation()
+        {
+            if (Session["parent"] != null)
+            {
+                return PartialView("_ParentAuthenticated");
+            }
+            if (Session["child"] != null)
+            {
+                return PartialView("_ChildAuthenticated");
+            }
+
+            return PartialView("_NotLoggedIn");
+        }
+
         public ActionResult Logout()
         {
             Session.Abandon();

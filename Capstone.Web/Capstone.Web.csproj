@@ -169,9 +169,10 @@
     <Content Include="Views\Parent\Dashboard.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Child\Dashboard.cshtml" />
-    <Content Include="Views\Shared\_AuthenticatedNav.cshtml" />
-    <Content Include="Views\Shared\_AnonymousNav.cshtml" />
+    <Content Include="Views\Shared\_ParentAuthenticated.cshtml" />
+    <Content Include="Views\Shared\_NotLoggedIn.cshtml" />
     <Content Include="Views\Child\Registration.cshtml" />
+    <Content Include="Views\Shared\_ChildAuthenticated.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
