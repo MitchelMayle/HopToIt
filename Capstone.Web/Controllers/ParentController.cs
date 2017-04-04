@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Capstone.Web.Crypto;
 
 namespace Capstone.Web.Controllers
 {
@@ -17,10 +18,12 @@ namespace Capstone.Web.Controllers
         {
             this.dal = dal;
         }
+
         public ActionResult Login()
         {
             return View("Login");
         }
+
         [HttpPost]
         public ActionResult Login(ParentModel model)
         {
@@ -31,7 +34,10 @@ namespace Capstone.Web.Controllers
 
             ParentModel parent = dal.GetParent(model);
 
-            if (parent == null || parent.Password != model.Password)
+            HashProvider hash = new HashProvider();
+            string hashPassword = hash.HashPassword(model.Password);
+
+            if (parent == null || parent.Password != hashPassword)
             {
                 ModelState.AddModelError("invalid-credentials", "Invalid email password combination");
                 return View("Login", model);
@@ -40,38 +46,42 @@ namespace Capstone.Web.Controllers
             {
                 FormsAuthentication.SetAuthCookie(parent.Email, true);
                 Session[SessionKeys.ParentId] = parent.Parent_ID;
-
             }
 
 
             return RedirectToAction("Dashboard", "Parent", model);
         }
+
         public ActionResult Registration()
         {
             return View("Registration");
         }
+
         [HttpPost]
         public ActionResult Registration(ParentModel model)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View("Registration", model);
             }
 
             ParentModel parent = dal.GetParent(model);
-            if(parent != null)
+
+            if (parent != null)
             {
-                ModelState.AddModelError("email-exists", "That email address is already registered");
-                return View("Registration", model);             
+                ModelState.AddModelError("email-exists", "That email address is already registered.");
+                return View("Registration", model);
             }
             else
             {
+                HashProvider hash = new HashProvider();
+                model.Password = hash.HashPassword(model.Password);
 
+                dal.CreateParent(model);
             }
-            dal.CreateParent(model);
-
             return RedirectToAction("Dashboard", "Parent", model);
         }
+
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
@@ -79,6 +89,5 @@ namespace Capstone.Web.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-
     }
 }

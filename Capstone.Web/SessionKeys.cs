@@ -7,8 +7,7 @@ namespace Capstone.Web
 {
     public class SessionKeys
     {
-       
-        public static int ParentId = 0;
-        public static int ChildId = 0;
+        public static string ParentId = "ParentId";
+        public static string ChildId = "ChildId";
     }
 }

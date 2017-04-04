@@ -139,7 +139,7 @@
     <Compile Include="Controllers\ChildController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ParentController.cs" />
-    <Compile Include="Controllers\Crypto\HashProvider.cs" />
+    <Compile Include="Crypto\HashProvider.cs" />
     <Compile Include="DAL\Child\ChildSqlDAL.cs" />
     <Compile Include="DAL\Child\IChildDAL.cs" />
     <Compile Include="DAL\Parent\IParentDAL.cs" />
