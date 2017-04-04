@@ -8,7 +8,7 @@ namespace Capstone.Web.DAL.Child
 {
     public interface IChildDAL
     {
-        bool CreateChild(ChildModel newChild);
-        ChildModel GetChild(int childId);
+        void CreateChild(ChildModel newChild);
+        ChildModel GetChild(string userName);
     }
 }
