@@ -47,21 +47,22 @@ namespace Capstone.Web.Controllers
                 FormsAuthentication.SetAuthCookie(child.UserName, true);
                 Session[SessionKeys.ChildId] = child.Child_Id;
             }
-
-            return RedirectToAction("Dashboard", "Child", child);
+            Session["child"] = child;
+            return RedirectToAction("Dashboard");
         }
 
         public ActionResult Dashboard()
         {
-            return View("Dashboard");
+            ChildModel child = Session["child"] as ChildModel;
+            return View("Dashboard", child);
         }
 
-        //public ActionResult Logout()
-        //{
-        //    FormsAuthentication.SignOut();
-        //    Session.Remove(SessionKeys.ParentId);
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Remove(SessionKeys.ChildId);
 
-        //    return RedirectToAction("Index", "Home");
-        //}
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
