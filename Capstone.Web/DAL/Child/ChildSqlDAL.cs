@@ -11,14 +11,14 @@ namespace Capstone.Web.DAL.Child
     {
         private readonly string connectionString;
         private const string SQL_CreateChild = "INSERT INTO child VALUES (@parent_id, @username, @first_name, 0, 0, @password, @salt);";
-        private const string SQL_GetChild = "SELECT * FROM child WHERE child.child_id = @child_id;";
+        private const string SQL_GetChild = "SELECT * FROM child WHERE child.username = @username;";
 
         public ChildSqlDAL(string connectionString)
         {
             this.connectionString = connectionString;
         }
 
-        public bool CreateChild(ChildModel newChild)
+        public void CreateChild(ChildModel newChild)
         {
             try
             {
@@ -34,8 +34,6 @@ namespace Capstone.Web.DAL.Child
 
                     int result = cmd.ExecuteNonQuery();
 
-                    return result > 0;
-
                 }
             }
             catch (SqlException e)
@@ -44,7 +42,7 @@ namespace Capstone.Web.DAL.Child
             }
         }
 
-        public ChildModel GetChild(int childId)
+        public ChildModel GetChild(string userName)
         {
             ChildModel child = null;
 
@@ -54,7 +52,7 @@ namespace Capstone.Web.DAL.Child
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand(SQL_GetChild, conn);
-                    cmd.Parameters.AddWithValue("@child_id", childId);
+                    cmd.Parameters.AddWithValue("@username", userName);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 

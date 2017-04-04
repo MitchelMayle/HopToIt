@@ -1,6 +1,10 @@
 ﻿@using Capstone.Web.Models.ViewModels;
 @model ChildLoginModel
 
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Child Login";
+}
 <h2>Child Login</h2>
 
 @using (Html.BeginForm("Login", "Child", FormMethod.Post))
@@ -12,8 +16,7 @@
     </div>
     <div>
         <label>Password</label>
-        @Html.TextBoxFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password)
     </div>
     <button> Submit </button>
-
 }

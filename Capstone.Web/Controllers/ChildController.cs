@@ -50,5 +50,18 @@ namespace Capstone.Web.Controllers
 
             return RedirectToAction("Dashboard", "Child", child);
         }
+
+        public ActionResult Dashboard()
+        {
+            return View("Dashboard");
+        }
+
+        //public ActionResult Logout()
+        //{
+        //    FormsAuthentication.SignOut();
+        //    Session.Remove(SessionKeys.ParentId);
+
+        //    return RedirectToAction("Index", "Home");
+        //}
     }
 }
