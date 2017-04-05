@@ -25,7 +25,7 @@ $(document).ready(function () {
                 required: true,
             },
             ConfirmPassword: {
-                equalTo: "Password"
+                equalTo: "#Password",
             },
         },
 
