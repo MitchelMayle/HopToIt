@@ -48,3 +48,11 @@ header {
 .field-validation-error {
     color: red;
 }
+
+.navbar-header, .container-fluid {
+    background-color: #fcae16;
+}
+
+.navbar-toggle {
+    background-color: lightgray;
+}
