@@ -1,12 +1,50 @@
-﻿.formdiv{
-    width: 50%;
-
+﻿@font-face {
+    font-family: 'frankfurter';
+    src: url('fonts/frankfurter.ttf') format('truetype');
 }
-.formcontainer{
+
+body {
+    background-color: #e2b991;
+    font-family: frankfurter;
+    background-image: url('images/adjusted_background.jpg');
+}
+
+.formdiv {
+    width: 50%;
+}
+
+.formcontainer {
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
 }
-h2{
+
+h2 {
     display: block;
+    padding: 1%;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    background-color: #77b940;
+}
+
+    header img {
+        width: 15%;
+        height: 15%;
+    }
+
+#navbar {
+    background-color: #fcae16;
+    font-family: frankfurter;
+}
+
+    #navbar a {
+        color: white;
+    }
+
+.field-validation-error {
+    color: red;
 }

@@ -109,6 +109,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\adjusted_background.jpg" />
+    <Content Include="Content\images\logo_bun.png" />
     <Content Include="Content\StyleSheet.css" />
     <Content Include="DAL\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -120,6 +122,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\fonts\frankfurter.ttf" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

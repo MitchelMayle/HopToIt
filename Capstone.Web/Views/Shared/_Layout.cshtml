@@ -1,7 +1,4 @@
-﻿
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
@@ -17,14 +14,11 @@
 </head>
 
 <body>
-    @*<nav>
-            <ul>
-                <li>
-                    @Html.ActionLink("Home", "Index")
-                </li>
-            </ul>
-        </nav>*@
-    <nav class="navbar navbar-default">
+    <header>
+        <img src="~/Content/images/logo_bun.png" />
+    </header>
+
+    <nav class="navbar navbar-default" id="navbar">
         <div class="container-fluid">
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -35,7 +29,6 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-
 
     @RenderBody()
 </body>
