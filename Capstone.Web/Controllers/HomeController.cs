@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capstone.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,11 +19,14 @@ namespace Capstone.Web.Controllers
         {
             if (Session["parent"] != null)
             {
-                return PartialView("_ParentAuthenticated");
+                ParentModel parent = Session["parent"] as ParentModel;
+                return PartialView("_ParentAuthenticated", parent);
+               
             }
             if (Session["child"] != null)
             {
-                return PartialView("_ChildAuthenticated");
+                ChildModel child = Session["child"] as ChildModel;
+                return PartialView("_ChildAuthenticated", child);
             }
 
             return PartialView("_NotLoggedIn");

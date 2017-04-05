@@ -172,7 +172,7 @@
     <Content Include="Views\Parent\Registration.cshtml" />
     <Content Include="Views\Parent\Dashboard.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Child\Dashboard.cshtml" />
+    <Content Include="Views\Child\ChildDashboard.cshtml" />
     <Content Include="Views\Shared\_ParentAuthenticated.cshtml" />
     <Content Include="Views\Shared\_NotLoggedIn.cshtml" />
     <Content Include="Views\Child\Registration.cshtml" />
