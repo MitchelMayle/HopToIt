@@ -82,7 +82,7 @@ namespace Capstone.Web.DAL.Parent
 
         public List<ChildModel> GetChildren(int parent_Id)
         {
-            List<ChildModel> children = null;
+            List<ChildModel> children = new List<ChildModel>();
 
             try
             {
@@ -102,9 +102,10 @@ namespace Capstone.Web.DAL.Parent
                             First_Name = Convert.ToString(reader["first_name"]),
                             UserName = Convert.ToString(reader["username"]),
                             Steps = Convert.ToInt32(reader["steps"]),
-                            Active_Minutes = Convert.ToInt32("active_minutes"),
+                            Active_Minutes = Convert.ToInt32(reader["active_minutes"]),
+                           
                         };
-                        children.Add(child);
+                         children.Add(child);
                     }
                 }
             }

@@ -100,7 +100,8 @@ namespace Capstone.Web.Controllers
                 return View("Login");
             }
             ParentModel parent = Session["parent"] as ParentModel;
-            
+            parent.Children = dal.GetChildren(parent.Parent_ID);
+
             return View("Dashboard", parent);
         }
 
