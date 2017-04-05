@@ -97,10 +97,10 @@ namespace Capstone.Web.Controllers
             }
 
             Session["child"] = child;
-            return RedirectToAction("Dashboard", "Child", child);
+            return RedirectToAction("Dashboard");
         }
 
-        [Route("ChildDashboard")]
+        [Route("ChildDashboard/")]
         public ActionResult Dashboard()
         {
 
