@@ -17,6 +17,7 @@ body {
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
+    padding: 2%
 }
 
 h2 {
@@ -67,4 +68,7 @@ footer{
     position: fixed;
     bottom: 0;
 
+}
+button{
+    border-radius: 15px;
 }

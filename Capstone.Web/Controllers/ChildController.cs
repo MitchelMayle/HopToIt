@@ -52,7 +52,7 @@ namespace Capstone.Web.Controllers
 
             if (child != null)
             {
-                ModelState.AddModelError("invalid-credentials", "Invalid username and password combination");
+                ModelState.AddModelError("user name-exists", "That user name is already registered.");
                 return View("Registration", viewModel);
             }
             else
