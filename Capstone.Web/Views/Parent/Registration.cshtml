@@ -11,7 +11,7 @@
 
 
 
-        @using (Html.BeginForm("Registration", "Parent", FormMethod.Post))
+        @using (Html.BeginForm("Registration", "Parent", FormMethod.Post, new { id = "form" }))
         {
             <div class="form-group">
                 <label>First Name</label>

@@ -10,7 +10,7 @@
     <div class="formdiv">
         <h2>Child Login</h2>
 
-        @using (Html.BeginForm("Login", "Child", FormMethod.Post))
+        @using (Html.BeginForm("Login", "Child", FormMethod.Post, new { id = "form" }))
         {
 
             <div class="form-group">
@@ -19,9 +19,12 @@
             </div>
             <div class="form-group">
                 <label>Password</label>
-                @Html.PasswordFor(m => m.Password, new { @class = "form-control"})
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
             </div>
-            <button> Submit </button>
+            <div>
+                @Html.ValidationMessage("invalid-credentials")
+            </div>
+                <button> Submit </button>
         }
     </div>
 </section>

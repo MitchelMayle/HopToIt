@@ -11,7 +11,7 @@
         <h2>Add a child</h2>
 
 
-        @using (Html.BeginForm("Registration", "Child", FormMethod.Post))
+        @using (Html.BeginForm("Registration", "Child", FormMethod.Post, new { id = "form" }))
         {
             <div class="form-group">
                 <label>First Name</label>

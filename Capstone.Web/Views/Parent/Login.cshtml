@@ -13,12 +13,12 @@
 
     <div class="formdiv">
         <h2>Parent Login</h2>
-        @using (Html.BeginForm("Login", "Parent", FormMethod.Post))
+        @using (Html.BeginForm("Login", "Parent", FormMethod.Post, new { id = "form" }))
         {
 
             <div class="form-group">
                 <label>E-mail Address</label>
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control"})
                 @Html.ValidationMessageFor(m => m.Email)
 
             </div>
