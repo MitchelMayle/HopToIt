@@ -119,5 +119,17 @@ namespace Capstone.Web.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+        public ActionResult ChildHeaderCarrot()
+        {
+            ChildModel child = Session["child"] as ChildModel;
+
+            return PartialView("_ChildHeaderCarrot", child);
+        }
+        public ActionResult ChildHeaderTime()
+        {
+            ChildModel child = Session["child"] as ChildModel;
+
+            return PartialView("_ChildHeaderTime", child);
+        }
     }
 }

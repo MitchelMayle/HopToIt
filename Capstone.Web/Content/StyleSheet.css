@@ -81,3 +81,33 @@ footer{
 button{
     border-radius: 15px;
 }
+
+#carrotdiv{   
+    padding-top: 50px;
+    padding-bottom: 30px;
+    display: inline-block;
+    width: 100px;
+
+    width: 200px
+
+}
+#hourglassdiv{
+    padding-top: 50px;
+    padding-bottom: 30px;
+    display: inline-block;
+    width: 200px;
+}
+#headertext{
+    display: inline-block;
+    width: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px; 
+    width: 100px;
+}
+#headerimg{
+    padding-left: 10px;  
+    width: 30%;
+    height: 30%;
+    display: inline-block;
+  
+}

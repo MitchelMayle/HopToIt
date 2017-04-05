@@ -15,9 +15,17 @@
 </head>
 
 <body>
-  
-        <header>
-            <img src="~/Content/images/logo_bun.png" />
+
+    <header>
+        @if (Session["child"] != null)
+        {
+            @Html.Action("ChildHeaderCarrot", "Child")
+        }
+        <img src="~/Content/images/logo_bun.png" />
+        @if (Session["child"] != null)
+        {
+            @Html.Action("ChildHeaderTime", "Child")
+        }
         </header>
 
         <nav class="navbar navbar-default">
@@ -37,9 +45,9 @@
         </nav>
 
         @RenderBody()
-        <footer>
-            Copyright @DateTime.Now.Year PAMB Inc.
-        </footer>
+            <footer>
+                Copyright @DateTime.Now.Year PAMB Inc.
+            </footer>
 
-</body>
-</html>
+        </body>
+    </html>
