@@ -63,16 +63,16 @@ namespace Capstone.Web.Controllers
                 return View("Registration", viewModel);
             }
 
-            ParentModel parent = dal.GetParent(viewModel.Email);
+            ParentModel newParent = dal.GetParent(viewModel.Email);
 
-            if (parent != null)
+            if (newParent != null)
             {
                 ModelState.AddModelError("email-exists", "That email address is already registered.");
                 return View("Registration", viewModel);
             }
             else
             {
-                parent = new ParentModel
+                newParent = new ParentModel
                 {
                     First_Name = viewModel.First_Name,
                     Last_Name = viewModel.Last_Name,
@@ -80,11 +80,14 @@ namespace Capstone.Web.Controllers
                 };
 
                 HashProvider hash = new HashProvider();
-                parent.Password = hash.HashPassword(viewModel.Password);
-                parent.Salt = hash.SaltValue;
+                newParent.Password = hash.HashPassword(viewModel.Password);
+                newParent.Salt = hash.SaltValue;
 
-                dal.CreateParent(parent);
+                dal.CreateParent(newParent);
             }
+
+            ParentModel parent = dal.GetParent(newParent.Email);
+
             Session["parent"] = parent;
             return RedirectToAction("Dashboard");
         }
