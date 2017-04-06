@@ -157,6 +157,7 @@
     </Compile>
     <Compile Include="Models\ChildModel.cs" />
     <Compile Include="Models\ParentModel.cs" />
+    <Compile Include="Models\ViewModels\AddActivityModel.cs" />
     <Compile Include="Models\ViewModels\ChildLoginModel.cs" />
     <Compile Include="Models\ViewModels\ChildRegistrationModel.cs" />
     <Compile Include="Models\ViewModels\ParentLoginModel.cs" />
@@ -182,6 +183,7 @@
     <Content Include="Views\Shared\_ChildAuthenticated.cshtml" />
     <Content Include="Views\Shared\_ChildHeaderCarrot.cshtml" />
     <Content Include="Views\Shared\_ChildHeaderTime.cshtml" />
+    <Content Include="Views\Parent\AddActivity.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
