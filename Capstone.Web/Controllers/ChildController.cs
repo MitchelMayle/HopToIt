@@ -73,7 +73,6 @@ namespace Capstone.Web.Controllers
 
                 dal.CreateChild(child);
             }
-            Session["child"] = child;
             return RedirectToAction("Dashboard", "Parent");
         }
 
