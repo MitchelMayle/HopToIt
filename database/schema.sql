@@ -2,6 +2,12 @@
 -- This script creates all of the database objects (tables, constraints, etc) for the database
 -- *************************************************************************************************
 
+DROP TABLE parent;
+DROP TABLE child;
+DROP TABLE mascot;
+DROP TABLE activity;
+
+
 CREATE TABLE parent (
 	parent_id		integer			identity,
 	first_name		varchar(64)		NOT NULL,
@@ -44,4 +50,15 @@ CREATE TABLE mascot (
 
 	CONSTRAINT pk_mascot_mascot_id PRIMARY KEY (mascot_id),
 	CONSTRAINT fk_mascot_child_id FOREIGN KEY (child_id) REFERENCES child (child_id),
+);
+
+CREATE TABLE activity(
+	activity_id		integer			identity,
+	child_id		integer			NOT NULL,
+	activity_date	datetime		NOT NULL,
+	seconds			int				default 0,
+	carrots			int				default 0,
+
+	CONSTRAINT pk_activity_id PRIMARY KEY (activity_id),
+	CONSTRAINT fk_activity_child_id FOREIGN KEY (child_id) REFERENCES child (child_id),
 );
