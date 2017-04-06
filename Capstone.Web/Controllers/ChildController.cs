@@ -109,6 +109,12 @@ namespace Capstone.Web.Controllers
             child.Mascot = mascotDAL.GetMascot(child);
 
             Session["child"] = child;
+
+            if (child.Mascot == null)
+            {
+                return RedirectToAction("CreateMascot");
+            }
+
             return RedirectToAction("Dashboard");
         }
 
@@ -123,6 +129,13 @@ namespace Capstone.Web.Controllers
 
             ChildModel child = Session["child"] as ChildModel;
             return View("Dashboard", child);
+        }
+
+        public ActionResult CreateMascot()
+        {
+            ChildModel child = Session["child"] as ChildModel;
+
+            return View("CreateMascot", child);
         }
 
         public ActionResult Logout()
