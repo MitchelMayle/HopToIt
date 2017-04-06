@@ -18,11 +18,30 @@ CREATE TABLE child (
 	parent_id		integer			NOT NULL,
 	username		varchar(64)		unique NOT NULL,
 	first_name		varchar(64)		NOT NULL,
-	steps			integer			default 0,
-	active_minutes	integer			default 0,
+	seconds			integer			default 0,
+	carrots			integer			default 0,
 	p_word			varchar(32)		NOT NULL,
 	salt			varchar(32)		NOT NULL,
 
 	CONSTRAINT pk_child_child_id PRIMARY KEY (child_id),
 	CONSTRAINT fk_child_parent_id FOREIGN KEY (parent_id) REFERENCES parent (parent_id),
+);
+
+CREATE TABLE mascot (
+	mascot_id		integer			identity,
+	mascot_image	varchar(32),
+	child_id		integer			NOT NULL,
+	current_hat		varchar(32),
+	baseball_hat	bit				default 0,
+	beanie			bit				default 0,
+	bonnet			bit				default 0,
+	bucket_hat		bit				default 0,
+	crown			bit				default 0,
+	flower			bit				default 0,
+	propeller_hat	bit				default 0,
+	sombrero		bit				default 0,
+	top_hat			bit				default 0,
+
+	CONSTRAINT pk_mascot_mascot_id PRIMARY KEY (mascot_id),
+	CONSTRAINT fk_mascot_child_id FOREIGN KEY (child_id) REFERENCES child (child_id),
 );

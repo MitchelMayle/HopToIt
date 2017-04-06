@@ -32,7 +32,7 @@ namespace Capstone.Web.DAL.Child
                     cmd.Parameters.AddWithValue("@password", newChild.Password);
                     cmd.Parameters.AddWithValue("@salt", newChild.Salt);
 
-                    int result = cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
 
                 }
             }
@@ -66,8 +66,8 @@ namespace Capstone.Web.DAL.Child
                             Parent_Id = Convert.ToInt32(reader["parent_id"]),
                             Password = Convert.ToString(reader["p_word"]),
                             Salt = Convert.ToString(reader["salt"]),
-                            Active_Minutes = Convert.ToInt32(reader["active_minutes"]),
-                            Steps = Convert.ToInt32(reader["steps"]),
+                            Carrots = Convert.ToInt32(reader["carrots"]),
+                            Seconds = Convert.ToInt32(reader["seconds"]),
                         };
                     }
                 }
