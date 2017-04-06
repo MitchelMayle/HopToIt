@@ -59,7 +59,7 @@ namespace Capstone.Web.DAL.Mascot
                             Mascot_Id = Convert.ToInt32(reader["mascot_id"]),
                             Mascot_Image = Convert.ToString(reader["mascot_image"]),
                             Child_Id = Convert.ToInt32(reader["child_id"]),
-                            CurrentHat = Convert.ToString(reader["current"]),
+                            CurrentHat = Convert.ToString(reader["current_hat"]),
                             BaseballHat = Convert.ToBoolean(reader["baseball_hat"]),
                             Beanie = Convert.ToBoolean(reader["beanie"]),
                             Bonnet = Convert.ToBoolean(reader["bonnet"]),
