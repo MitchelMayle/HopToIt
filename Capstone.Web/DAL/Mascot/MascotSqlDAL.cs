@@ -40,7 +40,7 @@ namespace Capstone.Web.DAL.Mascot
 
         public MascotModel GetMascot(ChildModel child)
         {
-            MascotModel mascot = new MascotModel();
+            MascotModel mascot = null;
 
             try
             {

@@ -112,7 +112,7 @@ namespace Capstone.Web.Controllers
 
             if (child.Mascot == null)
             {
-                return RedirectToAction("CreateMascot");
+                return RedirectToAction("ChooseMascot");
             }
 
             return RedirectToAction("Dashboard");
@@ -131,11 +131,17 @@ namespace Capstone.Web.Controllers
             return View("Dashboard", child);
         }
 
-        public ActionResult CreateMascot()
+        public ActionResult ChooseMascot()
         {
+            // check if logged in
+            if (Session["child"] == null)
+            {
+                return View("Login");
+            }
+
             ChildModel child = Session["child"] as ChildModel;
 
-            return View("CreateMascot", child);
+            return View("ChooseMascot", child);
         }
 
         public ActionResult Logout()
