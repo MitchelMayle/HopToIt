@@ -20,6 +20,7 @@
 
             foreach (ChildModel child in Model.Children)
             {
+                @Html.BeginForm("Dashboard", "Parent", new {child_id = child.Child_Id, FormMethod.Post,)
                 <div id="childinformation">
                     <div id="usernameMascot">
                         <p> User Name: @child.UserName</p>

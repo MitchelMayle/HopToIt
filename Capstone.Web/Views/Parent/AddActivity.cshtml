@@ -10,23 +10,23 @@
 @using (Html.BeginForm("AddActivity", "Parent", FormMethod.Post))
 {
     <div class="child-info">
-        <img src ="~/Content/img/@Model.Mascot.Mascot_Image.png"/>"
+        <img src ="~/Content/img/@Model.Mascot.Mascot_Image"/>"
         @Model.UserName
     </div>
 
     <div class="inputSteps">
         <label>Please add the number of steps for @Model.First_Name </label>
-        @Html.TextBoxFor(m => m.seconds, new { @class = "inputSteps" })
+        @Html.TextBoxFor(m => m.Seconds, new { @class = "inputSteps" })
         <script>
-        $(".inputSteps").blur(function(){$("p").html("You have entered @m.seconds.  This will give your child ((@m.seconds/10)/60) minutes of play time on Hop To It")});
+        $(".inputSteps").blur(function(){$("p").html("You have entered @Model.Seconds.  This will give your child ((@Model.Seconds/10)/60) minutes of play time on Hop To It")});
         </script>
         </div>
 
     <div class="inputCarrots">
         <label>Please add the number of active minutes for @Model.First_Name </label>
-        @Html.TextBoxFor(m => m.carrots, new { @class = "inputSteps" })
+        @Html.TextBoxFor(m => m.Carrots, new { @class = "inputSteps" })
         <script>
-            $(".inputCarrots").blur(function () { $("p").html("You have entered @m.carrots.  This will give your child @m.carrots carrots to purchase items in Hop To It") });
+            $(".inputCarrots").blur(function () { $("p").html("You have entered @Model.Carrots.  This will give your child @Model.Carrots carrots to purchase items in Hop To It") });
         </script>
     </div>
 
