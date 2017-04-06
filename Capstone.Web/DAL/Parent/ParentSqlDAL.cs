@@ -101,8 +101,8 @@ namespace Capstone.Web.DAL.Parent
                             Child_Id = Convert.ToInt32(reader["child_id"]),
                             First_Name = Convert.ToString(reader["first_name"]),
                             UserName = Convert.ToString(reader["username"]),
-                            Steps = Convert.ToInt32(reader["steps"]),
-                            Active_Minutes = Convert.ToInt32(reader["active_minutes"]),
+                            Seconds = Convert.ToInt32(reader["seconds"]),
+                            Carrots = Convert.ToInt32(reader["carrots"]),
                            
                         };
                          children.Add(child);

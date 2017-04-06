@@ -8,16 +8,19 @@ using System.Web.Mvc;
 using System.Web.Security;
 using Capstone.Web.Crypto;
 using Capstone.Web.Models.ViewModels;
+using Capstone.Web.DAL.Mascot;
 
 namespace Capstone.Web.Controllers
 {
 
     public class ParentController : Controller
     {
-        private readonly IParentDAL dal;
-        public ParentController(IParentDAL dal)
+        private readonly IParentDAL parentDAL;
+        private readonly IMascotDAL mascotDAL;
+        public ParentController(IParentDAL parentDAL, IMascotDAL mascotDAL)
         {
-            this.dal = dal;
+            this.parentDAL = parentDAL;
+            this.mascotDAL = mascotDAL;
         }
 
         [HttpGet]
@@ -30,15 +33,17 @@ namespace Capstone.Web.Controllers
         [Route("Login")]
         public ActionResult Login(ParentLoginModel model)
         {
+            // validation redirect
             if (!ModelState.IsValid)
             {
                 return View("Login", model);
             }
 
-            ParentModel parent = dal.GetParent(model.Email);
+            ParentModel parent = parentDAL.GetParent(model.Email);
 
             HashProvider hash = new HashProvider();
 
+            // check if parent exists and passwords match
             if (parent == null || !hash.VerifyPasswordMatch(parent.Password, model.Password, parent.Salt))
             {
                 ModelState.AddModelError("invalid-credentials", "Invalid email password combination");
@@ -58,13 +63,15 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult Registration(ParentRegistrationModel viewModel)
         {
+            // validation redirect
             if (!ModelState.IsValid)
             {
                 return View("Registration", viewModel);
             }
 
-            ParentModel newParent = dal.GetParent(viewModel.Email);
+            ParentModel newParent = parentDAL.GetParent(viewModel.Email);
 
+            // check for duplicate email
             if (newParent != null)
             {
                 ModelState.AddModelError("email-exists", "That email address is already registered.");
@@ -83,10 +90,11 @@ namespace Capstone.Web.Controllers
                 newParent.Password = hash.HashPassword(viewModel.Password);
                 newParent.Salt = hash.SaltValue;
 
-                dal.CreateParent(newParent);
+                parentDAL.CreateParent(newParent);
             }
 
-            ParentModel parent = dal.GetParent(newParent.Email);
+            // get saved parent model
+            ParentModel parent = parentDAL.GetParent(newParent.Email);
 
             Session["parent"] = parent;
             return RedirectToAction("Dashboard");
@@ -95,17 +103,23 @@ namespace Capstone.Web.Controllers
         [Route("Dashboard")]
         public ActionResult Dashboard()
         {
+            // not logged in redirect
             if(Session["parent"] == null)
             {
                 return View("Login");
             }
+
             ParentModel parent = Session["parent"] as ParentModel;
-            parent.Children = dal.GetChildren(parent.Parent_ID);
+
+            parent.Children = parentDAL.GetChildren(parent.Parent_ID);
+            
+            // add mascots to child list
+            foreach (ChildModel child in parent.Children)
+            {
+                child.Mascot = mascotDAL.GetMascot(child);
+            }
 
             return View("Dashboard", parent);
         }
-
-
-
     }
 }

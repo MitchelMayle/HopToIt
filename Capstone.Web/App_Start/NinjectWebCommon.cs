@@ -14,6 +14,7 @@ namespace Capstone.Web.App_Start
     using DAL.Parent;
     using DAL.Child;
     using System.Configuration;
+    using DAL.Mascot;
 
     public static class NinjectWebCommon 
     {
@@ -67,6 +68,7 @@ namespace Capstone.Web.App_Start
         {
             kernel.Bind<IParentDAL>().To<ParentSqlDAL>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["HopToIt"].ConnectionString);
             kernel.Bind<IChildDAL>().To<ChildSqlDAL>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["HopToIt"].ConnectionString);
+            kernel.Bind<IMascotDAL>().To<MascotSqlDAL>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["HopToIt"].ConnectionString);
         }        
     }
 }

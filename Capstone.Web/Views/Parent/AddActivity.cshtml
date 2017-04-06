@@ -1,0 +1,34 @@
+﻿@using Capstone.Web.Models;
+@model  ChildModel
+@{
+    ViewBag.Title = "AddActivity";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddActivity</h2>
+
+@using (Html.BeginForm("AddActivity", "Parent", FormMethod.Post))
+{
+    <div class="child-info">
+        <img src ="~/Content/img/@Model.Mascot.Mascot_Image.png"/>"
+        @Model.UserName
+    </div>
+
+    <div class="inputSteps">
+        <label>Please add the number of steps for @Model.First_Name </label>
+        @Html.TextBoxFor(m => m.seconds, new { @class = "inputSteps" })
+        <script>
+        $(".inputSteps").blur(function(){$("p").html("You have entered @m.seconds.  This will give your child ((@m.seconds/10)/60) minutes of play time on Hop To It")});
+        </script>
+        </div>
+
+    <div class="inputCarrots">
+        <label>Please add the number of active minutes for @Model.First_Name </label>
+        @Html.TextBoxFor(m => m.carrots, new { @class = "inputSteps" })
+        <script>
+            $(".inputCarrots").blur(function () { $("p").html("You have entered @m.carrots.  This will give your child @m.carrots carrots to purchase items in Hop To It") });
+        </script>
+    </div>
+
+}
+

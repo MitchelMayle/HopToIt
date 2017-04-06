@@ -14,7 +14,8 @@ namespace Capstone.Web.Models
         public string UserName { get; set; }
         public string Password { get; set; }
         public string First_Name { get; set; }
-        public int Steps { get; set; }
-        public int Active_Minutes { get; set; }
+        public int Carrots { get; set; }
+        public int Seconds { get; set; }
+        public MascotModel Mascot { get; set; }
     }
 }
