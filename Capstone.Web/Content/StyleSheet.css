@@ -85,11 +85,9 @@ button{
  
     display: inline-block;
     width: 20%;
-    float: left;
-   
+    float: left;   
     margin-top: 30px;
     margin-bottom: 30px;
-  
 }
 #hourglassdiv{
     margin-top: 30px;
@@ -102,23 +100,27 @@ button{
 }
 #headertext{
     display: inline-block;
-    width: 40%;
+    width: 60%;
     padding-top: 30px;
-    padding-bottom: 30px; 
+    padding-bottom: 30px;
+
+     
    
   
 }
 #headerimg{
     padding-left: 10px;     
     display: inline-block;
-    width: 25px;
- 
+    width: 25%
   
 }
 #logo{
-    width: 150px;
+    width: 17%;
     margin-top: 30px;
     margin-bottom: 6px;
+
+    text-align: center;  
+    display: inline-block;
  
 }
 #headerdiv{

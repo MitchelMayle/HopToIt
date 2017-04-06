@@ -7,7 +7,7 @@ namespace Capstone.Web.Models.ViewModels
 {
     public class AddActivityModel
     {
-        //[(ErrorMessage = "")]
+        
         public string Seconds { get; set; }
     }
 }
