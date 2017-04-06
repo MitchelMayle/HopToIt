@@ -20,10 +20,20 @@
 
             foreach (ChildModel child in Model.Children)
             {
-                @child.UserName
-                @child.First_Name
+                <div id="childinformation">
+                    <div id="usernameMascot">
+                        <p> User Name: @child.UserName</p>
+                        <p>image of Mascot goes here it is Thats why there is bigger space!</p>
+                    </div>
+                    <div id="FirstNameMinSteps">
+                        <h3>@child.First_Name</h3>
+                        <p>Carrots - @child.Active_Minutes</p>
+                        <p>Time Remaining - @child.Steps</p>
+
+                    </div>
+                    <button id="activitybutton"> Enter Child Activity Here </button>
+                </div>
             }
         }
- 
     </div>
 </body>
