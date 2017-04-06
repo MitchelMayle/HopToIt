@@ -8,7 +8,7 @@ namespace Capstone.Web.DAL.Mascot
 {
     public interface IMascotDAL
     {
-        void CreateMascot(ChildModel child);
+        void CreateMascot(MascotModel newMascot);
         MascotModel GetMascot(ChildModel child);
     }
 }
