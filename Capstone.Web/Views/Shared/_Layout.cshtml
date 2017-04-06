@@ -19,35 +19,40 @@
     <header>
         @if (Session["child"] != null)
         {
-            @Html.Action("ChildHeaderCarrot", "Child")
-        }
-        <img src="~/Content/images/logo_bun.png" />
-        @if (Session["child"] != null)
-        {
-            @Html.Action("ChildHeaderTime", "Child")
-        }
-        </header>
+            <div id="headerdiv" class="container">
+                @Html.Action("ChildHeaderCarrot", "Child")
 
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a id="homebutton" class="navbar-brand" href="Http://localhost:55601/">Home</a>
-                </div>
-                <div class="collapse navbar-collapse" id="navbar">
-                    @Html.Action("Navigation", "Home")
-                </div>
+                <img id="logo" class="container" src="~/Content/images/logo_bun.png" />
+
+                @Html.Action("ChildHeaderTime", "Child")
             </div>
-        </nav>
+        }
+        else
+        {
+            <img src="~/Content/images/logo_bun.png" />
+        }
+    </header>
 
-        @RenderBody()
-            <footer>
-                Copyright @DateTime.Now.Year PAMB Inc.
-            </footer>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a id="homebutton" class="navbar-brand" href="Http://localhost:55601/">Home</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+                @Html.Action("Navigation", "Home")
+            </div>
+        </div>
+    </nav>
 
-        </body>
-    </html>
+    @RenderBody()
+    <footer>
+        Copyright @DateTime.Now.Year PAMB Inc.
+    </footer>
+
+</body>
+</html>
