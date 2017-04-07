@@ -149,8 +149,9 @@ namespace Capstone.Web.Controllers
             ActivityModel activity = new ActivityModel();
             activity.Seconds = activityViewModel.Steps/10;
             activity.Carrots = activityViewModel.Minutes;
-            activity.Date = activityViewModel.Date;/*DateTime.Now.Date; //<--***Will need to be replaced by actual Date taken in from form!!!!****/
+            activity.Date = activityViewModel.Date; //<--***Will need to be replaced by actual Date taken in from form!!!!****/
             activity.ChildId = childId;
+            
 
             activityDAL.AddActivity(activity);
                                
