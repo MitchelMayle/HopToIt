@@ -9,18 +9,19 @@
 
 <h2> Welcome to your Dashboard @Model.First_Name! </h2>
 
-<body>
-    <div class="container-div">
 
-        @if (Model.Children == null)
+<div class="container-div">
+
+    @if (Model.Children == null)
+    {
+        <p>You have not added any children yet!</p>
+    }
+    else
+    {
+
+        foreach (ChildModel child in Model.Children)
         {
-            <p>You have not added any children yet!</p>
-        }
-        else {
-
-            foreach (ChildModel child in Model.Children)
-            {
-                @Html.BeginForm("Dashboard", "Parent", new {child_id = child.Child_Id, FormMethod.Post,)
+         
                 <div id="childinformation">
                     <div id="usernameMascot">
                         <p> User Name: @child.UserName</p>
@@ -32,9 +33,9 @@
                         <p>Time Remaining - @child.Seconds</p>
 
                     </div>
-                    <button id="activitybutton"> Enter Child Activity Here </button>
+                    @Html.ActionLink("Enter Child Activity Here", "AddActivity", new { userName = child.UserName })
                 </div>
-            }
-        }
-    </div>
-</body>
+                    }
+                }
+            
+</div>

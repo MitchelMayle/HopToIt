@@ -17,5 +17,7 @@ namespace Capstone.Web.Models
         public int Carrots { get; set; }
         public int Seconds { get; set; }
         public MascotModel Mascot { get; set; }
+        public List<ActivityModel> Activities { get; set; }
+     
     }
 }

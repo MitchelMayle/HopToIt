@@ -9,6 +9,8 @@ using System.Web.Security;
 using Capstone.Web.Crypto;
 using Capstone.Web.Models.ViewModels;
 using Capstone.Web.DAL.Mascot;
+using Capstone.Web.DAL.Child;
+using Capstone.Web.DAL.Activity;
 
 namespace Capstone.Web.Controllers
 {
@@ -17,10 +19,14 @@ namespace Capstone.Web.Controllers
     {
         private readonly IParentDAL parentDAL;
         private readonly IMascotDAL mascotDAL;
-        public ParentController(IParentDAL parentDAL, IMascotDAL mascotDAL)
+        private readonly IChildDAL childDAL;
+        private readonly IActivityDAL activityDAL;
+        public ParentController(IParentDAL parentDAL, IMascotDAL mascotDAL, IChildDAL childDAL, IActivityDAL activityDAL)
         {
             this.parentDAL = parentDAL;
             this.mascotDAL = mascotDAL;
+            this.childDAL = childDAL;
+            this.activityDAL = activityDAL;
         }
 
         [HttpGet]
@@ -121,5 +127,27 @@ namespace Capstone.Web.Controllers
 
             return View("Dashboard", parent);
         }
+        //[Route("AddActivity")]
+        [HttpGet]
+        public ActionResult AddActivity(string userName)
+        {
+            ChildModel child = childDAL.GetChild(userName);
+            child.Mascot = mascotDAL.GetMascot(child);
+            return View("AddActivity", child);
+        }
+        [HttpPost]
+        public ActionResult AddActivity(ChildModel child, string userName, int childId)
+        {
+            
+            ActivityModel activity = new ActivityModel();
+            activity.Carrots = child.Carrots;
+            activity.Date = DateTime.Now.Date; //<--***Will need to be replaced by actual Date taken in from form!!!!***
+            activity.ChildId = childId;
+
+            activityDAL.AddActivity(activity);
+                               
+            return RedirectToAction("Dashboard");
+        }
+
     }
 }

@@ -147,6 +147,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ParentController.cs" />
     <Compile Include="Crypto\HashProvider.cs" />
+    <Compile Include="DAL\Activity\ActivitySqlDAL.cs" />
+    <Compile Include="DAL\Activity\IActivityDAL.cs" />
     <Compile Include="DAL\Child\ChildSqlDAL.cs" />
     <Compile Include="DAL\Child\IChildDAL.cs" />
     <Compile Include="DAL\Mascot\IMascotDAL.cs" />
@@ -159,7 +161,8 @@
     <Compile Include="Models\ChildModel.cs" />
     <Compile Include="Models\MascotModel.cs" />
     <Compile Include="Models\ParentModel.cs" />
-    <Compile Include="Models\ViewModels\AddActivityModel.cs" />
+    <Compile Include="Models\ActivityModel.cs" />
+    <Compile Include="Models\ViewModels\AddActivityViewModel.cs" />
     <Compile Include="Models\ViewModels\ChildLoginModel.cs" />
     <Compile Include="Models\ViewModels\ChildRegistrationModel.cs" />
     <Compile Include="Models\ViewModels\ParentLoginModel.cs" />
@@ -178,7 +181,6 @@
     <Content Include="Views\Parent\Registration.cshtml" />
     <Content Include="Views\Parent\Dashboard.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Child\ChildDashboard.cshtml" />
     <Content Include="Views\Shared\_ParentAuthenticated.cshtml" />
     <Content Include="Views\Shared\_NotLoggedIn.cshtml" />
     <Content Include="Views\Child\Registration.cshtml" />

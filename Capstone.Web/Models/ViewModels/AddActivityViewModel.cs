@@ -5,9 +5,7 @@ using System.Web;
 
 namespace Capstone.Web.Models.ViewModels
 {
-    public class AddActivityModel
+    public class AddActivityViewModel
     {
-        
-        public string Seconds { get; set; }
     }
 }

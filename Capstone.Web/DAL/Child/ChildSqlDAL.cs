@@ -12,6 +12,7 @@ namespace Capstone.Web.DAL.Child
         private readonly string connectionString;
         private const string SQL_CreateChild = "INSERT INTO child VALUES (@parent_id, @username, @first_name, 0, 0, @password, @salt);";
         private const string SQL_GetChild = "SELECT * FROM child WHERE child.username = @username;";
+        //private const string SQL_UpdateChild = "Update "
 
         public ChildSqlDAL(string connectionString)
         {
@@ -78,5 +79,7 @@ namespace Capstone.Web.DAL.Child
             }
             return child;
         }
+
+       
     }
 }
