@@ -18,24 +18,31 @@
     }
     else
     {
-
         foreach (ChildModel child in Model.Children)
         {
-         
-                <div id="childinformation">
-                    <div id="usernameMascot">
-                        <p> User Name: @child.UserName</p>
-                        <p>image of Mascot goes here it is Thats why there is bigger space!</p>
+            <div id="childinformation">
+                <div id="usernameMascot">
+                    <p> User Name: @child.UserName</p>
+                    <div class="mascotDiv">
+                        @if (child.Mascot == null)
+                        {
+                            <img src="~/Content/images/mascots/default.png" id="mascot" />
+                        }
+                        else
+                        {
+                            <img src="~/Content/images/mascots/@child.Mascot.Mascot_Image" id="mascot" />
+                        }
                     </div>
-                    <div id="FirstNameMinSteps">
-                        <h3>@child.First_Name</h3>
-                        <p>Carrots - @child.Carrots</p>
-                        <p>Time Remaining - @child.Seconds</p>
-
-                    </div>
-                    @Html.ActionLink("Enter Child Activity Here", "AddActivity", new { userName = child.UserName })
                 </div>
-                    }
-                }
-            
+                <div id="FirstNameMinSteps">
+                    <h3>@child.First_Name</h3>
+                    <p>Carrots - @child.Carrots</p>
+                    <p>Time Remaining - @child.Seconds</p>
+
+                </div>
+                @Html.ActionLink("Enter Child Activity Here", "AddActivity", new { userName = child.UserName })
+            </div>
+        }
+    }
+
 </div>
