@@ -189,6 +189,7 @@
     <Content Include="Views\Shared\_ChildHeaderTime.cshtml" />
     <Content Include="Views\Parent\AddActivity.cshtml" />
     <Content Include="Views\Child\ChooseMascot.cshtml" />
+    <Content Include="Views\Child\Dashboard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

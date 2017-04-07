@@ -44,7 +44,7 @@ namespace Capstone.Web.Controllers
         public ActionResult Registration(ChildRegistrationModel viewModel)
         {
             // check if logged in
-            if(Session["parent"] == null)
+            if (Session["parent"] == null)
             {
                 return RedirectToAction("Login", "Parent", null);
             }
@@ -65,7 +65,7 @@ namespace Capstone.Web.Controllers
             }
             else
             {
-                
+
                 child = new ChildModel
                 {
                     First_Name = viewModel.First_Name,
@@ -131,6 +131,7 @@ namespace Capstone.Web.Controllers
             return View("Dashboard", child);
         }
 
+        [HttpGet]
         public ActionResult ChooseMascot()
         {
             // check if logged in
@@ -141,7 +142,32 @@ namespace Capstone.Web.Controllers
 
             ChildModel child = Session["child"] as ChildModel;
 
-            return View("ChooseMascot", child);
+            // check if child already has mascot
+            if (child.Mascot != null)
+            {
+                ModelState.AddModelError("mascot-exists", "You have already chosen a mascot");
+                return View("Dashboard", child);
+            }
+
+            return View("ChooseMascot");
+        }
+
+        [HttpPost]
+        public ActionResult ChooseMascot(ChildModel child)
+        {
+            ChildModel getChild = Session["child"] as ChildModel;
+            MascotModel newMascot = new MascotModel();
+
+            // assign properties to new amscot
+            newMascot.Child_Id = getChild.Child_Id;
+            newMascot.Mascot_Image = child.Mascot.Mascot_Image;
+
+            // create mascot, retrieve, and re-save child into session
+            mascotDAL.CreateMascot(newMascot);
+            child.Mascot = mascotDAL.GetMascot(child);
+            Session["child"] = child;
+
+            return RedirectToAction("Dashboard");
         }
 
         public ActionResult Logout()

@@ -10,7 +10,7 @@ namespace Capstone.Web.DAL.Mascot
     public class MascotSqlDAL : IMascotDAL
     {
         private readonly string connectionString;
-        private const string SQL_CreateMascot = "INSERT INTO mascot VALUES ('default.png', @child_id, null, 0, 0, 0, 0, 0, 0, 0, 0, 0);";
+        private const string SQL_CreateMascot = "INSERT INTO mascot VALUES (@mascot_image, @child_id, null, 0, 0, 0, 0, 0, 0, 0, 0, 0);";
         private const string SQL_GetMascot = "SELECT * FROM mascot INNER JOIN child on child.child_id = mascot.child_id WHERE child.child_id = @child_id;";
 
         public MascotSqlDAL(string connectionString)
@@ -18,7 +18,7 @@ namespace Capstone.Web.DAL.Mascot
             this.connectionString = connectionString;
         }
 
-        public void CreateMascot(ChildModel child)
+        public void CreateMascot(MascotModel newMascot)
         {
             try
             {
@@ -27,7 +27,8 @@ namespace Capstone.Web.DAL.Mascot
                     conn.Open();
                     SqlCommand cmd = new SqlCommand(SQL_CreateMascot, conn);
 
-                    cmd.Parameters.AddWithValue("@child_id", child.Child_Id);
+                    cmd.Parameters.AddWithValue("@mascot_image", newMascot.Mascot_Image);
+                    cmd.Parameters.AddWithValue("@child_id", newMascot.Child_Id);
 
                     cmd.ExecuteNonQuery();
                 }
