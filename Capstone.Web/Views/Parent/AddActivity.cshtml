@@ -7,8 +7,8 @@
 
 <h2>Add Activity for @Model.UserName</h2>
 
-@using (Html.BeginForm("AddActivity", "Parent", new { childId = Model.Child_Id, userName = Model.UserName }, FormMethod.Post, null))
-{
+@using (Html.BeginForm("AddActivity", "Parent", FormMethod.Post, new { childId = Model.Child_Id, userName = Model.UserName }))
+    {
     <div class="child-info">
 
         <img class="mascot" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" />
@@ -25,7 +25,7 @@
         <script>
             $(function () {
                 $("#datepicker").datepicker();
-            });
+});
         </script>
         <p>Date: <input type="text" id="datepicker"></p>
 
