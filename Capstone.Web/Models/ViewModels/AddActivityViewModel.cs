@@ -13,6 +13,7 @@ namespace Capstone.Web.Models.ViewModels
         public int Steps { get; set; }
         public int Minutes { get; set; }
         public DateTime Date { get; set; }
+        public string First_Name { get; set; }
 
     }
 }

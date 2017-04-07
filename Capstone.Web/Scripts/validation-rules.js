@@ -56,4 +56,19 @@ $(document).ready(function () {
         errorClass: "error",
         validClass: "valid"
     });
+
+    //Still need to input the user data into the message
+    $("#Steps").blur(function () {
+        $("p").html("You have entered" + $("m.Steps") + "This will give your child " + $("Steps") + " minutes of play time on Hop To It")
+    });
+
+
+    $("#Minutes").blur(function () {
+        $("p").html("You have entered" + $("x") + "This will give your child " + $("x") + " minutes of play time on Hop To It")
+    });
+
+    //Need to check that the date entered is not after current date
+    //$("#inputDate").validate({
+    //    maxDate: Date.now,
+    //})
 });
