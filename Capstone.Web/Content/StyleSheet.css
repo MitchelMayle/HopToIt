@@ -100,7 +100,7 @@ button {
     float: right;
 }
 
-#headertext {
+#headertext, #headerseconds {
     display: inline-block;
     width: 60%;
     padding-top: 30px;

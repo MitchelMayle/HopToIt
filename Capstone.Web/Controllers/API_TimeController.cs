@@ -16,7 +16,20 @@ namespace Capstone.Web.Controllers
             this.childDAL = childDAL;
         }
 
-        [Route("api/time")]
+        [Route("api/getTime")]
+        public ActionResult GetTime(string userName)
+        {
+            ChildModel child = childDAL.GetChild(userName);
+
+            if (child.Seconds < 1)
+            {
+                return RedirectToAction("Dashboard");
+            }
+
+            return Json(child.Seconds, JsonRequestBehavior.AllowGet);
+        }
+
+        [Route("api/updateTime")]
         public void UpdateTime(string userName, int secondsRemaining)
         {
             childDAL.UpdateSeconds(userName, secondsRemaining);
