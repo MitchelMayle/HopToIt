@@ -10,6 +10,6 @@ namespace Capstone.Web.DAL.Child
     {
         void CreateChild(ChildModel newChild);
         ChildModel GetChild(string userName);
-        //void UpdateChild(ChildModel child);
+        void UpdateSeconds(string userName, int secondsToSubtract);
     }
 }

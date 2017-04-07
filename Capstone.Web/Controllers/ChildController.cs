@@ -17,9 +17,9 @@ namespace Capstone.Web.Controllers
         private readonly IMascotDAL mascotDAL;
 
         private readonly IChildDAL childDAL;
-        public ChildController(IChildDAL dal, IMascotDAL mascotDAL)
+        public ChildController(IChildDAL childDAL, IMascotDAL mascotDAL)
         {
-            this.childDAL = dal;
+            this.childDAL = childDAL;
             this.mascotDAL = mascotDAL;
         }
 

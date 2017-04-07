@@ -12,7 +12,7 @@ namespace Capstone.Web.DAL.Child
         private readonly string connectionString;
         private const string SQL_CreateChild = "INSERT INTO child VALUES (@parent_id, @username, @first_name, 0, 0, @password, @salt);";
         private const string SQL_GetChild = "SELECT * FROM child WHERE child.username = @username;";
-        //private const string SQL_UpdateChild = "Update "
+        private const string SQL_UpdateSeconds = "UPDATE child SET seconds = @seconds WHERE child.username = @userName;";
 
         public ChildSqlDAL(string connectionString)
         {
@@ -80,6 +80,24 @@ namespace Capstone.Web.DAL.Child
             return child;
         }
 
-       
+        public void UpdateSeconds(string userName, int newSecondsTotal)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_UpdateSeconds, conn);
+                    cmd.Parameters.AddWithValue("@seconds", newSecondsTotal);
+                    cmd.Parameters.AddWithValue("@userName", userName);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException e)
+            {
+                throw;
+            }
+        }
     }
 }
