@@ -37,12 +37,13 @@
 
         @Html.Label("Minutes", "Please enter the number of active minutes")
         @Html.TextBoxFor(m => m.Minutes)
-       
+
         @*Fix needed - This date functions, but needs a placeholder for the form to be user friendly*@
         <div id="inputDate">
-            @Html.Label("Date", "Select the date for this activity")
-            @Html.TextBoxFor(m => m.Date, new { Value = Model.Date.ToString("mm/dd/yyyy") })
-            
+            <label for="Date">Select the date for this activity</label>
+            <input data-val="true" data-val-date="The field Date must be a date." data-val-required="The Date field is required." id="Date" name="Date" type="date" />
+
+
         </div>
     </div>
 
