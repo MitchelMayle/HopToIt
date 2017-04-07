@@ -11,5 +11,8 @@ namespace Capstone.Web.Models
         public int Seconds { get; set; }
         public int Carrots { get; set; }
         public DateTime Date { get; set; }
+
+
+        public DateTime todaysDate = DateTime.Now;
     }
 }

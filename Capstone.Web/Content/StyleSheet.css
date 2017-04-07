@@ -134,7 +134,7 @@ body {
     margin: auto;
 }
 
-#childinformation {
+.childinformation {
     color: #73583f;
     padding: 10%;
     border: 7px solid;
@@ -146,22 +146,24 @@ body {
 }
 
 #usernameMascot {
-    position: absolute;
-    left: 5%;
-    top: 10%;
+    font-size: x-large;
+    position:absolute;
+    left: -10%;
+    top: 0%;
 }
 
-#FirstNameMinSteps {
+#dashboard_childInfo {
     position: absolute;
-    right: 45%;
+    font-size:large;
+    right: 45%;  
     top: 20%;
-    height: auto;
-    width: auto;
+   
 }
 
 #activitybutton {
     position: absolute;
-    right: 5%;
+    right: 10%;
+    top: 40%;
     padding: 1%;
     color: white;
     background-color: #77b940;

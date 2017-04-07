@@ -20,9 +20,9 @@
     {
         foreach (ChildModel child in Model.Children)
         {
-            <div id="childinformation">
+            <div class="childinformation">
                 <div id="usernameMascot">
-                    <p> User Name: @child.UserName</p>
+                    <h2>  @child.UserName</h2>
                     <div class="mascotDiv">
                         @if (child.Mascot == null)
                         {
@@ -34,13 +34,15 @@
                         }
                     </div>
                 </div>
-                <div id="FirstNameMinSteps">
-                    <h3>@child.First_Name</h3>
+                <div id="dashboard_childInfo">
+                    <h2>@child.First_Name</h2>
                     <p>Carrots - @child.Carrots</p>
                     <p>Time Remaining - @child.Seconds</p>
 
                 </div>
-                @Html.ActionLink("Enter Child Activity Here", "AddActivity", new { userName = child.UserName })
+                <div id="activitybutton">
+                 @Html.ActionLink("Click here to input your child's activity", "AddActivity", new { userName = child.UserName })
+                </div>
             </div>
         }
     }
