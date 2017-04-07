@@ -1,7 +1,7 @@
-﻿@model Capstone.Web.Models.ChildModel
+﻿@model Capstone.Web.Models.ViewModels.ChooseMascotModel
 
 @{
-    ViewBag.Title = "Create Mascot";
+    ViewBag.Title ="Choose A New Mascot";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -22,13 +22,13 @@
     </div>
     <br />
     <div class="mascotDivButton">
-        @Html.RadioButtonFor(m => m.Mascot.Mascot_Image, "black.png")
+        @Html.RadioButtonFor(m => m.Mascot_Image, "black.png")
     </div>
     <div class="mascotDivButton">
-        @Html.RadioButtonFor(m => m.Mascot.Mascot_Image, "brown.png")
+        @Html.RadioButtonFor(m => m.Mascot_Image, "brown.png")
     </div>
     <div class="mascotDivButton">
-        @Html.RadioButtonFor(m => m.Mascot.Mascot_Image, "gray.png")
+        @Html.RadioButtonFor(m => m.Mascot_Image, "gray.png")
     </div>
     <br />
         <button id="mascotButton"> Submit </button>

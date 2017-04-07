@@ -110,6 +110,7 @@ namespace Capstone.Web.Controllers
 
             Session["child"] = child;
 
+            // check if child needs to create mascot
             if (child.Mascot == null)
             {
                 return RedirectToAction("ChooseMascot");
@@ -118,7 +119,7 @@ namespace Capstone.Web.Controllers
             return RedirectToAction("Dashboard");
         }
 
-        [Route("ChildDashboard/")]
+        [Route("ChildDashboard")]
         public ActionResult Dashboard()
         {
             // check if logged in
@@ -153,18 +154,32 @@ namespace Capstone.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult ChooseMascot(ChildModel child)
+        public ActionResult ChooseMascot(ChooseMascotModel chooseMascot)
         {
+            // check if child already has mascot
             ChildModel getChild = Session["child"] as ChildModel;
-            MascotModel newMascot = new MascotModel();
+            ChildModel checkChild = childDAL.GetChild(getChild.UserName);
+            checkChild.Mascot = mascotDAL.GetMascot(checkChild);
+
+            if (checkChild.Mascot != null)
+            {
+                ModelState.AddModelError("mascot-exists", "You have already chosen a mascot");
+                return View("Dashboard");
+            }
 
             // assign properties to new mascot
-            newMascot.Child_Id = getChild.Child_Id;
-            newMascot.Mascot_Image = child.Mascot.Mascot_Image;
+            MascotModel newMascot = new MascotModel();
+            newMascot.Child_Id = checkChild.Child_Id;
+            newMascot.Mascot_Image = chooseMascot.Mascot_Image;
 
-            // create mascot, retrieve, and re-save child into session
+            // create mascot
             mascotDAL.CreateMascot(newMascot);
-            ChildModel saveChild = childDAL.GetChild(getChild.UserName);
+
+            // retrieve new child model after mascot create
+            ChildModel saveChild = childDAL.GetChild(checkChild.UserName);
+            saveChild.Mascot = mascotDAL.GetMascot(saveChild);
+
+            // save updated child in session
             Session["child"] = saveChild;
 
             return RedirectToAction("Dashboard");

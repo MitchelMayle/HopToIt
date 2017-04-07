@@ -2,9 +2,24 @@
 
 
 @{
-    ViewBag.Title = "Dashboard";
+    ViewBag.Title = Model.First_Name + "'s Dashboard";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <h2> Welcome to your Dashboard @Model.First_Name! </h2>
 
+@*only displays when mascot already exists*@
 <p>@Html.ValidationMessage("mascot-exists")</p>
+
+@if (Model.Mascot != null)
+{
+    <div class="mascotDiv">
+        <img src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" id="mascot"/>
+    </div>
+}
+else
+{
+    <div class="mascotDiv">
+        <img src="~/Content/images/mascots/default.png" id="mascot" />
+    </div>
+}
