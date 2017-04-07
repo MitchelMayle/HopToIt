@@ -16,10 +16,10 @@ namespace Capstone.Web.Controllers
     {
         private readonly IMascotDAL mascotDAL;
 
-        private readonly IChildDAL dal;
+        private readonly IChildDAL childDAL;
         public ChildController(IChildDAL dal, IMascotDAL mascotDAL)
         {
-            this.dal = dal;
+            this.childDAL = dal;
             this.mascotDAL = mascotDAL;
         }
 
@@ -55,7 +55,7 @@ namespace Capstone.Web.Controllers
                 return View("Registration", viewModel);
             }
 
-            ChildModel child = dal.GetChild(viewModel.User_Name);
+            ChildModel child = childDAL.GetChild(viewModel.User_Name);
 
             // check for duplicate username
             if (child != null)
@@ -80,7 +80,7 @@ namespace Capstone.Web.Controllers
                 ParentModel parent = Session["parent"] as ParentModel;
                 child.Parent_Id = parent.Parent_ID;
 
-                dal.CreateChild(child);
+                childDAL.CreateChild(child);
             }
             return RedirectToAction("Dashboard", "Parent");
         }
@@ -95,7 +95,7 @@ namespace Capstone.Web.Controllers
                 return View("Login", model);
             }
 
-            ChildModel child = dal.GetChild(model.UserName);
+            ChildModel child = childDAL.GetChild(model.UserName);
 
             HashProvider hash = new HashProvider();
 
@@ -158,14 +158,14 @@ namespace Capstone.Web.Controllers
             ChildModel getChild = Session["child"] as ChildModel;
             MascotModel newMascot = new MascotModel();
 
-            // assign properties to new amscot
+            // assign properties to new mascot
             newMascot.Child_Id = getChild.Child_Id;
             newMascot.Mascot_Image = child.Mascot.Mascot_Image;
 
             // create mascot, retrieve, and re-save child into session
             mascotDAL.CreateMascot(newMascot);
-            child.Mascot = mascotDAL.GetMascot(child);
-            Session["child"] = child;
+            ChildModel saveChild = childDAL.GetChild(getChild.UserName);
+            Session["child"] = saveChild;
 
             return RedirectToAction("Dashboard");
         }

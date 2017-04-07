@@ -7,19 +7,29 @@
 
 <h2>Choose A Mascot</h2>
 
-<p>Please choose a mascot to continue:</p>
+<p>Please choose a mascot to continue. Mascots can only be chosen once. Choose wisely!</p>
 
 @using (Html.BeginForm("ChooseMascot", "Child", FormMethod.Post))
 {
-    <div class="form-group">
-        @Html.RadioButtonFor(m => m.Mascot.Mascot_Image, "black.png") Black
+    <div class="mascotDiv">
+        <img src="~/Content/images/mascots/black.png" id="chooseMascot" />
     </div>
-    <div class="form-group">
-         @Html.RadioButtonFor(m => m.Mascot.Mascot_Image, "brown.png") Brown
+    <div class="mascotDiv">
+        <img src="~/Content/images/mascots/brown.png" id="chooseMascot" />
     </div>
-    <div class="form-group">
-        @Html.RadioButtonFor(m => m.Mascot.Mascot_Image, "gray.png") Gray
+    <div class="mascotDiv">
+        <img src="~/Content/images/mascots/gray.png" id="chooseMascot" />
     </div>
-
-    <button> Submit </button>
+    <br />
+    <div class="mascotDivButton">
+        @Html.RadioButtonFor(m => m.Mascot.Mascot_Image, "black.png")
+    </div>
+    <div class="mascotDivButton">
+        @Html.RadioButtonFor(m => m.Mascot.Mascot_Image, "brown.png")
+    </div>
+    <div class="mascotDivButton">
+        @Html.RadioButtonFor(m => m.Mascot.Mascot_Image, "gray.png")
+    </div>
+    <br />
+        <button id="mascotButton"> Submit </button>
 }
