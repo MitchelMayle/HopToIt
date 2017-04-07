@@ -10,7 +10,7 @@ namespace Capstone.Web.DAL.Activity
     public class ActivitySqlDAL : IActivityDAL
     {
         private readonly string connectionString;
-        private const string SQL_AddActivity = "Insert into activity VALUES (@carrots, '2017-01-01', @child_id, @seconds);";
+        private const string SQL_AddActivity = "Insert into activity VALUES (@child_id, @activity_date, @seconds, @carrots);";
 
         public ActivitySqlDAL(string connectionString)
         {
@@ -25,10 +25,10 @@ namespace Capstone.Web.DAL.Activity
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand(SQL_AddActivity, conn);
-                    cmd.Parameters.AddWithValue("@carrots", 1/*activity.Carrots*/);
-                    cmd.Parameters.AddWithValue("@child_id", 1/*activity.ChildId*/);
-                    //cmd.Parameters.AddWithValue("@activity_date", activity.Date.Date.ToString());
-                    cmd.Parameters.AddWithValue("@seconds", 1/*activity.Seconds*/);
+                    cmd.Parameters.AddWithValue("@carrots", activity.Carrots);
+                    cmd.Parameters.AddWithValue("@child_id", activity.ChildId);
+                    cmd.Parameters.AddWithValue("@activity_date", activity.Date.Date.ToString());
+                    cmd.Parameters.AddWithValue("@seconds", activity.Seconds);
 
                     cmd.ExecuteNonQuery();
                 }

@@ -133,15 +133,23 @@ namespace Capstone.Web.Controllers
         {
             ChildModel child = childDAL.GetChild(userName);
             child.Mascot = mascotDAL.GetMascot(child);
-            return View("AddActivity", child);
+            
+
+            AddActivityViewModel activityViewModel = new AddActivityViewModel();
+            activityViewModel.UserName = userName;
+            activityViewModel.Child_Id = child.Child_Id;
+            activityViewModel.Mascot = child.Mascot;
+
+            return View("AddActivity", activityViewModel);
         }
         [HttpPost]
-        public ActionResult AddActivity(ChildModel child, string userName, int childId)
+        public ActionResult AddActivity(AddActivityViewModel activityViewModel, string userName, int childId)
         {
             
             ActivityModel activity = new ActivityModel();
-            activity.Carrots = child.Carrots;
-            activity.Date = DateTime.Now.Date; //<--***Will need to be replaced by actual Date taken in from form!!!!***
+            activity.Seconds = activityViewModel.Steps/10;
+            activity.Carrots = activityViewModel.Minutes;
+            activity.Date = activityViewModel.Date;/*DateTime.Now.Date; //<--***Will need to be replaced by actual Date taken in from form!!!!****/
             activity.ChildId = childId;
 
             activityDAL.AddActivity(activity);

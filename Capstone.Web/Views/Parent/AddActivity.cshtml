@@ -1,5 +1,5 @@
-﻿@using Capstone.Web.Models;
-@model  ChildModel
+﻿@using Capstone.Web.Models.ViewModels;
+@model  AddActivityViewModel
 @{
     ViewBag.Title = "AddActivity";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -14,7 +14,7 @@
         <img class="mascot" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" />
         @Model.UserName
     </div>
-    @*<div class="inputDate">
+    <div class="inputDate">
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,13 +29,13 @@
         </script>
         <p>Date: <input type="text" id="datepicker"></p>
 
-    </div>*@
+    </div>
     <div class="inputSteps">
-        @Html.Label("Seconds", "Please enter time")
-        @Html.TextBoxFor(m => m.Seconds)
+        @Html.Label("Steps", "Please enter number of steps")
+        @Html.TextBoxFor(m => m.Steps)
 
-        @Html.Label("Carrots", "Please enter Carrots")
-        @Html.TextBoxFor(m => m.Carrots)
+        @Html.Label("Minutes", "Please enter the number of active minutes")
+        @Html.TextBoxFor(m => m.Minutes)
         
         @*<label>Please add the number of steps for @Model.First_Name </label>
         @Html.TextBoxFor(m => m.Seconds, new { @class = "inputSteps" })
