@@ -55,7 +55,7 @@ namespace Capstone.Web.Controllers
                 ModelState.AddModelError("invalid-credentials", "Invalid email password combination");
                 return View("Login", model);
             }
-        
+
             Session["parent"] = parent;
             return RedirectToAction("Dashboard");
         }
@@ -110,7 +110,7 @@ namespace Capstone.Web.Controllers
         public ActionResult Dashboard()
         {
             // not logged in redirect
-            if(Session["parent"] == null)
+            if (Session["parent"] == null)
             {
                 return View("Login");
             }
@@ -118,11 +118,21 @@ namespace Capstone.Web.Controllers
             ParentModel parent = Session["parent"] as ParentModel;
 
             parent.Children = parentDAL.GetChildren(parent.Parent_ID);
-            
+
             // add mascots to child list
             foreach (ChildModel child in parent.Children)
             {
                 child.Mascot = mascotDAL.GetMascot(child);
+                if (activityDAL.IdExists(child.Child_Id))
+                {
+                    child.TotalSteps = activityDAL.GetSteps(child.Child_Id);
+                    child.TotalMinutes = activityDAL.GetMinutes(child.Child_Id);
+                }
+                else
+                {
+                    child.TotalSteps = 0;
+                    child.TotalMinutes = 0;
+                }
             }
 
             return View("Dashboard", parent);
@@ -133,7 +143,7 @@ namespace Capstone.Web.Controllers
         {
             ChildModel child = childDAL.GetChild(userName);
             child.Mascot = mascotDAL.GetMascot(child);
-            
+
 
             AddActivityViewModel activityViewModel = new AddActivityViewModel();
             activityViewModel.UserName = userName;
@@ -145,16 +155,16 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult AddActivity(AddActivityViewModel activityViewModel, string userName, int childId)
         {
-            
+
             ActivityModel activity = new ActivityModel();
-            activity.Seconds = activityViewModel.Steps/10;
+            activity.Seconds = activityViewModel.Steps / 10;
             activity.Carrots = activityViewModel.Minutes;
             activity.Date = activityViewModel.Date; //<--***Will need to be replaced by actual Date taken in from form!!!!****/
             activity.ChildId = childId;
-            
+
 
             activityDAL.AddActivity(activity);
-                               
+
             return RedirectToAction("Dashboard");
         }
 

@@ -11,5 +11,8 @@ namespace Capstone.Web.DAL.Activity
     {
         
         void AddActivity(ActivityModel activity);
+        int GetSteps(int child_Id);
+        int GetMinutes(int child_Id);
+        bool IdExists(int child_Id);
     }
 }

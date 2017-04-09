@@ -36,8 +36,10 @@
                 </div>
                 <div id="dashboard_childInfo">
                     <h2>@child.First_Name</h2>
-                    <p>Carrots - @child.Carrots</p>
-                    <p>Time Remaining - @child.Seconds</p>
+                    <p>Carrots - @(child.Carrots.ToString("N0"))</p>
+                    <p>Time Remaining - @(child.Seconds.ToString("N0")) seconds</p>
+                    <p>@(child.UserName)'s total steps: @child.TotalSteps.ToString("N0")</p>
+                    <p>@(child.UserName)'s total active minutes: @child.TotalMinutes.ToString("N0")</p>
 
                 </div>
                 <div id="activitybutton">

@@ -12,6 +12,9 @@ namespace Capstone.Web.DAL.Activity
         private readonly string connectionString;
         private const string SQL_AddActivity = "Insert into activity VALUES (@child_id, @activity_date, @seconds, @carrots);";
         private const string SQL_ActivityToChildDB = "UPDATE child SET seconds = seconds + @seconds, carrots = carrots + @carrots WHERE child.child_id = @child_id;";
+        private const string SQL_GetSteps = "Select SUM(seconds) from Activity where child_id =@child_id;";
+        private const string SQL_GetMinutes = "Select SUM(carrots) from Activity where child_id = @child_id;";
+        private const string SQL_IdExists = "Select count(*) from activity where child_id = @child_id;";
 
         public ActivitySqlDAL(string connectionString)
         {
@@ -39,6 +42,71 @@ namespace Capstone.Web.DAL.Activity
                     cmd2.ExecuteNonQuery();
                 }
                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public int GetSteps(int child_Id)
+        {
+            int steps = 0;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_GetSteps, conn);
+                    cmd.Parameters.AddWithValue("@child_id", child_Id);
+                    steps = ((int)cmd.ExecuteScalar()* 10);
+                    return steps;           
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }          
+        }
+        public int GetMinutes(int child_Id)
+        {
+            int minutes = 0;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_GetMinutes, conn);
+                    cmd.Parameters.AddWithValue("@child_Id", child_Id);
+
+                    minutes = (int)cmd.ExecuteScalar();
+                    return minutes;
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public bool IdExists(int child_Id)
+        {
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_IdExists, conn);
+                    cmd.Parameters.AddWithValue("@child_id", child_Id);
+                   
+                    int result = (int)cmd.ExecuteScalar();
+
+                    return result > 0;
+
+                }
             }
             catch (Exception)
             {
