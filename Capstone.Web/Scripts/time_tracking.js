@@ -7,9 +7,9 @@
     username = $("#child_username").text();
 
     // gets current time stored in child table
-    getTime();
     var seconds = 0;
-
+    getTime();
+   
     function getTime() {
         $.ajax({
             url: "api/getTime",
@@ -19,7 +19,6 @@
             },
             dataType: "json"
         }).done(function (data) {
-            console.log(data);
             seconds = parseInt(data);
         });
         
@@ -27,16 +26,31 @@
 
     // posts new remaining time
     function updateTime() {
-        $.ajax({
-            url: "api/updateTime",
-            type: "POST",
-            data: { username: username, secondsRemaining: seconds-- },
-            dataType: "json"
-        });
 
-        $("#headerseconds").text(seconds + " Seconds");
-        console.log("UPDATED");
-        
+        if (seconds > 0) {
+
+            $.ajax({
+                url: "api/updateTime",
+                type: "POST",
+                data: { username: username, secondsRemaining: seconds },
+                dataType: "json"
+            });   
+            $("#headerseconds").text(seconds + " Seconds");
+            seconds--;
+        }
+        else if (seconds == 0) {
+
+            $.ajax({
+                url: "api/updateTime",
+                type: "POST",
+                data: { username: username, secondsRemaining: seconds },
+                dataType: "json"
+            });
+            $("#headerseconds").text("NO TIME REMAINING");
+
+            window.location.href = 'http://localhost:55601/OutOfTime';
+
+        }
     }
 
 });

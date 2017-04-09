@@ -194,6 +194,7 @@
     <Content Include="Views\Parent\AddActivity.cshtml" />
     <Content Include="Views\Child\ChooseMascot.cshtml" />
     <Content Include="Views\Child\Dashboard.cshtml" />
+    <Content Include="Views\Child\OutOfTime.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

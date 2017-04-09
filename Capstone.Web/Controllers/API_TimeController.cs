@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Capstone.Web.Controllers
 {
@@ -21,18 +22,20 @@ namespace Capstone.Web.Controllers
         {
             ChildModel child = childDAL.GetChild(userName);
 
-            if (child.Seconds < 1)
-            {
-                return RedirectToAction("Dashboard");
-            }
-
             return Json(child.Seconds, JsonRequestBehavior.AllowGet);
         }
 
         [Route("api/updateTime")]
-        public void UpdateTime(string userName, int secondsRemaining)
+        public ActionResult UpdateTime(string userName, int secondsRemaining)
         {
             childDAL.UpdateSeconds(userName, secondsRemaining);
+
+            if (secondsRemaining == 0)
+            {
+                return RedirectToAction("Logout", "Home");
+            }
+
+            return null;
         }
     }
 }

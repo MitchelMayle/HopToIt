@@ -106,6 +106,13 @@ namespace Capstone.Web.Controllers
                 return View("Login", model);
             }
 
+            // check if child has time remaining
+            if (child.Seconds <= 0)
+            {
+                ModelState.AddModelError("no-time-remaining", "You do not have any time remaining. You need more steps to earn more time.");
+                return View("Login", model);
+            }
+
             child.Mascot = mascotDAL.GetMascot(child);
 
             Session["child"] = child;
@@ -185,12 +192,11 @@ namespace Capstone.Web.Controllers
             return RedirectToAction("Dashboard");
         }
 
-        public ActionResult Logout()
+        [Route("OutOfTime")]
+        public ActionResult OutOfTime()
         {
-            FormsAuthentication.SignOut();
-            Session.Remove(SessionKeys.ChildId);
-
-            return RedirectToAction("Index", "Home");
+            ModelState.AddModelError("expired", "You do not have any time remaining. You need more steps to earn more time.");
+            return View("OutOfTime");
         }
 
         public ActionResult ChildHeaderCarrot()
