@@ -58,13 +58,13 @@ $(document).ready(function () {
     });
 
     //Still need to input the user data into the message
-    $("#Steps").blur(function () {
-        $("p").html("You have entered" + $("m.Steps") + "This will give your child " + $("Steps") + " minutes of play time on Hop To It")
+
+    $("#Steps").on("blur",function (event) {
+        $("#stepsMessage").html("You have entered " + this.value + ".  This will give your child " + Math.round((this.value/10)/60) + " minutes of play time on Hop To It")
     });
 
-
-    $("#Minutes").blur(function () {
-        $("p").html("You have entered" + $("x") + "This will give your child " + $("x") + " minutes of play time on Hop To It")
+    $("#Minutes").on("blur", function (event) {
+        $("#minutesMessage").html("You have entered " + this.value + ".  This will give your child " + this.value + " carrots to use as currency in Hop To It")
     });
 
     //Need to check that the date entered is not after current date

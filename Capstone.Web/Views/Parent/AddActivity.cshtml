@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Add Activity for @Model.First_Name</h2>
+<h2>Add Activity for @Model.UserName</h2>
 
 @using (Html.BeginForm("AddActivity", "Parent", new { childId = Model.Child_Id, userName = Model.UserName }, FormMethod.Post))
 {
@@ -17,12 +17,12 @@
         <div class="inputSteps">
             @Html.Label("Steps", "Please enter the number of steps")
             @Html.TextBoxFor(m => m.Steps)
-            <p> </p>
+            <p id="stepsMessage"> </p>
            
 
             @Html.Label("Minutes", "Please enter the number of active minutes")
             @Html.TextBoxFor(m => m.Minutes)
-            <p> </p>
+            <p id="minutesMessage"> </p>
 
             @*Fix needed - This date functions, but needs a placeholder for the form to be user friendly*@
             <div id="inputDate">
