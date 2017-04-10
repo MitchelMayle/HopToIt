@@ -212,8 +212,13 @@ namespace Capstone.Web.Controllers
             {
                 return RedirectToAction("ChooseMascot");
             }
+            StoreViewModel viewModel = new StoreViewModel();
+            viewModel.Mascot = child.Mascot;
+            viewModel.Mascot.Mascot_Image = child.Mascot.Mascot_Image;
+            viewModel.Hats = mascotDAL.GetHats();
+            viewModel.Backgrounds = mascotDAL.GetBackgrounds();
 
-            return View("Store", child);
+            return View("Store", viewModel);
         }
 
         //[HttpPost]
