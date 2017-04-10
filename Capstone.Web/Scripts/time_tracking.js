@@ -7,7 +7,7 @@
     username = $("#child_username").text();
 
     // gets current time stored in child table
-    var seconds = 0;
+    var seconds;
     getTime();
    
     function getTime() {
