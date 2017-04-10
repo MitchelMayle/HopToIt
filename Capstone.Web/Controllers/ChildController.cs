@@ -212,5 +212,18 @@ namespace Capstone.Web.Controllers
 
             return PartialView("_ChildHeaderTime", child);
         }
+
+        [Route("Child/Closet")]
+        public ActionResult Closet()
+        {
+            // check if logged in
+            if (Session["child"] == null)
+            {
+                return View("Login");
+            }
+
+            ChildModel child = Session["child"] as ChildModel;
+            return View("Closet");
+        }
     }
 }

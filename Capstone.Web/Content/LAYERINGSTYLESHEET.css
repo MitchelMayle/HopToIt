@@ -1,0 +1,12 @@
+﻿/*CLOSET LAYERING*/
+
+#parent {
+  position: relative;
+  margin:0% 10% 10% 25%%;
+}
+.mascot{
+  position:absolute; top:0; left:0; z-index:1;
+}
+.hat {
+  position:absolute; top:0; left:0; z-index:2;
+}
