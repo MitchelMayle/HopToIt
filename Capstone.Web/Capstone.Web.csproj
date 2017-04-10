@@ -138,6 +138,12 @@
     <Content Include="Content\images\Resized\propeller_hat.png" />
     <Content Include="Content\images\Resized\sombrero.png" />
     <Content Include="Content\images\Resized\top_hat.png" />
+    <Content Include="Content\images\Resized_Backgrounds\beach.png" />
+    <Content Include="Content\images\Resized_Backgrounds\city.png" />
+    <Content Include="Content\images\Resized_Backgrounds\desert.png" />
+    <Content Include="Content\images\Resized_Backgrounds\forest.png" />
+    <Content Include="Content\images\Resized_Backgrounds\mountain.png" />
+    <Content Include="Content\images\Resized_Backgrounds\ocean.png" />
     <Content Include="Content\LAYERINGSTYLESHEET.css" />
     <Content Include="Content\images\logo_bun.png" />
     <Content Include="Content\images\mascots\black.png" />
