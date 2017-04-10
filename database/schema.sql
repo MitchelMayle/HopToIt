@@ -87,9 +87,9 @@ INSERT INTO items VALUES
 ('flower_crown.png', 250, 'Hat'),
 ('crown.png', 500, 'Hat'),
 -- backgrounds
-('beach.png', 0, 'Background'),
-('city.png', 0, 'Background'),
-('desert.png', 0, 'Background'),
-('forest.png', 0, 'Background'),
-('mountain.png', 0, 'Background'),
-('ocean.png', 0, 'Background');
+('beach.png', 150, 'Background'),
+('city.png', 150, 'Background'),
+('desert.png', 150, 'Background'),
+('forest.png', 150, 'Background'),
+('mountain.png', 150, 'Background'),
+('ocean.png', 150, 'Background');

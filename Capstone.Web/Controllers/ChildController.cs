@@ -83,7 +83,6 @@ namespace Capstone.Web.Controllers
         }
 
         [HttpPost]
-        [Route("ChildLogin")]
         public ActionResult Login(ChildLoginModel model)
         {
             // check if logged in
@@ -120,7 +119,6 @@ namespace Capstone.Web.Controllers
             return RedirectToAction("Dashboard");
         }
 
-        [Route("ChildDashboard")]
         public ActionResult Dashboard()
         {
             // check if logged in

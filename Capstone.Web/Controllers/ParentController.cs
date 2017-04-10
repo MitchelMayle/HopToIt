@@ -3,9 +3,7 @@ using Capstone.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
 using Capstone.Web.Crypto;
 using Capstone.Web.Models.ViewModels;
 using Capstone.Web.DAL.Mascot;
@@ -36,7 +34,6 @@ namespace Capstone.Web.Controllers
         }
 
         [HttpPost]
-        [Route("Login")]
         public ActionResult Login(ParentLoginModel model)
         {
             // validation redirect
@@ -106,7 +103,6 @@ namespace Capstone.Web.Controllers
             return RedirectToAction("Dashboard");
         }
 
-        [Route("Dashboard")]
         public ActionResult Dashboard()
         {
             // check if logged in

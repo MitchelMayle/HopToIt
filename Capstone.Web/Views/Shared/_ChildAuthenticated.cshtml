@@ -2,25 +2,23 @@
 @model ChildModel
 
 <head>
-    <script src="~/Scripts/time_tracking.js"></script> 
+    <script src="~/Scripts/time_tracking.js"></script>
+    <script type="text/javascript">
+        var redirectURL = '@Url.Action("OutOfTime", "Child")'
+        var getTimeURL = '@Url.Action("GetTime", "API_Time")'
+        var updateTimeURL = '@Url.Action("UpdateTime", "API_Time")'
+    </script>
 </head>
 
 <div style="display: none"><p id="child_username">@Model.UserName</p></div>
 
 <ul class="nav navbar-nav navbar-left">
-    @*<li><a href="Http://localhost:55601/">Home</a></li>*@
-    @Html.ActionLink("Dashboard", "Dashboard", "Child")
-    @Html.ActionLink("Closet", "Closet", "Child")
-    @Html.ActionLink("Store", "Store", "Child")
-  
-
-    @*<li><a href="Http://localhost:55601/ChildDashboard">Dashboard</a></li>
-    <li><a href="Http://localhost:55601/Child/Closet">Closet</a></li>
-    <li><a href="Http://localhost:55601/Child/Store">Store</a></li>*@
+    <li>@Html.ActionLink("Dashboard", "Dashboard", "Child")</li>
+    <li>@Html.ActionLink("Closet", "Closet", "Child")</li>
+    <li>@Html.ActionLink("Store", "Store", "Child")</li>
 </ul>
 
 <ul class="nav navbar-nav navbar-right">
-    <li id="navbarusername">Hello, @(Model.First_Name)! </li>
-    
-    <li><a href="Http://localhost:55601/Home/Logout">Logout</a></li>
+    <li id="navbarusername">Hello, @(Model.First_Name)! </li>  
+    <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
 </ul>

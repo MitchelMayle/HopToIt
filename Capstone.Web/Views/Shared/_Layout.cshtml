@@ -46,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a id="homebutton" class="navbar-brand" href="Http://localhost:55601/">Home</a>
+                @Html.ActionLink("Home", "Index", "Home", null, new { id = "homebutton", @class = "navbar-brand" })
             </div>
             <div class="collapse navbar-collapse" id="navbar">
                 @Html.Action("Navigation", "Home")

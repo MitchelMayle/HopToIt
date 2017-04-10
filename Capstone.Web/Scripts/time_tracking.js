@@ -1,9 +1,7 @@
 ﻿$(document).ready(function () {
 
-    // sends update request to database every second
     setInterval(updateTime, 1000);
 
-    // pulls username from hidden field in header
     username = $("#child_username").text();
 
     // gets current time stored in child table
@@ -12,7 +10,7 @@
    
     function getTime() {
         $.ajax({
-            url: "api/getTime",
+            url: getTimeURL,
             type: "GET",
             data: {
                 username: username
@@ -27,30 +25,23 @@
     // posts new remaining time
     function updateTime() {
 
-        if (seconds > 0) {
+        if (seconds >= 0) {
 
             $.ajax({
-                url: "api/updateTime",
+                url: updateTimeURL,
                 type: "POST",
-                data: { username: username, secondsRemaining: seconds },
-                dataType: "json"
-            });   
-            $("#headerseconds").text(seconds + " Seconds");
-            seconds--;
-        }
-        else if (seconds == 0) {
-
-            $.ajax({
-                url: "api/updateTime",
-                type: "POST",
-                data: { username: username, secondsRemaining: seconds },
+                data: { userName: username, secondsRemaining: seconds },
                 dataType: "json"
             });
-            $("#headerseconds").text("NO TIME REMAINING");
 
-            window.location.href = 'http://localhost:55601/OutOfTime';
-
+            if (seconds > 0) {
+                $("#headerseconds").text(seconds + " Seconds");
+                seconds--;
+            }
+            else {
+                $("#headerseconds").text("NO TIME REMAINING");
+                window.location.href = redirectURL;
+            }
         }
     }
-
 });

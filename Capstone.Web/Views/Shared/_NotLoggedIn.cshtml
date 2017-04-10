@@ -1,9 +1,5 @@
-﻿<ul class="nav navbar-nav navbar-left">
-    @*<li><a href="Http://localhost:55601/">Home</a></li>*@
-</ul>
-
-<ul class="nav navbar-nav navbar-right">
-    <li><a href="Http://localhost:55601/Parent/Registration">Parent Registration</a></li>
-    <li><a href="Http://localhost:55601/Parent/Login">Parent Login</a></li>
-    <li><a href="Http://localhost:55601/Child/Login">Child Login</a></li>
+﻿<ul class="nav navbar-nav navbar-right">
+    <li>@Html.ActionLink("Parent Registration", "Registration", "Parent")</li>
+    <li>@Html.ActionLink("Parent Login", "Login", "Parent")</li>
+    <li>@Html.ActionLink("Child Login", "Login", "Child")</li>
 </ul>
