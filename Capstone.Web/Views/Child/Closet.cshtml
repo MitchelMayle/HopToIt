@@ -10,9 +10,14 @@
 @if (Model.Mascot != null)
 {
     <section id="parent">
+        @if (Model.Mascot.CurrentHat == null || Model.Mascot.CurrentBackground == null)
+        {
+            <div><img class="mascot image" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" /></div>
+        }
+        else { 
         <div><img class="hat image" src="~/Content/images/fitted_items/@Model.Mascot.CurrentHat" /></div>
-        <div><img class="mascot image" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" /></div>
         <div><img class="background image" src="~/Content/images/backgrounds/@Model.Mascot.CurrentBackground"/></div>
+        }
     </section>
 }
 else
