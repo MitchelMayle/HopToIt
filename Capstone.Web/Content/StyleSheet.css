@@ -210,5 +210,15 @@ body {
     margin: 2% 0 2% 0;
 }
 
+#activityhistorytable{
 
+    background: white;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #73583f;
+}
 
+#activityhistorytable tr td {
+    border: 1px solid black;
+    width: 150px;
+}
