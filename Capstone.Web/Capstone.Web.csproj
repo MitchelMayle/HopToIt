@@ -123,6 +123,16 @@
     <Content Include="Content\images\fitted_items\sombrero_bunny.png" />
     <Content Include="Content\images\fitted_items\TopHat_bunny.png" />
     <Content Include="Content\images\hourglass.png" />
+    <Content Include="Content\images\Resized\baseball_hat_resize.png" />
+    <Content Include="Content\images\Resized\beanie_resize.png" />
+    <Content Include="Content\images\Resized\bonnet_resize.png" />
+    <Content Include="Content\images\Resized\bow_resize.png" />
+    <Content Include="Content\images\Resized\bucket_hat_resize.png" />
+    <Content Include="Content\images\Resized\crown_resize.png" />
+    <Content Include="Content\images\Resized\flower_crown_resize.png" />
+    <Content Include="Content\images\Resized\propeller_resize.png" />
+    <Content Include="Content\images\Resized\sombrero_resize.png" />
+    <Content Include="Content\images\Resized\top_hat_resize.png" />
     <Content Include="Content\LAYERINGSTYLESHEET.css" />
     <Content Include="Content\images\logo_bun.png" />
     <Content Include="Content\images\mascots\black.png" />
