@@ -2,10 +2,10 @@
 -- This script creates all of the database objects (tables, constraints, etc) for the database
 -- *************************************************************************************************
 
-DROP TABLE parent;
-DROP TABLE child;
-DROP TABLE mascot;
 DROP TABLE activity;
+DROP TABLE mascot;
+DROP TABLE child;
+DROP TABLE parent;
 
 
 CREATE TABLE parent (
@@ -64,3 +64,32 @@ CREATE TABLE activity(
 	CONSTRAINT pk_activity_id PRIMARY KEY (activity_id),
 	CONSTRAINT fk_activity_child_id FOREIGN KEY (child_id) REFERENCES child (child_id),
 );
+
+CREATE TABLE items(
+	item_id			int				identity,
+	image			varchar(32)		NOT NULL,
+	price			int				NOT NULL,
+	type			varchar(32)		NOT NULL,
+
+	CONSTRAINT pk_item_id PRIMARY KEY (item_id),
+);
+
+INSERT INTO items VALUES
+-- hats
+('baseball_hat.png', 25, 'Hat'),
+('beanie.png', 50, 'Hat'),
+('bow.png', 75, 'Hat'),
+('bucket_hat.png', 100, 'Hat'),
+('bonnet.png', 125, 'Hat'),
+('propeller_hat.png', 150, 'Hat'),
+('sombrero.png', 175, 'Hat'),
+('top_hat.png', 200, 'Hat'),
+('flower_crown.png', 250, 'Hat'),
+('crown.png', 500, 'Hat'),
+-- backgrounds
+('beach.png', 0, 'Background'),
+('city.png', 0, 'Background'),
+('desert.png', 0, 'Background'),
+('forest.png', 0, 'Background'),
+('mountain.png', 0, 'Background'),
+('ocean.png', 0, 'Background');

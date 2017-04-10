@@ -44,10 +44,7 @@ namespace Capstone.Web.Controllers
         public ActionResult Registration(ChildRegistrationModel viewModel)
         {
             // check if logged in
-            if (Session["parent"] == null)
-            {
-                return RedirectToAction("Login", "Parent", null);
-            }
+            IsLoggedIn(Session["child"] as ChildModel);
 
             // validation redirect
             if (!ModelState.IsValid)
@@ -89,11 +86,8 @@ namespace Capstone.Web.Controllers
         [Route("ChildLogin")]
         public ActionResult Login(ChildLoginModel model)
         {
-            // validation redirect
-            if (!ModelState.IsValid)
-            {
-                return View("Login", model);
-            }
+            // check if logged in
+            IsLoggedIn(Session["child"] as ChildModel);
 
             ChildModel child = childDAL.GetChild(model.UserName);
 
@@ -130,10 +124,7 @@ namespace Capstone.Web.Controllers
         public ActionResult Dashboard()
         {
             // check if logged in
-            if (Session["child"] == null)
-            {
-                return View("Login");
-            }
+            IsLoggedIn(Session["child"] as ChildModel);
 
             ChildModel child = Session["child"] as ChildModel;
             return View("Dashboard", child);
@@ -143,10 +134,7 @@ namespace Capstone.Web.Controllers
         public ActionResult ChooseMascot()
         {
             // check if logged in
-            if (Session["child"] == null)
-            {
-                return View("Login");
-            }
+            IsLoggedIn(Session["child"] as ChildModel);
 
             ChildModel child = Session["child"] as ChildModel;
 
@@ -163,6 +151,9 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult ChooseMascot(ChooseMascotModel chooseMascot)
         {
+            // check if logged in
+            IsLoggedIn(Session["child"] as ChildModel);
+
             // check if child already has mascot
             ChildModel getChild = Session["child"] as ChildModel;
             ChildModel checkChild = childDAL.GetChild(getChild.UserName);
@@ -192,6 +183,67 @@ namespace Capstone.Web.Controllers
             return RedirectToAction("Dashboard");
         }
 
+        public ActionResult Closet()
+        {
+            // check if logged in
+            IsLoggedIn(Session["child"] as ChildModel);
+
+            ChildModel child = Session["child"] as ChildModel;
+
+            // check if child needs to create mascot
+            if (child.Mascot == null)
+            {
+                return RedirectToAction("ChooseMascot");
+            }
+
+            return View("Closet", child);
+        }
+
+        [HttpGet]
+        public ActionResult Store()
+        {
+            // check if logged in
+            IsLoggedIn(Session["child"] as ChildModel);
+
+            ChildModel child = Session["child"] as ChildModel;
+
+            // check if child needs to create mascot
+            if (child.Mascot == null)
+            {
+                return RedirectToAction("ChooseMascot");
+            }
+
+            return View("Store", child);
+        }
+
+        //[HttpPost]
+        //public ActionResult Store()
+        //{
+        //    // validation redirect
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View("Store");
+        //    }
+
+        //    // check if logged in
+        //    if (Session["child"] == null)
+        //    {
+        //        return View("Login");
+        //    }
+
+        //    ChildModel child = Session["child"] as ChildModel;
+
+        //    // check if child needs to create mascot
+        //    if (child.Mascot == null)
+        //    {
+        //        return RedirectToAction("ChooseMascot");
+        //    }
+
+        //    mascotDAL.PurchaseItem(0, null);
+
+        //    return RedirectToAction("Closet");
+        //}
+
         [Route("OutOfTime")]
         public ActionResult OutOfTime()
         {
@@ -213,17 +265,14 @@ namespace Capstone.Web.Controllers
             return PartialView("_ChildHeaderTime", child);
         }
 
-        [Route("Child/Closet")]
-        public ActionResult Closet()
+        public ActionResult IsLoggedIn(ChildModel child)
         {
-            // check if logged in
             if (Session["child"] == null)
             {
                 return View("Login");
             }
 
-            ChildModel child = Session["child"] as ChildModel;
-            return View("Closet");
+            return null;
         }
     }
 }

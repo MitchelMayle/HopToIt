@@ -2,11 +2,21 @@
 
 #parent {
   position: relative;
-  margin:0% 10% 10% 25%%;
-}
+  margin:0% 5% 0% 20%;
+  padding:5%;
+
+ }
 .mascot{
   position:absolute; top:0; left:0; z-index:1;
+  width:50%;
+  margin:0% 5% 0% 15%;
+  border:5px solid black;
+  background-color: antiquewhite;
+  padding:5%;
 }
 .hat {
   position:absolute; top:0; left:0; z-index:2;
+  width:50%;
+  margin:0% 5% 0% 15%;
+  padding:5%;
 }

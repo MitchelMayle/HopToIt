@@ -5,9 +5,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Closet</h2>
+<h2>@Model.UserName's Closet</h2>
 
-<div id="parent">
-    <img class="hat image" src="~/Content/images/fitted items/BaseballCap_bunny.png" />
-    <img class="mascot image"src="~/Content/images/mascots/black.png" />
+@if (Model.Mascot != null)
+{
+    <section id="parent">
+        <div><img class="hat image" src="~/Content/images/fitted_items/@Model.Mascot.CurrentHat" /></div>
+        <div><img class="mascot image" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" /></div>
+        <div><img class="background image" src="~/Content/images/backgrounds/@Model.Mascot.CurrentBackground"/></div>
+    </section>
+}
+else
+{
+<div class="mascotDiv">
+    <img src="~/Content/images/mascots/default.png" id="mascot" />
 </div>
+}
+
+
+@using (Html.BeginForm("ChooseClosetItems", "Child", FormMethod.Post))
+{
+<h2>Your Purchases</h2>
+
+@*Loop through purchased items*@<
+<section>
+    <img src="~"
+    @*adds radio button for image*@
+    @Html.RadioButtonFor(m => m.Mascot, @Model.Mascot.Mascot_Image)
+
+</section>
+
+}
+<button class="mascotDivButton"> Submit </button>
