@@ -34,7 +34,6 @@ namespace Capstone.Web.DAL.Child
                     cmd.Parameters.AddWithValue("@salt", newChild.Salt);
 
                     cmd.ExecuteNonQuery();
-
                 }
             }
             catch (SqlException e)

@@ -10,5 +10,7 @@ namespace Capstone.Web.DAL.Mascot
     {
         void CreateMascot(MascotModel newMascot);
         MascotModel GetMascot(ChildModel child);
+        void PurchaseItem(int childId, string itemName);
+        void ChangeCurrentItem(int childId, string property, string itemName);
     }
 }
