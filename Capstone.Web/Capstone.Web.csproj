@@ -118,6 +118,14 @@
     <Content Include="Content\images\mascots\brown.png" />
     <Content Include="Content\images\mascots\default.png" />
     <Content Include="Content\images\mascots\gray.png" />
+    <Content Include="Content\images\Unaltered Clothing\baseball_hat.png" />
+    <Content Include="Content\images\Unaltered Clothing\beanie.png" />
+    <Content Include="Content\images\Unaltered Clothing\bow.png" />
+    <Content Include="Content\images\Unaltered Clothing\bucket_hat.png" />
+    <Content Include="Content\images\Unaltered Clothing\flower.png" />
+    <Content Include="Content\images\Unaltered Clothing\propeller_hat.png" />
+    <Content Include="Content\images\Unaltered Clothing\sombrero.png" />
+    <Content Include="Content\images\Unaltered Clothing\top_hat.png" />
     <Content Include="Content\StyleSheet.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -196,6 +204,8 @@
     <Content Include="Views\Child\Dashboard.cshtml" />
     <Content Include="Views\Child\OutOfTime.cshtml" />
     <Content Include="Views\Parent\ActivityHistory.cshtml" />
+    <Content Include="Views\Child\Closet.cshtml" />
+    <Content Include="Views\Child\Store.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

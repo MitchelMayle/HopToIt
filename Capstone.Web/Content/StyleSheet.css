@@ -157,6 +157,7 @@ body {
     font-size:large;
     right: 45%;  
     top: 20%;
+    height: auto;
    
 }
 
@@ -172,6 +173,17 @@ body {
     width: auto;
 }
 
+#activityhistorybutton {
+    position: absolute;
+    right: 10%;
+    top: 70%;
+    padding: 1%;
+    color: white;
+    background-color: #77b940;
+    border-color: #73583f;
+    height: auto;
+    width: auto;
+}
 #mascot {
     width: 70%;
     display: inline-block;

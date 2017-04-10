@@ -15,7 +15,7 @@ namespace Capstone.Web.DAL.Activity
         private const string SQL_GetSteps = "Select SUM(seconds) from Activity where child_id =@child_id;";
         private const string SQL_GetMinutes = "Select SUM(carrots) from Activity where child_id = @child_id;";
         private const string SQL_IdExists = "Select count(*) from activity where child_id = @child_id;";
-        private const string SQL_GetActivities = "Select * from activity where child_id = @child_id;";
+        private const string SQL_GetActivities = "Select * from activity where child_id = @child_id order by activity_date asc;";
 
         public ActivitySqlDAL(string connectionString)
         {

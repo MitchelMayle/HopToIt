@@ -43,8 +43,10 @@
 
                 </div>
                 <div id="activitybutton">
-                 @Html.ActionLink("Click here to input your child's activity", "AddActivity", new { userName = child.UserName })
-                 @Html.ActionLink("Click here to view your child's history", "ActivityHistory", new { userName = child.UserName, child_Id = child.Child_Id})
+                 @Html.ActionLink("Click here to input your child's activity", "AddActivity", new { userName = child.UserName })               
+                </div>
+                <div id="activityhistorybutton">
+                 @Html.ActionLink("Click here to view your child's history", "ActivityHistory", new { userName = child.UserName, child_Id = child.Child_Id })
                 </div>
             </div>
         }
