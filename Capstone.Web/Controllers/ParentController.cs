@@ -149,7 +149,10 @@ namespace Capstone.Web.Controllers
             activityViewModel.UserName = userName;
             activityViewModel.Child_Id = child.Child_Id;
             activityViewModel.Mascot = child.Mascot;
-
+            if(TempData["CustomError"] != null)
+            {
+                ModelState.AddModelError("futureDate", TempData["CustomError"].ToString());
+            }
             return View("AddActivity", activityViewModel);
         }
         [HttpPost]
@@ -162,7 +165,8 @@ namespace Capstone.Web.Controllers
             activity.Date = activityViewModel.Date;
             if (activity.Date.CompareTo(DateTime.Now.Date) > 0)
             {
-                ModelState.AddModelError("futureDate", "You cannot add activity for a future date");
+                TempData["CustomError"] = "You cannot add activity for a future date";
+               
                 return RedirectToAction("AddActivity", "Parent", activityViewModel);
             }
             activity.ChildId = childId;

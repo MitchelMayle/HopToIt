@@ -21,7 +21,7 @@
         <label for="Date">Select the date for this activity</label>
         <input data-val="true" data-val-date="The field Date must be a date." data-val-required="The Date field is required." id="Date" name="Date" type="date" max="todaysDate" />
         
-        @Html.ValidationMessage("futureDate")
+        <div> @Html.ValidationMessage("futureDate")</div>
     </div>
 
     </div>
