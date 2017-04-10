@@ -7,9 +7,10 @@ namespace Capstone.Web.Models.ViewModels
 {
     public class StoreViewModel
     {
-        public List<ItemModel> Hats;
-        public List<ItemModel> Backgrounds;
-        public MascotModel Mascot;
+        public List<ItemModel> Hats { get; set; }
+        public List<ItemModel> Backgrounds { get; set; }
+        public MascotModel Mascot { get; set; }
+        public int ItemId { get; set; }
 
 
     }

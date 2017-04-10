@@ -214,40 +214,41 @@ namespace Capstone.Web.Controllers
             }
             StoreViewModel viewModel = new StoreViewModel();
             viewModel.Mascot = child.Mascot;
-            viewModel.Mascot.Mascot_Image = child.Mascot.Mascot_Image;
+        
             viewModel.Hats = mascotDAL.GetHats();
             viewModel.Backgrounds = mascotDAL.GetBackgrounds();
+          
 
             return View("Store", viewModel);
         }
 
-        //[HttpPost]
-        //public ActionResult Store()
-        //{
-        //    // validation redirect
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View("Store");
-        //    }
+        [HttpPost]
+        public ActionResult Store(StoreViewModel storeModel)
+        {
+            // validation redirect
+            if (!ModelState.IsValid)
+            {
+                return View("Store");
+            }
 
-        //    // check if logged in
-        //    if (Session["child"] == null)
-        //    {
-        //        return View("Login");
-        //    }
+            // check if logged in
+            if (Session["child"] == null)
+            {
+                return View("Login");
+            }
 
-        //    ChildModel child = Session["child"] as ChildModel;
+            ChildModel child = Session["child"] as ChildModel;
 
-        //    // check if child needs to create mascot
-        //    if (child.Mascot == null)
-        //    {
-        //        return RedirectToAction("ChooseMascot");
-        //    }
+            // check if child needs to create mascot
+            if (child.Mascot == null)
+            {
+                return RedirectToAction("ChooseMascot");
+            }
 
-        //    mascotDAL.PurchaseItem(0, null);
+            mascotDAL.PurchaseItem(0, null);
 
-        //    return RedirectToAction("Closet");
-        //}
+            return RedirectToAction("Closet");
+        }
 
         [Route("OutOfTime")]
         public ActionResult OutOfTime()

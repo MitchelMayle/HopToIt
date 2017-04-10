@@ -8,9 +8,7 @@
 
 <h2>Store</h2>
 
-<div>
-    <img src="~/Content/images/mascots/@(Model.Mascot).png"/> 
-</div>
+
 
 
 @using (Html.BeginForm("Store", "Child", FormMethod.Post))
@@ -18,12 +16,25 @@
     <div id="storehatdiv">
         @foreach (ItemModel hat in @Model.Hats)
         {
-            <div>
+            <div class="storeitemdiv">
                 <img class="storehatimg" src="~/Content/images/Resized/@hat.Image" />
-                <p>@(hat.Price) carrots</p>
+                <p class="storeprice">@(hat.Price) carrots</p>
+                @Html.RadioButtonFor(m => m.ItemId, hat.Item_Id)
             </div>
         }
-
     </div>
+    <div>
+        @foreach (ItemModel background in @Model.Backgrounds)
+        {
+            <div class="storeitemdiv">
+                <img class="storehatimg" src="~/Content/images/backgrounds/Resized_Backgrounds/@(background.Image)" />
+                <p class="storeprice">@(background.Price) carrots</p>
+                @Html.RadioButtonFor(m => m.ItemId, background.Item_Id)
+            </div>
+
+        }
+    </div>
+        <button> Purchase </button>
+
 
 }
