@@ -109,11 +109,8 @@ namespace Capstone.Web.Controllers
         [Route("Dashboard")]
         public ActionResult Dashboard()
         {
-            // not logged in redirect
-            if (Session["parent"] == null)
-            {
-                return View("Login");
-            }
+            // check if logged in
+            IsLoggedIn(Session["parent"] as ParentModel);
 
             ParentModel parent = Session["parent"] as ParentModel;
 
@@ -141,6 +138,10 @@ namespace Capstone.Web.Controllers
         [HttpGet]
         public ActionResult AddActivity(string userName)
         {
+
+            // check if logged in
+            IsLoggedIn(Session["parent"] as ParentModel);
+
             ChildModel child = childDAL.GetChild(userName);
             child.Mascot = mascotDAL.GetMascot(child);
 
@@ -149,38 +150,58 @@ namespace Capstone.Web.Controllers
             activityViewModel.UserName = userName;
             activityViewModel.Child_Id = child.Child_Id;
             activityViewModel.Mascot = child.Mascot;
+
             if(TempData["CustomError"] != null)
             {
                 ModelState.AddModelError("futureDate", TempData["CustomError"].ToString());
             }
+
             return View("AddActivity", activityViewModel);
         }
+
         [HttpPost]
         public ActionResult AddActivity(AddActivityViewModel activityViewModel, string userName, int childId)
         {
+            // check if logged in
+            IsLoggedIn(Session["parent"] as ParentModel);
 
             ActivityModel activity = new ActivityModel();
             activity.Seconds = activityViewModel.Steps / 10;
             activity.Carrots = activityViewModel.Minutes;
             activity.Date = activityViewModel.Date;
+
             if (activity.Date.CompareTo(DateTime.Now.Date) > 0)
             {
                 TempData["CustomError"] = "You cannot add activity for a future date";
               
                 return RedirectToAction("AddActivity", "Parent", activityViewModel);
             }
+
             activity.ChildId = childId;
 
             activityDAL.AddActivity(activity);
 
             return RedirectToAction("Dashboard");
         }
+
         public ActionResult ActivityHistory(int child_Id, string userName)
         {
+            // check if logged in
+            IsLoggedIn(Session["parent"] as ParentModel);
+
             ChildModel child = childDAL.GetChild(userName);
             child.Activities = activityDAL.GetActivities(child_Id);
             return View("ActivityHistory", child);
         }
 
+        public ActionResult IsLoggedIn(ParentModel parent)
+        {
+            if (Session["parent"] == null)
+            {
+                return View("Login");
+            }
+
+            return null;
+        }
     }
 }
