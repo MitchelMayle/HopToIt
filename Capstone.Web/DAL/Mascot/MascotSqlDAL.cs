@@ -14,6 +14,8 @@ namespace Capstone.Web.DAL.Mascot
         private const string SQL_GetMascot = "SELECT * FROM mascot INNER JOIN child on child.child_id = mascot.child_id WHERE child.child_id = @child_id;";
         private const string SQL_PurchaseItem = "UPDATE mascot SET @itemName = 1 WHERE mascot.child_id = @child_id;";
         private const string SQL_ChangeCurrentItem = "UPDATE mascot SET @property = @itemName WHERE mascot.child_id = @child_id;";
+        private const string SQL_GetHats = "SELECT * from mascot where type = 'hat';";
+        private const strgin SQL_GetBackgrounds = "SELECT * from mascot where type = 'background';";
 
         public MascotSqlDAL(string connectionString)
         {
@@ -124,6 +126,72 @@ namespace Capstone.Web.DAL.Mascot
             {
                 throw;
             }
+        }
+        public List<ItemModel> GetHats()
+        {
+            
+            List<ItemModel> itemList = new List<ItemModel>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_GetHats, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while(reader.Read())
+                    {
+                        ItemModel item = new ItemModel()
+                        {
+                            Image = Convert.ToString(reader["image"]),
+                            Price = Convert.ToInt32(reader["price"]),
+                            Type = Convert.ToString(reader["type"]),
+                            Item_Id = Convert.ToInt32(reader["item_id"])
+                        };
+                        itemList.Add(item);
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return itemList;
+        }
+        public List<ItemModel> GetBackgrounds()
+        {
+
+            List<ItemModel> itemList = new List<ItemModel>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_GetBackgrounds, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        ItemModel item = new ItemModel()
+                        {
+                            Image = Convert.ToString(reader["image"]),
+                            Price = Convert.ToInt32(reader["price"]),
+                            Type = Convert.ToString(reader["type"]),
+                            Item_Id = Convert.ToInt32(reader["item_id"])
+                        };
+                        itemList.Add(item);
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return itemList;
         }
     }
 }

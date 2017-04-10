@@ -17,8 +17,8 @@
     {
         <tr>
             <td>@activity.Date.ToShortDateString()</td>
-            <td>@(activity.Seconds * 10) Steps</td>
-            <td>@(activity.Carrots) Minutes</td>
+            <td>@((activity.Seconds * 10).ToString("N0")) Steps</td>
+            <td>@(activity.Carrots.ToString("N0")) Minutes</td>
 
 
         </tr>

@@ -83,6 +83,7 @@ footer {
 button {
     border-radius: 15px;
 }
+
 #carrotdiv {
     display: inline-block;
     width: 40%;
@@ -97,16 +98,15 @@ button {
     display: inline-block;
     width: 40%;
     float: right;
-
 }
 
 #headertext, #headerseconds {
     display: inline-block;
     width: 70%;
     padding-top: 30px;
-    padding-bottom: 30px;  
+    padding-bottom: 30px;
     text-align: left;
-    padding-left: 2%;  
+    padding-left: 2%;
 }
 
 
@@ -114,7 +114,6 @@ button {
     padding-left: 10px;
     display: inline-block;
     width: 15%;
-  
 }
 
 #logo {
@@ -151,18 +150,17 @@ body {
 
 #usernameMascot {
     font-size: x-large;
-    position:absolute;
+    position: absolute;
     left: -10%;
     top: 0%;
 }
 
 #dashboard_childInfo {
     position: absolute;
-    font-size:large;
-    right: 45%;  
+    font-size: large;
+    right: 45%;
     top: 20%;
     height: auto;
-   
 }
 
 #activitybutton {
@@ -188,6 +186,7 @@ body {
     height: auto;
     width: auto;
 }
+
 #mascot {
     width: 70%;
     display: inline-block;
@@ -210,15 +209,18 @@ body {
     margin: 2% 0 2% 0;
 }
 
-#activityhistorytable{
-
+#activityhistorytable {
     background: white;
     margin-left: auto;
     margin-right: auto;
     border: 1px solid #73583f;
 }
 
-#activityhistorytable tr td {
-    border: 1px solid black;
-    width: 150px;
-}
+    #activityhistorytable tr td {
+        border: 1px solid black;
+        width: 150px;
+    }
+
+    #activityhistorytable tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
