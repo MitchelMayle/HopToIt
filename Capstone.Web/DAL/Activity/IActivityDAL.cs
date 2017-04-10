@@ -14,5 +14,6 @@ namespace Capstone.Web.DAL.Activity
         int GetSteps(int child_Id);
         int GetMinutes(int child_Id);
         bool IdExists(int child_Id);
+        List<ActivityModel> GetActivities(int child_Id);
     }
 }

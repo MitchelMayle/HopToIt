@@ -166,7 +166,7 @@ namespace Capstone.Web.Controllers
             if (activity.Date.CompareTo(DateTime.Now.Date) > 0)
             {
                 TempData["CustomError"] = "You cannot add activity for a future date";
-               
+              
                 return RedirectToAction("AddActivity", "Parent", activityViewModel);
             }
             activity.ChildId = childId;
@@ -174,6 +174,12 @@ namespace Capstone.Web.Controllers
             activityDAL.AddActivity(activity);
 
             return RedirectToAction("Dashboard");
+        }
+        public ActionResult ActivityHistory(int child_Id, string userName)
+        {
+            ChildModel child = childDAL.GetChild(userName);
+            child.Activities = activityDAL.GetActivities(child_Id);
+            return View("ActivityHistory", child);
         }
 
     }

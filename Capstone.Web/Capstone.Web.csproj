@@ -165,6 +165,7 @@
     <Compile Include="Models\MascotModel.cs" />
     <Compile Include="Models\ParentModel.cs" />
     <Compile Include="Models\ActivityModel.cs" />
+    <Compile Include="Models\ViewModels\ActivityHistoryViewModel.cs" />
     <Compile Include="Models\ViewModels\AddActivityViewModel.cs" />
     <Compile Include="Models\ViewModels\ChildLoginModel.cs" />
     <Compile Include="Models\ViewModels\ChildRegistrationModel.cs" />
@@ -194,6 +195,7 @@
     <Content Include="Views\Child\ChooseMascot.cshtml" />
     <Content Include="Views\Child\Dashboard.cshtml" />
     <Content Include="Views\Child\OutOfTime.cshtml" />
+    <Content Include="Views\Parent\ActivityHistory.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -15,6 +15,7 @@ namespace Capstone.Web.DAL.Activity
         private const string SQL_GetSteps = "Select SUM(seconds) from Activity where child_id =@child_id;";
         private const string SQL_GetMinutes = "Select SUM(carrots) from Activity where child_id = @child_id;";
         private const string SQL_IdExists = "Select count(*) from activity where child_id = @child_id;";
+        private const string SQL_GetActivities = "Select * from activity where child_id = @child_id;";
 
         public ActivitySqlDAL(string connectionString)
         {
@@ -113,6 +114,44 @@ namespace Capstone.Web.DAL.Activity
 
                 throw;
             }
+        }
+
+        public List<ActivityModel> GetActivities(int child_Id)
+        {
+            
+            List<ActivityModel> activityList = new List<ActivityModel>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_GetActivities, conn);
+                    cmd.Parameters.AddWithValue("@child_id", child_Id);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while(reader.Read())
+                    {
+                        ActivityModel activity = new ActivityModel()
+                        {
+                            Carrots = Convert.ToInt32(reader["carrots"]),
+                            Date = Convert.ToDateTime(reader["activity_date"]),
+                            ChildId = Convert.ToInt32(reader["child_id"]),
+                            Seconds = Convert.ToInt32(reader["seconds"]),
+                            
+                        };
+                        activityList.Add(activity);
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return activityList;
+
         }
     }
 }
