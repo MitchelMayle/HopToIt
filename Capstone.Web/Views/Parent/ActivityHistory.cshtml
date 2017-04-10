@@ -7,3 +7,18 @@
 
 <h2>ActivityHistory for @Model.UserName </h2>
 
+<table>
+    @foreach (ActivityModel activity in Model.Activities)
+    {
+        <tr>
+            <td>@activity.Date.ToShortDateString()</td>
+            <td>@(activity.Seconds * 10) Steps</td>
+            <td>@(activity.Carrots) Minutes</td>
+
+
+        </tr>
+    }
+
+
+
+</table>
