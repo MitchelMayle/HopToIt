@@ -7,7 +7,12 @@
 
 <h2>ActivityHistory for @Model.UserName </h2>
 
-<table>
+<table id="activityhistorytable">
+    <tr>
+        <td>Date</td>
+        <td># of Steps</td>
+        <td># of Active Minutes</td>
+    </tr>
     @foreach (ActivityModel activity in Model.Activities)
     {
         <tr>

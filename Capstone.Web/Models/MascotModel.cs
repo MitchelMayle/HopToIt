@@ -15,6 +15,7 @@ namespace Capstone.Web.Models
         public bool BaseballHat { get; set; }
         public bool Beanie { get; set; }
         public bool Bonnet { get; set; }
+        public bool Bow { get; set; }
         public bool BucketHat { get; set; }
         public bool Crown { get; set; }
         public bool Flower { get; set; }
