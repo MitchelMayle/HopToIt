@@ -42,6 +42,7 @@ CREATE TABLE mascot (
 	baseball_hat		bit				default 0,
 	beanie				bit				default 0,
 	bonnet				bit				default 0,
+	bow					bit				default 0,
 	bucket_hat			bit				default 0,
 	crown				bit				default 0,
 	flower				bit				default 0,
