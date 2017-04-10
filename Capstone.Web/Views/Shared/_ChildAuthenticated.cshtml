@@ -9,8 +9,14 @@
 
 <ul class="nav navbar-nav navbar-left">
     @*<li><a href="Http://localhost:55601/">Home</a></li>*@
-    <li><a href="Http://localhost:55601/ChildDashboard">Dashboard</a></li>
+    @Html.ActionLink("Dashboard", "Dashboard", "Child")
+    @Html.ActionLink("Closet", "Closet", "Child")
+    @Html.ActionLink("Store", "Store", "Child")
+  
+
+    @*<li><a href="Http://localhost:55601/ChildDashboard">Dashboard</a></li>
     <li><a href="Http://localhost:55601/Child/Closet">Closet</a></li>
+    <li><a href="Http://localhost:55601/Child/Store">Store</a></li>*@
 </ul>
 
 <ul class="nav navbar-nav navbar-right">

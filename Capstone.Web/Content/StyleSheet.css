@@ -224,3 +224,15 @@ body {
     #activityhistorytable tr:nth-child(even) {
         background-color: #f2f2f2;
     }
+
+    #storehatdiv{
+
+        background-color: white;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 2%
+    }
+    .storehatimg{
+        width: 5%;
+    }

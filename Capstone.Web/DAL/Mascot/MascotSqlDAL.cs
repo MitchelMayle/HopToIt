@@ -14,8 +14,8 @@ namespace Capstone.Web.DAL.Mascot
         private const string SQL_GetMascot = "SELECT * FROM mascot INNER JOIN child on child.child_id = mascot.child_id WHERE child.child_id = @child_id;";
         private const string SQL_PurchaseItem = "UPDATE mascot SET @itemName = 1 WHERE mascot.child_id = @child_id;";
         private const string SQL_ChangeCurrentItem = "UPDATE mascot SET @property = @itemName WHERE mascot.child_id = @child_id;";
-        private const string SQL_GetHats = "SELECT * from mascot where type = 'hat';";
-        private const string SQL_GetBackgrounds = "SELECT * from mascot where type = 'background';";
+        private const string SQL_GetHats = "SELECT * from items where type = 'hat';";
+        private const string SQL_GetBackgrounds = "SELECT * from items where type = 'background';";
 
         public MascotSqlDAL(string connectionString)
         {
