@@ -10,13 +10,26 @@
 @if (Model.Mascot != null)
 {
     <section id="parent">
-        @if (Model.Mascot.CurrentHat == null || Model.Mascot.CurrentBackground == null)
+        @if (Model.Mascot.CurrentHat == null && Model.Mascot.CurrentBackground == null)
         {
-            <div><img class="mascot image" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" /></div>
+            <div><img class="mascotImage" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" /></div>
         }
-        else { 
-        <div><img class="hat image" src="~/Content/images/fitted_items/@Model.Mascot.CurrentHat" /></div>
-        <div><img class="background image" src="~/Content/images/backgrounds/@Model.Mascot.CurrentBackground"/></div>
+        else if (Model.Mascot.CurrentBackground == null)
+        {
+            <div><img class="mascotImage" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" /></div>
+            <div><img class="hatImage" src="~/Content/images/fitted_items/@Model.Mascot.CurrentHat" /></div>
+
+        }
+        else if (Model.Mascot.CurrentHat == null)
+        { 
+            <div><img class="mascotImage" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" /></div>
+            <div><img class="background image" src="~/Content/images/backgrounds/@Model.Mascot.CurrentBackground" />"/></div>
+        }
+        else
+        {
+            <div><img class="mascotImage" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" /></div>
+            <div><img class="hatImage" src="~/Content/images/fitted_items/@Model.Mascot.CurrentHat" /></div>
+            <div><img class="backgroundImage" src="~/Content/images/backgrounds/@Model.Mascot.CurrentBackground" /></div>
         }
     </section>
 }
@@ -28,17 +41,19 @@ else
 }
 
 
-@using (Html.BeginForm("ChooseClosetItems", "Child", FormMethod.Post))
-{
-<h2>Your Purchases</h2>
+@*<section class="closetContainer">
+    using (Html.BeginForm("ChooseClosetItems", "Child", FormMethod.Post))
+    {
+    <h2>Your Purchases</h2>
 
-@*Loop through purchased items*@<
-<section>
-    <img src="~"
-    @*adds radio button for image*@
-    @Html.RadioButtonFor(m => m.Mascot, @Model.Mascot.Mascot_Image)
+    @foreach ()
+    { 
+        <div>
+            adds radio button for image
+            @Html.RadioButtonFor(m => m.Mascot, <img src="~/Content/images/Resized/>@*purchased items*@
+        @*</div>
 
-</section>
-
-}
-<button class="mascotDivButton"> Submit </button>
+        }
+    }
+        <button class="mascotDivButton"> Submit </button>
+   </section>*@

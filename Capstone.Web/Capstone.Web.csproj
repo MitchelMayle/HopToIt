@@ -110,6 +110,11 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\adjusted_background.jpg" />
+    <Content Include="Content\images\backgrounds\Background_beach_layer.png" />
+    <Content Include="Content\images\backgrounds\Background_city_layer.png" />
+    <Content Include="Content\images\backgrounds\Background_desert_layer.png" />
+    <Content Include="Content\images\backgrounds\background_forest_layer.png" />
+    <Content Include="Content\images\backgrounds\background_ocean_layer.png" />
     <Content Include="Content\images\carrot.png" />
     <Content Include="Content\images\carrot_withdarkleaf.png" />
     <Content Include="Content\images\fitted_items\BaseballCap_bunny.png" />
