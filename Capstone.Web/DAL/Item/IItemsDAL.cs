@@ -11,7 +11,7 @@ namespace Capstone.Web.DAL.Item
     {
         List<ItemModel> GetHats();
         List<ItemModel> GetBackgrounds();
-        //ItemModel GetItem(int item_Id);
+        ItemModel GetItem(int item_Id);
 
     }
 }

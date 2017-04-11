@@ -82,17 +82,18 @@ CREATE TABLE items(
 
 INSERT INTO items VALUES
 -- hats
-('baseball_hat.png', 25, 'Hat'),
-('beanie.png', 50, 'Hat'),
-('bow.png', 75, 'Hat'),
-('bucket_hat.png', 100, 'Hat'),
-('bonnet.png', 125, 'Hat'),
-('propeller_hat.png', 150, 'Hat'),
-('sombrero.png', 175, 'Hat'),
-('top_hat.png', 200, 'Hat'),
-('flower_crown.png', 250, 'Hat'),
-('crown.png', 500, 'Hat'),
+('baseball_hat', 25, 'Hat'),
+('beanie', 50, 'Hat'),
+('bow', 75, 'Hat'),
+('bucket_hat', 100, 'Hat'),
+('bonnet', 125, 'Hat'),
+('propeller_hat', 150, 'Hat'),
+('sombrero', 175, 'Hat'),
+('top_hat', 200, 'Hat'),
+('flower_crown', 250, 'Hat'),
+('crown', 500, 'Hat'),
 -- backgrounds
+
 ('beach.png', 150, 'Background'),
 ('city.png', 150, 'Background'),
 ('desert.png', 150, 'Background'),
@@ -101,3 +102,4 @@ INSERT INTO items VALUES
 ('ocean.png', 150, 'Background');
 
 Update Mascot Set baseball_hat= 1, beanie = 1, bonnet = 1, bow= 1, bucket_hat= 1, crown=1, flower= 1, propeller_hat= 1, sombrero= 1, top_hat= 1, beach= 1, city= 1, desert= 1, forest= 1, mountain= 1, ocean = 1 where child_id =1;
+
