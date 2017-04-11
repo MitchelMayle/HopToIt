@@ -224,26 +224,48 @@ body {
     #activityhistorytable tr:nth-child(even) {
         background-color: #f2f2f2;
     }
+/* Store View Styling */
 
-    #storehatdiv{
+   .storehatdiv h3 {
+       padding-top: 3%;
+       margin: 3%;
+       justify-content: center;
+   }
 
-        background-color: white;
+    .storehatdiv{
+        border: solid #85a04f;
+        background-color: #f4e3ad;
         width: 80%;
         margin-left: auto;
         margin-right: auto;
         border-radius: 2%
     }
+
     .storeitemdiv{
-        width: 35%;
-   
-        display: inline-block;
-        
+        border: solid #f4bd0c;
+        background-color: #d3e8ab;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 2%
     }
+    
+    #storeitemdiv{
+        margin: 2%;
+        width: 20%;
+        display: inline-block;
+    }
+   
+   .storeitemdiv h3 {
+       margin: 3%;
+       justify-content: center;
+   }
+
     .storehatimg{
         width: 40%;
         display: inline-block;
-        
     }
+
     .storeprice{
         display: block;       
         width: 30px;
