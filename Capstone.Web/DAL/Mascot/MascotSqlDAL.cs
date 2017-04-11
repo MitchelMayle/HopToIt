@@ -12,8 +12,10 @@ namespace Capstone.Web.DAL.Mascot
         private readonly string connectionString;
         private const string SQL_CreateMascot = "INSERT INTO mascot VALUES (@mascot_image, @child_id, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);";
         private const string SQL_GetMascot = "SELECT * FROM mascot INNER JOIN child on child.child_id = mascot.child_id WHERE child.child_id = @child_id;";
-        //private const string SQL_PurchaseItem = $"UPDATE mascot SET {} = 1 WHERE mascot.child_id = @child_id;   UPDATE child SET carrots =  carrots - @price Where child_id = @child_id;";
         private const string SQL_ChangeCurrentItem = "UPDATE mascot SET @property = @itemName WHERE mascot.child_id = @child_id;";
+        private const string SQL_PurchaseItem = "UPDATE mascot SET @itemName = 1 WHERE mascot.child_id = @child_id;   UPDATE child SET carrots =  carrots - @price Where child_id = @child_id;";
+        private const string SQL_UpdateHat = "UPDATE mascot SET current_hat = @currentHat WHERE mascot_id = @mascot_Id;";
+        private const string SQL_UpdateBackground = "UPDATE mascot SET current_background = @currentBackground WHERE mascot_id = @mascot_Id;";
 
 
         public MascotSqlDAL(string connectionString)
@@ -122,17 +124,36 @@ namespace Capstone.Web.DAL.Mascot
             }
         }
 
-        public void ChangeCurrentItem(int childId, string property, string itemName)
+        public void UpdateHat(int mascot_Id, string currentHat)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand(SQL_ChangeCurrentItem, conn);
-                    cmd.Parameters.AddWithValue("@property", property);
-                    cmd.Parameters.AddWithValue("@itemName", itemName);
-                    cmd.Parameters.AddWithValue("@child_id", childId);
+                    SqlCommand cmd = new SqlCommand(SQL_UpdateHat, conn);
+                    cmd.Parameters.AddWithValue("@currentHat", currentHat);
+                    cmd.Parameters.AddWithValue("@mascot_Id", mascot_Id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException e)
+            {
+                throw;
+            }
+        }
+
+        public void UpdateBackground(int mascot_Id, string currentBackground)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_UpdateBackground, conn);
+                    cmd.Parameters.AddWithValue("@currentBackground", currentBackground);
+                    cmd.Parameters.AddWithValue("@mascot_Id", mascot_Id);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -248,7 +269,7 @@ namespace Capstone.Web.DAL.Mascot
                 }
 
             }
-            
+
             catch (Exception)
             {
 
@@ -256,5 +277,5 @@ namespace Capstone.Web.DAL.Mascot
             }
             return itemList;
         }
-}
+    }
 }
