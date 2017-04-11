@@ -103,7 +103,8 @@ namespace Capstone.Web.DAL.Item
                     {
                         item.Image = Convert.ToString(reader["image"]);
                         item.Price = Convert.ToInt32(reader["price"]);
-                        item.Type = Convert.ToString(reader["type"]);                                        
+                        item.Type = Convert.ToString(reader["type"]);
+                        item.Item_Id = Convert.ToInt32(reader["item_id"]);                                        
                     }
 
                 }

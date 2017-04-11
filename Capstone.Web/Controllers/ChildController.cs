@@ -273,7 +273,10 @@ namespace Capstone.Web.Controllers
                 ModelState.AddModelError("insufficient-carrots", "You do not have enough carrots to purchase that item.");
                 return View("Store", storeModel);
             }
+
+            mascotDAL.PurchaseItem(child.Child_Id, purchasedItem.Image, purchasedItem.Price);
             child.Mascot.OwnedItems = mascotDAL.GetListOfItems(child.Child_Id);
+           
             if (child.Mascot.OwnedItems.Contains(purchasedItem.Item_Id))
             {
                 ModelState.AddModelError("item-already-purchased", "You aready own this item!");
@@ -286,7 +289,7 @@ namespace Capstone.Web.Controllers
                 return RedirectToAction("ChooseMascot");
             }
 
-            mascotDAL.PurchaseItem(child.Child_Id, purchasedItem.Image, purchasedItem.Price);
+           
 
             child = childDAL.GetChild(child.UserName);
             child.Mascot = mascotDAL.GetMascot(child);
