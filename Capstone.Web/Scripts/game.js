@@ -29,8 +29,6 @@ $(document).ready(function () {
     $("#btnRestart").on("click", restart);
 });
 
-var bunny = $(".bunny");
-
 function goRight() {
     var bunny = $(".bunny");
     if (!bunny.is(":last-child")) {

@@ -14,12 +14,12 @@
 
     <table id="gameboard">
 
-        @for (int row = 0; row < 10; row++)
+        @for (int row = 0; row < 12; row++)
         {
             string rowId = $"row_{row}";
             <tr id="@rowId" class="gamerow">
 
-                @for (int column = 0; column < 10; column++)
+                @for (int column = 0; column < 12; column++)
                 {
                     string cellId = $"row_{row}_column_{column}";
                     string cellClass = "gamecell";
@@ -27,7 +27,7 @@
                     {
                         cellClass += " bunny";
                     }
-                    else if (column == 9 && row == 9)
+                    else if (column == 11 && row == 11)
                     {
                         cellClass += " carrot";
                     }
