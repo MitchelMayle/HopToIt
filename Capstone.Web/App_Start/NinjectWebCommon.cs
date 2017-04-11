@@ -16,6 +16,7 @@ namespace Capstone.Web.App_Start
     using System.Configuration;
     using DAL.Mascot;
     using DAL.Activity;
+    using DAL.Item;
 
     public static class NinjectWebCommon 
     {
@@ -67,6 +68,7 @@ namespace Capstone.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IItemsDAL>().To<ItemsSqlDAL>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["HopToIt"].ConnectionString);
             kernel.Bind<IActivityDAL>().To<ActivitySqlDAL>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["HopToIt"].ConnectionString);
             kernel.Bind<IParentDAL>().To<ParentSqlDAL>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["HopToIt"].ConnectionString);
             kernel.Bind<IChildDAL>().To<ChildSqlDAL>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["HopToIt"].ConnectionString);

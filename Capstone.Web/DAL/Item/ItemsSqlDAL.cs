@@ -11,6 +11,7 @@ namespace Capstone.Web.DAL.Item
     {
         private const string SQL_GetHats = "SELECT * from items where type = 'hat';";
         private const string SQL_GetBackgrounds = "SELECT * from items where type = 'background';";
+        private const string SQL_GetItem = "SELECT * from items where item_id = @item_id;";
         private readonly string connectionString;
 
         public ItemsSqlDAL(string connectionString)
@@ -85,5 +86,6 @@ namespace Capstone.Web.DAL.Item
             }
             return itemList;
         }
+
     }
 }

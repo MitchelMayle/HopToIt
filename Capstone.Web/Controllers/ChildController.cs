@@ -1,5 +1,6 @@
 ﻿using Capstone.Web.Crypto;
 using Capstone.Web.DAL.Child;
+using Capstone.Web.DAL.Item;
 using Capstone.Web.DAL.Mascot;
 using Capstone.Web.Models;
 using Capstone.Web.Models.ViewModels;
@@ -15,12 +16,14 @@ namespace Capstone.Web.Controllers
     public class ChildController : Controller
     {
         private readonly IMascotDAL mascotDAL;
+        private readonly IItemsDAL itemsDAL;
 
         private readonly IChildDAL childDAL;
-        public ChildController(IChildDAL childDAL, IMascotDAL mascotDAL)
+        public ChildController(IChildDAL childDAL, IMascotDAL mascotDAL, IItemsDAL itemsDAL)
         {
             this.childDAL = childDAL;
             this.mascotDAL = mascotDAL;
+            this.itemsDAL = itemsDAL;
         }
 
         [HttpGet]
@@ -234,8 +237,8 @@ namespace Capstone.Web.Controllers
             StoreViewModel viewModel = new StoreViewModel();
             viewModel.Mascot = child.Mascot;
         
-            viewModel.Hats = mascotDAL.GetHats();
-            viewModel.Backgrounds = mascotDAL.GetBackgrounds();
+            viewModel.Hats = itemsDAL.GetHats();
+            viewModel.Backgrounds = itemsDAL.GetBackgrounds();
           
 
             return View("Store", viewModel);
@@ -258,7 +261,7 @@ namespace Capstone.Web.Controllers
 
             ChildModel child = Session["child"] as ChildModel;
 
-            ItemModel purchasedItem = mascotDAL.Get
+        
 
             // check if child needs to create mascot
             if (child.Mascot == null)
