@@ -236,12 +236,12 @@ namespace Capstone.Web.Controllers
             }
             StoreViewModel viewModel = new StoreViewModel();
             viewModel.Mascot = child.Mascot;
-        
+
             viewModel.Hats = itemsDAL.GetHats();
             viewModel.Backgrounds = itemsDAL.GetBackgrounds();
 
             Session["storeModel"] = viewModel;
-           
+
             return View("Store", viewModel);
         }
 
@@ -268,14 +268,18 @@ namespace Capstone.Web.Controllers
             ChildModel child = Session["child"] as ChildModel;
             ItemModel purchasedItem = itemsDAL.GetItem(storeModel.ItemId);
 
-            if(purchasedItem.Price > child.Carrots)
+            if (purchasedItem.Price > child.Carrots)
             {
-
                 ModelState.AddModelError("insufficient-carrots", "You do not have enough carrots to purchase that item.");
                 return View("Store", storeModel);
-
             }
-        
+            child.Mascot.OwnedItems = mascotDAL.GetListOfItems(child.Child_Id);
+            if (child.Mascot.OwnedItems.Contains(purchasedItem.Item_Id))
+            {
+                ModelState.AddModelError("item-already-purchased", "You aready own this item!");
+                return View("Store", storeModel);
+            }
+
             // check if child needs to create mascot
             if (child.Mascot == null)
             {
@@ -283,7 +287,7 @@ namespace Capstone.Web.Controllers
             }
 
             mascotDAL.PurchaseItem(child.Child_Id, purchasedItem.Image, purchasedItem.Price);
-            
+
             child = childDAL.GetChild(child.UserName);
             child.Mascot = mascotDAL.GetMascot(child);
             Session["child"] = child;

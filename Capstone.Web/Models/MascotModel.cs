@@ -18,7 +18,7 @@ namespace Capstone.Web.Models
         public bool Bow { get; set; }
         public bool BucketHat { get; set; }
         public bool Crown { get; set; }
-        public bool Flower { get; set; }
+        public bool FlowerCrown { get; set; }
         public bool PropellerHat { get; set; }
         public bool Sombrero { get; set; }
         public bool TopHat { get; set; }
@@ -28,5 +28,6 @@ namespace Capstone.Web.Models
         public bool Forest { get; set; }
         public bool Mountain { get; set; }
         public bool Ocean { get; set; }
+        public List<int> OwnedItems { get; set; }
     }
 }

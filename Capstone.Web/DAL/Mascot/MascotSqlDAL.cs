@@ -14,7 +14,8 @@ namespace Capstone.Web.DAL.Mascot
         private const string SQL_GetMascot = "SELECT * FROM mascot INNER JOIN child on child.child_id = mascot.child_id WHERE child.child_id = @child_id;";
         private const string SQL_PurchaseItem = "UPDATE mascot SET @itemName = 1 WHERE mascot.child_id = @child_id;   UPDATE child SET carrots =  carrots - @price Where child_id = @child_id;";
         private const string SQL_ChangeCurrentItem = "UPDATE mascot SET @property = @itemName WHERE mascot.child_id = @child_id;";
-       
+
+
         public MascotSqlDAL(string connectionString)
         {
             this.connectionString = connectionString;
@@ -70,7 +71,7 @@ namespace Capstone.Web.DAL.Mascot
                             Bow = Convert.ToBoolean(reader["bow"]),
                             BucketHat = Convert.ToBoolean(reader["bucket_hat"]),
                             Crown = Convert.ToBoolean(reader["crown"]),
-                            Flower = Convert.ToBoolean(reader["flower"]),
+                            FlowerCrown = Convert.ToBoolean(reader["flower"]),
                             PropellerHat = Convert.ToBoolean(reader["propeller_hat"]),
                             Sombrero = Convert.ToBoolean(reader["sombrero"]),
                             TopHat = Convert.ToBoolean(reader["top_hat"]),
@@ -142,5 +143,119 @@ namespace Capstone.Web.DAL.Mascot
                 throw;
             }
         }
-    }
+
+        public List<int> GetListOfItems(int childId)
+        {
+            MascotModel mascot = new MascotModel();
+            List<int> itemList = new List<int>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(SQL_GetMascot, conn);
+                    cmd.Parameters.AddWithValue("@child_Id", childId);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+
+                        mascot.BaseballHat = Convert.ToBoolean(reader["baseball_hat"]);
+                        mascot.Beanie = Convert.ToBoolean(reader["beanie"]);
+                        mascot.Bonnet = Convert.ToBoolean(reader["bonnet"]);
+                        mascot.Bow = Convert.ToBoolean(reader["bow"]);
+                        mascot.BucketHat = Convert.ToBoolean(reader["bucket_hat"]);
+                        mascot.Crown = Convert.ToBoolean(reader["crown"]);
+                        mascot.FlowerCrown = Convert.ToBoolean(reader["flower"]);
+                        mascot.PropellerHat = Convert.ToBoolean(reader["propeller_hat"]);
+                        mascot.Sombrero = Convert.ToBoolean(reader["sombrero"]);
+                        mascot.TopHat = Convert.ToBoolean(reader["top_hat"]);
+                        mascot.Beach = Convert.ToBoolean(reader["beach"]);
+                        mascot.City = Convert.ToBoolean(reader["city"]);
+                        mascot.Desert = Convert.ToBoolean(reader["desert"]);
+                        mascot.Forest = Convert.ToBoolean(reader["forest"]);
+                        mascot.Mountain = Convert.ToBoolean(reader["mountain"]);
+                        mascot.Ocean = Convert.ToBoolean(reader["ocean"]);
+
+
+                    };
+                    if (mascot.BaseballHat)
+                    {
+                        itemList.Add(1);
+                    };
+                    if (mascot.Beanie)
+                    {
+                        itemList.Add(2);
+                    }
+                    if (mascot.Bow)
+                    {
+                        itemList.Add(3);
+                    }
+                    if (mascot.BucketHat)
+                    {
+                        itemList.Add(4);
+                    }
+                    if (mascot.Bonnet)
+                    {
+                        itemList.Add(5);
+                    }
+                    if (mascot.PropellerHat)
+                    {
+                        itemList.Add(6);
+                    }
+                    if (mascot.Sombrero)
+                    {
+                        itemList.Add(7);
+                    }
+                    if (mascot.TopHat)
+                    {
+                        itemList.Add(8);
+                    }
+                    if (mascot.FlowerCrown)
+                    {
+                        itemList.Add(9);
+                    }
+                    if (mascot.Crown)
+                    {
+                        itemList.Add(10);
+                    }
+                    if (mascot.Beach)
+                    {
+                        itemList.Add(11);
+                    }
+                    if (mascot.City)
+                    {
+                        itemList.Add(12);
+                    }
+                    if (mascot.Desert)
+                    {
+                        itemList.Add(13);
+                    }
+                    if (mascot.Forest)
+                    {
+                        itemList.Add(14);
+                    }
+                    if (mascot.Mountain)
+                    {
+                        itemList.Add(15);
+                    }
+                    if (mascot.Ocean)
+                    {
+                        itemList.Add(16);
+                    }
+
+                }
+
+            }
+            
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return itemList;
+        }
+}
 }
