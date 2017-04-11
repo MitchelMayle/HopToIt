@@ -239,14 +239,20 @@ namespace Capstone.Web.Controllers
         
             viewModel.Hats = itemsDAL.GetHats();
             viewModel.Backgrounds = itemsDAL.GetBackgrounds();
-          
 
+            Session["storeModel"] = viewModel;
+           
             return View("Store", viewModel);
         }
 
         [HttpPost]
         public ActionResult Store(StoreViewModel storeModel)
         {
+            StoreViewModel sessionModel = Session["storeModel"] as StoreViewModel;
+            storeModel.Hats = sessionModel.Hats;
+            storeModel.Mascot = sessionModel.Mascot;
+            storeModel.Backgrounds = sessionModel.Backgrounds;
+
             // validation redirect
             if (!ModelState.IsValid)
             {
@@ -260,18 +266,28 @@ namespace Capstone.Web.Controllers
             }
 
             ChildModel child = Session["child"] as ChildModel;
+            ItemModel purchasedItem = itemsDAL.GetItem(storeModel.ItemId);
 
+            if(purchasedItem.Price > child.Carrots)
+            {
+
+                ModelState.AddModelError("insufficient-carrots", "You do not have enough carrots to purchase that item.");
+                return View("Store", storeModel);
+
+            }
         
-
             // check if child needs to create mascot
             if (child.Mascot == null)
             {
                 return RedirectToAction("ChooseMascot");
             }
 
-            mascotDAL.PurchaseItem(0, null);
-
-            return RedirectToAction("Closet");
+            mascotDAL.PurchaseItem(child.Child_Id, purchasedItem.Image, purchasedItem.Price);
+            
+            child = childDAL.GetChild(child.UserName);
+            child.Mascot = mascotDAL.GetMascot(child);
+            Session["child"] = child;
+            return RedirectToAction("Closet", child);
         }
 
         public ActionResult Game()

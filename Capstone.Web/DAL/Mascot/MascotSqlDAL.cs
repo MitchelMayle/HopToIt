@@ -12,7 +12,7 @@ namespace Capstone.Web.DAL.Mascot
         private readonly string connectionString;
         private const string SQL_CreateMascot = "INSERT INTO mascot VALUES (@mascot_image, @child_id, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);";
         private const string SQL_GetMascot = "SELECT * FROM mascot INNER JOIN child on child.child_id = mascot.child_id WHERE child.child_id = @child_id;";
-        private const string SQL_PurchaseItem = "UPDATE mascot SET @itemName = 1 WHERE mascot.child_id = @child_id;";
+        private const string SQL_PurchaseItem = "UPDATE mascot SET @itemName = 1 WHERE mascot.child_id = @child_id;   UPDATE child SET carrots =  carrots - @price Where child_id = @child_id;";
         private const string SQL_ChangeCurrentItem = "UPDATE mascot SET @property = @itemName WHERE mascot.child_id = @child_id;";
        
         public MascotSqlDAL(string connectionString)
@@ -101,7 +101,7 @@ namespace Capstone.Web.DAL.Mascot
             }
         }
 
-        public void PurchaseItem(int childId, string itemName)
+        public void PurchaseItem(int childId, string itemName, int itemPrice)
         {
             try
             {
@@ -111,6 +111,7 @@ namespace Capstone.Web.DAL.Mascot
                     SqlCommand cmd = new SqlCommand(SQL_PurchaseItem, conn);
                     cmd.Parameters.AddWithValue("@itemName", itemName);
                     cmd.Parameters.AddWithValue("@child_id", childId);
+                    cmd.Parameters.AddWithValue("@price", itemPrice);
 
                     cmd.ExecuteNonQuery();
                 }

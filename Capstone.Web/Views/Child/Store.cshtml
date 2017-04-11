@@ -9,7 +9,7 @@
 <h2>Store</h2>
 
 
-
+@Html.ValidationMessage("insufficient-carrots")
 
 @using (Html.BeginForm("Store", "Child", FormMethod.Post))
 {
@@ -17,7 +17,7 @@
         @foreach (ItemModel hat in @Model.Hats)
         {
             <div class="storeitemdiv">
-                <img class="storehatimg" src="~/Content/images/Resized/@hat.Image" />
+                <img class="storehatimg" src="~/Content/images/Resized/@(hat.Image).png" />
                 <p class="storeprice">@(hat.Price) carrots</p>
                 @Html.RadioButtonFor(m => m.ItemId, hat.Item_Id)
             </div>
@@ -27,7 +27,7 @@
         @foreach (ItemModel background in @Model.Backgrounds)
         {
             <div class="storeitemdiv">
-                <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/@(background.Image)"/>
+                <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/@(background.Image).png"/>
                 <p class="storeprice">@(background.Price) carrots</p>
                 @Html.RadioButtonFor(m => m.ItemId, background.Item_Id)
             </div>

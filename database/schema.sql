@@ -76,20 +76,20 @@ CREATE TABLE items(
 
 INSERT INTO items VALUES
 -- hats
-('baseball_hat.png', 25, 'Hat'),
-('beanie.png', 50, 'Hat'),
-('bow.png', 75, 'Hat'),
-('bucket_hat.png', 100, 'Hat'),
-('bonnet.png', 125, 'Hat'),
-('propeller_hat.png', 150, 'Hat'),
-('sombrero.png', 175, 'Hat'),
-('top_hat.png', 200, 'Hat'),
-('flower_crown.png', 250, 'Hat'),
-('crown.png', 500, 'Hat'),
+('baseball_hat', 25, 'Hat'),
+('beanie', 50, 'Hat'),
+('bow', 75, 'Hat'),
+('bucket_hat', 100, 'Hat'),
+('bonnet', 125, 'Hat'),
+('propeller_hat', 150, 'Hat'),
+('sombrero', 175, 'Hat'),
+('top_hat', 200, 'Hat'),
+('flower_crown', 250, 'Hat'),
+('crown', 500, 'Hat'),
 -- backgrounds
-('beach.png', 150, 'Background'),
-('city.png', 150, 'Background'),
-('desert.png', 150, 'Background'),
-('forest.png', 150, 'Background'),
-('mountain.png', 150, 'Background'),
-('ocean.png', 150, 'Background');
+('beach', 150, 'Background'),
+('city', 150, 'Background'),
+('desert', 150, 'Background'),
+('forest', 150, 'Background'),
+('mountain', 150, 'Background'),
+('ocean', 150, 'Background');
