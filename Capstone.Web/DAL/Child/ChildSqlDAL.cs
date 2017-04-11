@@ -14,6 +14,8 @@ namespace Capstone.Web.DAL.Child
         private const string SQL_GetChild = "SELECT * FROM child WHERE child.username = @username;";
         private const string SQL_UpdateSeconds = "UPDATE child SET seconds = @seconds WHERE username = @userName;";
         private const string SQL_AddCarrot = "UPDATE child SET carrots = carrots + 1 WHERE username = @username;";
+        private const string SQL_GetLeadersByCarrots = "Select * from child order by carrots desc;";
+        private const string SQL_GetLeadersBySteps = "Select * from child order by seconds desc;";
 
         public ChildSqlDAL(string connectionString)
         {
@@ -117,6 +119,73 @@ namespace Capstone.Web.DAL.Child
             {
                 throw;
             }
+
+        }
+
+        public List<ChildModel> GetLeadersByCarrots()
+        {
+            List<ChildModel> childList = new List<ChildModel>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_GetLeadersByCarrots, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while(reader.Read())
+                    {
+                        ChildModel child = new ChildModel()
+                        {
+                            First_Name = Convert.ToString(reader["first_name"]),
+                            Seconds = Convert.ToInt32(reader["seconds"]),
+                            Carrots = Convert.ToInt32(reader["carrots"]),
+                            UserName = Convert.ToString(reader["username"]),
+                        };
+                        childList.Add(child);
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return childList;
+        }
+
+        public List<ChildModel> GetLeadersBySteps()
+        {
+            List<ChildModel> childList = new List<ChildModel>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_GetLeadersBySteps, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        ChildModel child = new ChildModel()
+                        {
+                            First_Name = Convert.ToString(reader["first_name"]),
+                            Seconds = Convert.ToInt32(reader["seconds"]),
+                            Carrots = Convert.ToInt32(reader["carrots"]),
+                            UserName = Convert.ToString(reader["username"]),
+                        };
+                        childList.Add(child);
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return childList;
         }
     }
 }

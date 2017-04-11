@@ -1,4 +1,6 @@
-﻿using Capstone.Web.Models;
+﻿using Capstone.Web.DAL.Child;
+using Capstone.Web.Models;
+using Capstone.Web.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,13 @@ namespace Capstone.Web.Controllers
 {
     public class HomeController : Controller
     {
+        public IChildDAL childDAL;
+        public HomeController(IChildDAL childDAL)
+        {
+            this.childDAL = childDAL;
+
+        }
+
         public ActionResult Index()
         {
             return View("Index");
@@ -37,6 +46,30 @@ namespace Capstone.Web.Controllers
             Session.Abandon();
 
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult Leaderboard()
+        {
+
+            LeaderboardViewModel leaderboard = new LeaderboardViewModel();
+            leaderboard.ChildList = childDAL.GetLeadersByCarrots();
+
+            return View("LeaderBoard", leaderboard);
+        }
+        [HttpPost]
+        public ActionResult Leaderboard(bool MinutesOption)
+        {
+            LeaderboardViewModel leaderboard = new LeaderboardViewModel();
+            if(MinutesOption)
+            {
+                leaderboard.ChildList = childDAL.GetLeadersByCarrots();
+            }
+            else
+            {
+                leaderboard.ChildList = childDAL.GetLeadersBySteps();
+            }
+
+            return View("LeaderBoard", leaderboard);
         }
     }
 }

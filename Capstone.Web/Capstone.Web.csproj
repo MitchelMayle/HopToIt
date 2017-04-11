@@ -213,6 +213,7 @@
     <Compile Include="Models\ViewModels\ChildLoginModel.cs" />
     <Compile Include="Models\ViewModels\ChildRegistrationModel.cs" />
     <Compile Include="Models\ViewModels\ChooseMascotModel.cs" />
+    <Compile Include="Models\ViewModels\LeaderboardViewModel.cs" />
     <Compile Include="Models\ViewModels\ParentLoginModel.cs" />
     <Compile Include="Models\ViewModels\ParentRegistrationModel.cs" />
     <Compile Include="Models\ViewModels\StoreViewModel.cs" />
@@ -243,6 +244,7 @@
     <Content Include="Views\Child\Closet.cshtml" />
     <Content Include="Views\Child\Store.cshtml" />
     <Content Include="Views\Child\Game.cshtml" />
+    <Content Include="Views\Home\LeaderBoard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
