@@ -67,7 +67,7 @@ function goDown() {
 
 function checkNextStep() {
     var bunny = $(".bunny");
-    if (bunny.hasClass("trap")) {
+    if (bunny.hasClass("bush")) {
         $("h2").text("Game Over");
         $("h2").addClass("gameover");
         bunny.removeClass("bunny");

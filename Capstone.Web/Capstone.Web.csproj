@@ -129,10 +129,10 @@
     <Content Include="Content\images\fitted_items\sombrero_bunny.png" />
     <Content Include="Content\images\fitted_items\TopHat_bunny.png" />
     <Content Include="Content\images\game\bunny.gif" />
+    <Content Include="Content\images\game\bush.png" />
     <Content Include="Content\images\game\carrot.jpg" />
     <Content Include="Content\images\game\grass texture.jpg" />
     <Content Include="Content\images\game\grass.jpg" />
-    <Content Include="Content\images\game\trap.jpg" />
     <Content Include="Content\images\hourglass.png" />
     <Content Include="Content\images\Resized\baseball_hat.png" />
     <Content Include="Content\images\Resized\beanie.png" />

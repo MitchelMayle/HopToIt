@@ -37,8 +37,8 @@
             background-repeat: no-repeat;
         }
 
-        #game #gameboard .trap {
-            background-image: url('images/game/trap.jpg');
+        #game #gameboard .bush {
+            background-image: url('images/game/bush.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
         }
