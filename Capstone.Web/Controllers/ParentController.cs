@@ -106,7 +106,10 @@ namespace Capstone.Web.Controllers
         public ActionResult Dashboard()
         {
             // check if logged in
-            IsLoggedIn(Session["parent"] as ParentModel);
+            if (Session["parent"] == null)
+            {
+                return View("Login");
+            }
 
             ParentModel parent = Session["parent"] as ParentModel;
 
@@ -130,13 +133,15 @@ namespace Capstone.Web.Controllers
 
             return View("Dashboard", parent);
         }
-        //[Route("AddActivity")]
+
         [HttpGet]
         public ActionResult AddActivity(string userName)
         {
-
             // check if logged in
-            IsLoggedIn(Session["parent"] as ParentModel);
+            if (Session["parent"] == null)
+            {
+                return View("Login");
+            }
 
             ChildModel child = childDAL.GetChild(userName);
             child.Mascot = mascotDAL.GetMascot(child);
@@ -159,7 +164,10 @@ namespace Capstone.Web.Controllers
         public ActionResult AddActivity(AddActivityViewModel activityViewModel, string userName, int childId)
         {
             // check if logged in
-            IsLoggedIn(Session["parent"] as ParentModel);
+            if (Session["parent"] == null)
+            {
+                return View("Login");
+            }
 
             ActivityModel activity = new ActivityModel();
             activity.Seconds = activityViewModel.Steps / 10;
@@ -183,21 +191,14 @@ namespace Capstone.Web.Controllers
         public ActionResult ActivityHistory(int child_Id, string userName)
         {
             // check if logged in
-            IsLoggedIn(Session["parent"] as ParentModel);
-
-            ChildModel child = childDAL.GetChild(userName);
-            child.Activities = activityDAL.GetActivities(child_Id);
-            return View("ActivityHistory", child);
-        }
-
-        public ActionResult IsLoggedIn(ParentModel parent)
-        {
             if (Session["parent"] == null)
             {
                 return View("Login");
             }
 
-            return null;
+            ChildModel child = childDAL.GetChild(userName);
+            child.Activities = activityDAL.GetActivities(child_Id);
+            return View("ActivityHistory", child);
         }
     }
 }

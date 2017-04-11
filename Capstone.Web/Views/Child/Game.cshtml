@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link href="~/Content/gamestyles.css" rel="stylesheet" />
+    <script src="~/Scripts/game.js"></script>
+</head>
+
+<div id="game">
+    <h2>Bunny Adventure</h2>
+    <button id="btnRestart">Restart</button>
+
+    <table id="gameboard">
+
+        @for (int row = 0; row < 10; row++)
+        {
+            string rowId = $"row_{row}";
+            <tr id="@rowId" class="gamerow">
+
+                @for (int column = 0; column < 10; column++)
+                {
+                    string cellId = $"row_{row}_column_{column}";
+                    string cellClass = "gamecell";
+                    if (column == 0 && row == 0)
+                    {
+                        cellClass += " bunny";
+                    }
+                    else if (column == 9 && row == 9)
+                    {
+                        cellClass += " carrot";
+                    }
+                    else
+                    {
+                        if (((row * column) + (column + 1)) % 2 == 0)
+                        {
+                            cellClass += " trap";
+                        }
+                        else if (((row * column) + (column + 1)) % 7 == 0)
+                        {
+                            cellClass += " trap";
+                        }
+                    }
+                    <td id="@cellId" class="@cellClass"></td>
+                }
+            </tr>
+        }
+
+    </table>
+
+</div>

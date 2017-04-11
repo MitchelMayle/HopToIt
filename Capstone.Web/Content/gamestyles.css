@@ -1,0 +1,50 @@
+﻿#game {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+    #game h2.gameover {
+        color: #C33333;
+    }
+
+    #game h2.gamewin {
+        color: #008542;
+    }
+
+    #game table {
+        width: 600px;
+        height: 450px;
+        table-layout: fixed;
+    }
+
+    #game table,
+    #game td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    #game #gameboard {
+        background-image: url('images/game/grass.jpg');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        margin: 5px auto;
+    }
+
+        #game #gameboard .bunny {
+            background-image: url('images/game/bunny.gif');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        #game #gameboard .trap {
+            background-image: url('images/game/trap.jpg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        #game #gameboard .carrot {
+            background-image: url('images/game/carrot.jpg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
