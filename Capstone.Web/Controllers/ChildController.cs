@@ -199,6 +199,7 @@ namespace Capstone.Web.Controllers
             return RedirectToAction("Dashboard");
         }
 
+        [HttpGet]
         public ActionResult Closet()
         {
             // check if logged in
@@ -216,6 +217,33 @@ namespace Capstone.Web.Controllers
             }
 
             return View("Closet", child);
+        }
+
+        [HttpPost]
+        public ActionResult Closet(ChildModel model)
+        {
+            // check if logged in
+            if (Session["child"] == null)
+            {
+                return View("Login");
+            }
+
+            ChildModel child = Session["child"] as ChildModel;
+
+            if (model.Mascot.CurrentHat != null)
+            {
+                mascotDAL.UpdateHat(child.Mascot.Mascot_Id, model.Mascot.CurrentHat);
+            }
+
+            if (model.Mascot.CurrentBackground != null)
+            {
+                mascotDAL.UpdateBackground(child.Mascot.Mascot_Id, model.Mascot.CurrentBackground);
+            }
+
+            child.Mascot = mascotDAL.GetMascot(child);
+            Session["child"] = child;
+
+            return RedirectToAction("Closet");
         }
 
         [HttpGet]
