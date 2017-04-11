@@ -1,4 +1,5 @@
 ﻿using Capstone.Web.DAL.Child;
+using Capstone.Web.DAL.Mascot;
 using Capstone.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -9,15 +10,16 @@ using System.Web.Security;
 
 namespace Capstone.Web.Controllers
 {
-    public class API_TimeController : Controller
+    public class APIController : Controller
     {
         private readonly IChildDAL childDAL;
-        public API_TimeController(IChildDAL childDAL)
+        private readonly IMascotDAL mascotDAL;
+        public APIController(IChildDAL childDAL, IMascotDAL mascotDAL)
         {
             this.childDAL = childDAL;
+            this.mascotDAL = mascotDAL;
         }
 
-        [Route("api/getTime")]
         public ActionResult GetTime(string userName)
         {
             ChildModel child = childDAL.GetChild(userName);
@@ -25,7 +27,6 @@ namespace Capstone.Web.Controllers
             return Json(child.Seconds, JsonRequestBehavior.AllowGet);
         }
 
-        [Route("api/updateTime")]
         public ActionResult UpdateTime(string userName, int secondsRemaining)
         {
             childDAL.UpdateSeconds(userName, secondsRemaining);
@@ -34,6 +35,17 @@ namespace Capstone.Web.Controllers
             {
                 return RedirectToAction("Logout", "Home");
             }
+
+            return null;
+        }
+
+        public ActionResult AddCarrot(string userName)
+        {
+            childDAL.AddCarrot(userName);
+
+            ChildModel child = childDAL.GetChild(userName);
+            child.Mascot = mascotDAL.GetMascot(child);
+            Session["child"] = child;
 
             return null;
         }

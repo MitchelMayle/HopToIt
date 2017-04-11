@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+﻿$(document).onload(function () {
 
     setInterval(updateTime, 1000);
 

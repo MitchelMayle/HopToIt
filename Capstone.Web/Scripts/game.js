@@ -70,14 +70,15 @@ function goDown() {
 function checkNextStep() {
     var bunny = $(".bunny");
     if (bunny.hasClass("trap")) {
-        $("h2").text("Bunny Adventure - Game Over");
+        $("h2").text("Game Over");
         $("h2").addClass("gameover");
         bunny.removeClass("bunny");
     }
     else if (bunny.hasClass("carrot")) {
-        $("h2").text("Bunny Adventure - You Win!");
+        $("h2").text("You won 1 carrot!");
         $("h2").addClass("gamewin");
         bunny.removeClass("bunny");
+        addCarrot();
     }
 }
 
@@ -85,4 +86,15 @@ function restart() {
     $("#gameboard td:first").addClass("bunny");
     $("h2").text("Bunny Adventure").removeClass("gameover");
     $("h2").text("Bunny Adventure").removeClass("gamewin");
+}
+
+function addCarrot() {
+    $.ajax({
+        url: addCarrotURL,
+        type: "POST",
+        data: {
+            username: username
+        },
+        dataType: "json"
+    });
 }

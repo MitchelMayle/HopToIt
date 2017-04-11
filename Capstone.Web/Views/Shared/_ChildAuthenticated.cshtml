@@ -1,12 +1,12 @@
-﻿@using Capstone.Web.Models
-@model ChildModel
+﻿@model Capstone.Web.Models.ChildModel
 
 <head>
     <script src="~/Scripts/time_tracking.js"></script>
     <script type="text/javascript">
         var redirectURL = '@Url.Action("OutOfTime", "Child")'
-        var getTimeURL = '@Url.Action("GetTime", "API_Time")'
-        var updateTimeURL = '@Url.Action("UpdateTime", "API_Time")'
+        var getTimeURL = '@Url.Action("GetTime", "API")'
+        var updateTimeURL = '@Url.Action("UpdateTime", "API")'
+        var addCarrotURL = '@Url.Action("AddCarrot", "API")'
     </script>
 </head>
 

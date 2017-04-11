@@ -12,7 +12,8 @@ namespace Capstone.Web.DAL.Child
         private readonly string connectionString;
         private const string SQL_CreateChild = "INSERT INTO child VALUES (@parent_id, @username, @first_name, 0, 0, @password, @salt);";
         private const string SQL_GetChild = "SELECT * FROM child WHERE child.username = @username;";
-        private const string SQL_UpdateSeconds = "UPDATE child SET seconds = @seconds WHERE child.username = @userName;";
+        private const string SQL_UpdateSeconds = "UPDATE child SET seconds = @seconds WHERE username = @userName;";
+        private const string SQL_AddCarrot = "UPDATE child SET carrots = carrots + 1 WHERE username = @username;";
 
         public ChildSqlDAL(string connectionString)
         {
@@ -88,6 +89,25 @@ namespace Capstone.Web.DAL.Child
                     conn.Open();
                     SqlCommand cmd = new SqlCommand(SQL_UpdateSeconds, conn);
                     cmd.Parameters.AddWithValue("@seconds", newSecondsTotal);
+                    cmd.Parameters.AddWithValue("@userName", userName);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException e)
+            {
+                throw;
+            }
+        }
+
+        public void AddCarrot(string userName)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_AddCarrot, conn);
                     cmd.Parameters.AddWithValue("@userName", userName);
 
                     cmd.ExecuteNonQuery();

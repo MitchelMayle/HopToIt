@@ -11,5 +11,6 @@ namespace Capstone.Web.DAL.Child
         void CreateChild(ChildModel newChild);
         ChildModel GetChild(string userName);
         void UpdateSeconds(string userName, int secondsToSubtract);
+        void AddCarrot(string userName);
     }
 }
