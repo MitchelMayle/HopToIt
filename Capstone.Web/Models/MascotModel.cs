@@ -22,5 +22,11 @@ namespace Capstone.Web.Models
         public bool PropellerHat { get; set; }
         public bool Sombrero { get; set; }
         public bool TopHat { get; set; }
+        public bool Beach { get; set; }
+        public bool City { get; set; }
+        public bool Desert { get; set; }
+        public bool Forest { get; set; }
+        public bool Mountain { get; set; }
+        public bool Ocean { get; set; }
     }
 }

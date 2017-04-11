@@ -4,9 +4,7 @@
     ViewBag.Title = "Closet";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2>@Model.UserName's Closet</h2>
-
 @if (Model.Mascot != null)
 {
     <section id="parent">
@@ -21,7 +19,7 @@
 
         }
         else if (Model.Mascot.CurrentHat == null)
-        { 
+        {
             <div><img class="mascotImage" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" /></div>
             <div><img class="background image" src="~/Content/images/backgrounds/@Model.Mascot.CurrentBackground" />"/></div>
         }
@@ -35,25 +33,86 @@
 }
 else
 {
-<div class="mascotDiv">
-    <img src="~/Content/images/mascots/default.png" id="mascot" />
-</div>
+    <div class="mascotDiv">
+        <img src="~/Content/images/mascots/default.png" id="mascot" />
+    </div>
 }
 
-
-@*<section class="closetContainer">
-    using (Html.BeginForm("ChooseClosetItems", "Child", FormMethod.Post))
+<section class="closetContainer">
+    @using (Html.BeginForm("ChooseClosetItems", "Child", FormMethod.Post))
     {
-    <h2>Your Purchases</h2>
+        <h2>Your Purchases</h2>
 
-    @foreach ()
-    { 
-        <div>
-            adds radio button for image
-            @Html.RadioButtonFor(m => m.Mascot, <img src="~/Content/images/Resized/>@*purchased items*@
-        @*</div>
-
+        if (Model.Mascot.BaseballHat == true)
+        {
+            @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "BaseballCap_bunny.png") <div class="storeitemdiv"> <img class="storehatimg" src="~/Content/images/Resized/baseball_hat.png" /></div>
         }
+        if (Model.Mascot.Beanie == true)
+        {
+            @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "beanie_bunny.png") <div class="storeitemdiv"> <img class="storehatimg" src="~/Content/images/Resized/beanie.png" /></div>
+        }
+
+        if (Model.Mascot.Bonnet == true)
+        {
+            @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "bonnet_bunny.png") <div class="storeitemdiv"> <img class="storehatimg" src="~/Content/images/Resized/bonnet.png" /></div>
+        }
+
+        if (Model.Mascot.Bow == true)
+        {
+            @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "Bow_bunny.png") <div class="storeitemdiv"> <img class="storehatimg" src="~/Content/images/Resized/bow.png" /></div>
+        }
+
+        if (Model.Mascot.BucketHat == true)
+        {
+            @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "BucketHat_bunny.png") <div class="storeitemdiv"> <img class="storehatimg" src="~/Content/images/Resized/bucket_hat.png" /></div>
+        }
+
+        if (Model.Mascot.Crown == true)
+        {
+            @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "Crown_bunny.png") <div class="storeitemdiv"> <img class="storehatimg" src="~/Content/images/Resized/crown.png" /></div>
+        }
+
+        if (Model.Mascot.Flower == true)
+        {
+            @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "FlowerCrown_bunny.png") <div class="storeitemdiv"> <img class="storehatimg" src="~/Content/images/Resized/flower_crown.png" /></div>
+        }
+
+        if (Model.Mascot.PropellerHat == true)
+        {
+            @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "propeller_bunny.png") <div class="storeitemdiv"> <img class="storehatimg" src="~/Content/images/Resized/propeller_hat.png" /></div>
+        }
+        if (Model.Mascot.Sombrero== true)
+        {
+            @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "sombrero_bunny.png") <div class="storeitemdiv"> <img class="storehatimg" src="~/Content/images/Resized/sombrero.png" /></div>
+        }
+        if (Model.Mascot.TopHat == true)
+        {
+            @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "TopHat_bunny.png") <div class="storeitemdiv"> <img class="storehatimg" src="~/Content/images/Resized/top_hat.png" /></div>
+        }
+        if (Model.Mascot.TopHat == true)
+        {
+            @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "TopHat_bunny.png") <div class="storeitemdiv"> <img class="storehatimg" src="~/Content/images/Resized/top_hat.png" /></div>
+        }
+        if (Model.Mascot.TopHat == true)
+        {
+            @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "TopHat_bunny.png") <div class="storeitemdiv"> <img class="storehatimg" src="~/Content/images/Resized/top_hat.png" /></div>
+        }
+        if (Model.Mascot.TopHat == true)
+        {
+            @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "TopHat_bunny.png") <div class="storeitemdiv"> <img class="storehatimg" src="~/Content/images/Resized/top_hat.png" /></div>
+        }
+        if (Model.Mascot.TopHat == true)
+        {
+            @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "TopHat_bunny.png") <div class="storeitemdiv"> <img class="storehatimg" src="~/Content/images/Resized/top_hat.png" /></div>
+        }
+        if (Model.Mascot.TopHat == true)
+        {
+            @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "TopHat_bunny.png") <div class="storeitemdiv"> <img class="storehatimg" src="~/Content/images/Resized/top_hat.png" /></div>
+        }
+        if (Model.Mascot.TopHat == true)
+        {
+            @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "TopHat_bunny.png") <div class="storeitemdiv"> <img class="storehatimg" src="~/Content/images/Resized/top_hat.png" /></div>
+        }
+
     }
-        <button class="mascotDivButton"> Submit </button>
-   </section>*@
+</section>
