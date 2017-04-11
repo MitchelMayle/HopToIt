@@ -27,7 +27,7 @@
         @foreach (ItemModel background in @Model.Backgrounds)
         {
             <div class="storeitemdiv">
-                <img class="storehatimg" src="~/Content/images/backgrounds/Resized_Backgrounds/@(background.Image)" />
+                <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/@(background.Image)"/>
                 <p class="storeprice">@(background.Price) carrots</p>
                 @Html.RadioButtonFor(m => m.ItemId, background.Item_Id)
             </div>

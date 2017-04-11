@@ -6,7 +6,7 @@ DROP TABLE activity;
 DROP TABLE mascot;
 DROP TABLE child;
 DROP TABLE parent;
-
+DROP TABLE items;
 
 CREATE TABLE parent (
 	parent_id		integer			identity,
