@@ -74,6 +74,12 @@ namespace Capstone.Web.DAL.Mascot
                             PropellerHat = Convert.ToBoolean(reader["propeller_hat"]),
                             Sombrero = Convert.ToBoolean(reader["sombrero"]),
                             TopHat = Convert.ToBoolean(reader["top_hat"]),
+                            Beach = Convert.ToBoolean(reader["beach"]),
+                            City = Convert.ToBoolean(reader["city"]),
+                            Desert = Convert.ToBoolean(reader["desert"]),
+                            Forest = Convert.ToBoolean(reader["forest"]),
+                            Mountain = Convert.ToBoolean(reader["mountain"]),
+                            Ocean = Convert.ToBoolean(reader["ocean"]),
                         };
 
                         if (mascot.CurrentHat == "")
