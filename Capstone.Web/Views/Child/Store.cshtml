@@ -17,9 +17,12 @@
         @foreach (ItemModel hat in @Model.Hats)
         {
             <div class="storeitemdiv">
-                <img class="storehatimg" src="~/Content/images/Resized/@(hat.Image).png" />
-                <p class="storeprice">@(hat.Price) carrots</p>
-                @Html.RadioButtonFor(m => m.ItemId, hat.Item_Id)
+                <label>
+                    @Html.RadioButtonFor(m => m.ItemId, hat.Item_Id, new { @visibility = "hidden" })
+                    <img class="storehatimg" src="~/Content/images/Resized/@(hat.Image).png" />
+                </label>
+                    <p class="storeprice">@(hat.Price) carrots</p>
+                
             </div>
         }
     </div>
@@ -27,9 +30,12 @@
         @foreach (ItemModel background in @Model.Backgrounds)
         {
             <div class="storeitemdiv">
-                <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/@(background.Image).png"/>
+                <label>
+                    @Html.RadioButtonFor(m => m.ItemId, background.Item_Id, new { @visibility = "hidden" })
+                    <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/@(background.Image).png" />
+                </label>
                 <p class="storeprice">@(background.Price) carrots</p>
-                @Html.RadioButtonFor(m => m.ItemId, background.Item_Id)
+                
             </div>
 
         }
