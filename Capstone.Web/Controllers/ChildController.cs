@@ -262,6 +262,7 @@ namespace Capstone.Web.Controllers
             {
                 return RedirectToAction("ChooseMascot");
             }
+
             StoreViewModel viewModel = new StoreViewModel();
             viewModel.Mascot = child.Mascot;
 
@@ -276,12 +277,20 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult Store(StoreViewModel storeModel)
         {
+            // check if logged in
+            if (Session["child"] == null)
+            {
+                return View("Login");
+            }
+
             ChildModel child = Session["child"] as ChildModel;  
+
             // check if child needs to create mascot
             if (child.Mascot == null)
             {
                 return RedirectToAction("ChooseMascot");
             }
+
             StoreViewModel sessionModel = Session["storeModel"] as StoreViewModel;
             storeModel.Hats = sessionModel.Hats;
             storeModel.Mascot = sessionModel.Mascot;
@@ -293,13 +302,6 @@ namespace Capstone.Web.Controllers
                 return View("Store");
             }
 
-            // check if logged in
-            if (Session["child"] == null)
-            {
-                return View("Login");
-            }
-
-            
             ItemModel purchasedItem = itemsDAL.GetItem(storeModel.ItemId);
 
             if (purchasedItem.Price > child.Carrots)
@@ -307,6 +309,7 @@ namespace Capstone.Web.Controllers
                 ModelState.AddModelError("insufficient-carrots", "You do not have enough carrots to purchase that item.");
                 return View("Store", storeModel);
             }
+
             child.Mascot.OwnedItems = mascotDAL.GetListOfItems(child.Child_Id);
            
             if (child.Mascot.OwnedItems.Contains(purchasedItem.Item_Id))
@@ -314,16 +317,13 @@ namespace Capstone.Web.Controllers
                 ModelState.AddModelError("item-already-purchased", "You aready own this item!");
                 return View("Store", storeModel);
             }
+
             mascotDAL.PurchaseItem(child.Child_Id, purchasedItem.Image, purchasedItem.Price);
-
-
-
-
-           
 
             child = childDAL.GetChild(child.UserName);
             child.Mascot = mascotDAL.GetMascot(child);
             Session["child"] = child;
+
             return RedirectToAction("Closet", child);
         }
 
