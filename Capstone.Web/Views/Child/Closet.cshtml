@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>@Model.UserName's Closet</h2>
+
 @if (Model.Mascot != null)
 {
     <section id="parent">
@@ -105,7 +106,7 @@ else
             </div>
         }
 
-        if (Model.Mascot.Flower == true)
+        if (Model.Mascot.FlowerCrown == true)
         {
             <div class="storeitemdiv">
                 <label>
@@ -146,7 +147,7 @@ else
         {
             <div class="storeitemdiv">
                 <label>
-                    @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "Background_beach_layer.png", new { @visibility = "hidden" })
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentBackground, "Background_beach_layer.png", new { @visibility = "hidden" })
                     <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/beach.png" />
                 </label>
             </div>
@@ -155,7 +156,7 @@ else
         {
             <div class="storeitemdiv">
                 <label>
-                    @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "Background_city_layer.png", new { @visibility = "hidden" })
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentBackground, "Background_city_layer.png", new { @visibility = "hidden" })
                     <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/city.png" />
                 </label>
             </div>
@@ -164,7 +165,7 @@ else
         {
             <div class="storeitemdiv">
                 <label>
-                    @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "Background_desert_layer.png", new { @visibility = "hidden" })
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentBackground, "Background_desert_layer.png", new { @visibility = "hidden" })
                     <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/desert.png" />
                 </label>
             </div>
@@ -173,7 +174,7 @@ else
         {
             <div class="storeitemdiv">
                 <label>
-                    @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "background_forest_layer.png", new { @visibility = "hidden" })
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentBackground, "background_forest_layer.png", new { @visibility = "hidden" })
                     <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/forest.png" />
                 </label>
             </div>
@@ -182,7 +183,7 @@ else
         {
             <div class="storeitemdiv">
                 <label>
-                    @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "background_mountain_layer.png", new { @visibility = "hidden" })
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentBackground, "background_mountain_layer.png", new { @visibility = "hidden" })
                     <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/mountain.png" />
                 </label>
             </div>
@@ -191,11 +192,12 @@ else
         {
             <div class="storeitemdiv">
                 <label>
-                    @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "background_ocean_layer.png", new { @visibility = "hidden" })
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentBackground, "background_ocean_layer.png", new { @visibility = "hidden" })
                     <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/ocean.png" />
                 </label>
             </div>
         }
     }
-}
+    <br />
+    <button>Select Item</button>
 }
