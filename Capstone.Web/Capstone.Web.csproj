@@ -193,6 +193,8 @@
     <Compile Include="DAL\Activity\IActivityDAL.cs" />
     <Compile Include="DAL\Child\ChildSqlDAL.cs" />
     <Compile Include="DAL\Child\IChildDAL.cs" />
+    <Compile Include="DAL\Item\IItemsDAL.cs" />
+    <Compile Include="DAL\Item\ItemsSqlDAL.cs" />
     <Compile Include="DAL\Mascot\IMascotDAL.cs" />
     <Compile Include="DAL\Mascot\MascotSqlDAL.cs" />
     <Compile Include="DAL\Parent\IParentDAL.cs" />

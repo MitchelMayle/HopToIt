@@ -12,7 +12,6 @@ namespace Capstone.Web.DAL.Mascot
         MascotModel GetMascot(ChildModel child);
         void PurchaseItem(int childId, string itemName);
         void ChangeCurrentItem(int childId, string property, string itemName);
-        List<ItemModel> GetHats();
-        List<ItemModel> GetBackgrounds();
+
     }
 }

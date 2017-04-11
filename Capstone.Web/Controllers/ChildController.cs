@@ -258,6 +258,8 @@ namespace Capstone.Web.Controllers
 
             ChildModel child = Session["child"] as ChildModel;
 
+            ItemModel purchasedItem = mascotDAL.Get
+
             // check if child needs to create mascot
             if (child.Mascot == null)
             {
