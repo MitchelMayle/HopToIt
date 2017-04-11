@@ -159,14 +159,14 @@ body {
     position: absolute;
     font-size: large;
     right: 45%;
-    top: 20%;
+    top: 2%;
     height: auto;
 }
 
 #activitybutton {
     position: absolute;
     right: 10%;
-    top: 40%;
+    top: 25%;
     padding: 1%;
     color: white;
     background-color: #77b940;
@@ -178,7 +178,7 @@ body {
 #activityhistorybutton {
     position: absolute;
     right: 10%;
-    top: 70%;
+    top: 60%;
     padding: 1%;
     color: white;
     background-color: #77b940;
