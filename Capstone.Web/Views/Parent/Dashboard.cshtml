@@ -21,8 +21,9 @@
         foreach (ChildModel child in Model.Children)
         {
             <div class="childinformation">
+                <h2>  @child.UserName</h2>
                 <div id="usernameMascot">
-                    <h2>  @child.UserName</h2>
+
                     <div class="mascotDiv">
                         @if (child.Mascot == null)
                         {
@@ -42,11 +43,13 @@
                     <p>@(child.First_Name)'s total active minutes: @child.TotalMinutes.ToString("N0")</p>
 
                 </div>
-                <div id="activitybutton">
-                 @Html.ActionLink("Click here to input your child's activity", "AddActivity", new { userName = child.UserName })               
-                </div>
-                <div id="activityhistorybutton">
-                 @Html.ActionLink("Click here to view your child's history", "ActivityHistory", new { userName = child.UserName, child_Id = child.Child_Id })
+                <div id="activitydiv">
+                    <div id="activitybutton">
+                        @Html.ActionLink("Click here to input your child's activity", "AddActivity", new { userName = child.UserName })
+                    </div>
+                    <div id="activityhistorybutton">
+                        @Html.ActionLink("Click here to view your child's history", "ActivityHistory", new { userName = child.UserName, child_Id = child.Child_Id })
+                    </div>
                 </div>
             </div>
         }

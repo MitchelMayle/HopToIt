@@ -21,7 +21,6 @@ body {
 }
 
 h2 {
-    display: block;
     padding: 1%;
 }
 
@@ -139,64 +138,58 @@ body {
 
 .childinformation {
     color: #73583f;
-    padding: 10%;
+    padding: 2%;
     border: 7px solid;
     margin: 2.5%;
     background-color: antiquewhite;
-    position: relative;
-    height: auto;
-    width: auto;
+    display: flex;
 }
 
 #usernameMascot {
-    font-size: x-large;
-    position: absolute;
-    left: -10%;
-    top: 0%;
-}
-
-#dashboard_childInfo {
-    position: absolute;
-    font-size: large;
-    right: 45%;
-    top: 2%;
-    height: auto;
-}
-
-#activitybutton {
-    position: absolute;
-    right: 10%;
-    top: 25%;
-    padding: 1%;
-    color: white;
-    background-color: #77b940;
-    border-color: #73583f;
-    height: auto;
-    width: auto;
-}
-
-#activityhistorybutton {
-    position: absolute;
-    right: 10%;
-    top: 60%;
-    padding: 1%;
-    color: white;
-    background-color: #77b940;
-    border-color: #73583f;
-    height: auto;
-    width: auto;
+    display: flex;
+    justify-content: center;
 }
 
 #mascot {
-    width: 70%;
-    display: inline-block;
-    vertical-align: middle;
+    width: 150%;
 }
 
 .mascotDiv {
+    position: relative;
+    right: 22%;
     width: 15%;
-    display: inline-block;
-    margin: 4% 2% 0.5% 2%;
+}
+
+#dashboard_childInfo {
+    position: relative;
+    font-size: large;
+    right: 10%;
+    top: 2%;
+}
+
+#activitybutton {
+    padding: 6%;
+    margin: 8%;
+    background-color: #77b940;
+    height: 75px;
+}
+
+    #activitybutton a {
+        color: white;
+    }
+
+#activityhistorybutton {
+    padding: 6%;
+    margin: 8%;
+    background-color: #77b940;
+    height: 75px;
+}
+
+    #activityhistorybutton a {
+        color: white;
+    }
+
+#activitydiv {
 }
 
 .mascotDivButton {
@@ -209,9 +202,9 @@ body {
     margin: 2% 0 2% 0;
 }
 
-.closetSection{
-   display:inline-block;
-   margin: -8% 0% 60% 40%;
+.closetSection {
+    display: inline-block;
+    margin: -8% 0% 60% 40%;
 }
 
 #activityhistorytable {
@@ -231,62 +224,64 @@ body {
     }
 /* Store View Styling */
 
-   .storehatdiv h3 {
-       padding-top: 3%;
-       margin: 3%;
-       justify-content: center;
-   }
-
-    .storehatdiv{
-        border: solid #85a04f;
-        background-color: #f4e3ad;
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-        border-radius: 2%
-    }
-
-    .storeitemdiv{
-        border: solid #f4bd0c;
-        background-color: #d3e8ab;
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-        border-radius: 2%
-    }
-    
-    #storeitemdiv{
-        margin: 2%;
-        width: 20%;
-        display: inline-block;
-    }
-   
-   .storeitemdiv h3 {
-       margin: 3%;
-       justify-content: center;
-   }
-
-    .storehatimg{
-        width: 40%;
-        display: inline-block;
-    }
-
-    .storeprice{
-        display: block;       
-        width: 30px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-   /*Radio Button*/
-    label > input{ /* HIDE RADIO */
-  visibility: hidden; /* Makes input not-clickable */
-  position: absolute; /* Remove input from document flow */
+.storehatdiv h3 {
+    padding-top: 3%;
+    margin: 3%;
+    justify-content: center;
 }
-label > input + img{ /* IMAGE STYLES */
-  cursor:pointer;
-  border:2px solid transparent;
+
+.storehatdiv {
+    border: solid #85a04f;
+    background-color: #f4e3ad;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2%;
 }
-label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
-  border:2px solid #77b940;
+
+.storeitemdiv {
+    border: solid #f4bd0c;
+    background-color: #d3e8ab;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2%;
 }
+
+#storeitemdiv {
+    margin: 2%;
+    width: 20%;
+    display: inline-block;
+}
+
+.storeitemdiv h3 {
+    margin: 3%;
+    justify-content: center;
+}
+
+.storehatimg {
+    width: 40%;
+    display: inline-block;
+}
+
+.storeprice {
+    display: block;
+    width: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Radio Button*/
+label > input { /* HIDE RADIO */
+    visibility: hidden; /* Makes input not-clickable */
+    position: absolute; /* Remove input from document flow */
+}
+
+    label > input + img { /* IMAGE STYLES */
+        cursor: pointer;
+        border: 2px solid transparent;
+    }
+
+    label > input:checked + img { /* (RADIO CHECKED) IMAGE STYLES */
+        border: 2px solid #77b940;
+    }
