@@ -99,3 +99,5 @@ INSERT INTO items VALUES
 ('forest.png', 150, 'Background'),
 ('mountain.png', 150, 'Background'),
 ('ocean.png', 150, 'Background');
+
+Update Mascot Set baseball_hat= 1, beanie = 1, bonnet = 1, bow= 1, bucket_hat= 1, crown=1, flower= 1, propeller_hat= 1, sombrero= 1, top_hat= 1, beach= 1, city= 1, desert= 1, forest= 1, mountain= 1, ocean = 1 where child_id =1;
