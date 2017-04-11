@@ -49,6 +49,12 @@ CREATE TABLE mascot (
 	propeller_hat		bit				default 0,
 	sombrero			bit				default 0,
 	top_hat				bit				default 0,
+	beach				bit				default 0,
+	city				bit				default 0,
+	desert				bit				default 0,
+	forest				bit				default 0,
+	mountain			bit				default 0,
+	ocean				bit				default 0,
 
 	CONSTRAINT pk_mascot_mascot_id PRIMARY KEY (mascot_id),
 	CONSTRAINT fk_mascot_child_id FOREIGN KEY (child_id) REFERENCES child (child_id),
