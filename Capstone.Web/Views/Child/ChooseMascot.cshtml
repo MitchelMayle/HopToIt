@@ -1,7 +1,7 @@
 ﻿@model Capstone.Web.Models.ViewModels.ChooseMascotModel
 
 @{
-    ViewBag.Title ="Choose A New Mascot";
+    ViewBag.Title = "Choose A New Mascot";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -12,24 +12,23 @@
 @using (Html.BeginForm("ChooseMascot", "Child", FormMethod.Post))
 {
     <div class="mascotDiv">
-        <img src="~/Content/images/mascots/black.png" id="mascot" />
+        <label>
+            @Html.RadioButtonFor(m => m.Mascot_Image, "black.png", new { @visibility = "hidden" })
+            <img src="~/Content/images/mascots/black.png" id="mascot" />
+        </label>
     </div>
     <div class="mascotDiv">
-        <img src="~/Content/images/mascots/brown.png" id="mascot" />
+        <label>
+            @Html.RadioButtonFor(m => m.Mascot_Image, "brown.png", new { @visibility = "hidden" })
+            <img src="~/Content/images/mascots/brown.png" id="mascot" />
+        </label>
     </div>
     <div class="mascotDiv">
-        <img src="~/Content/images/mascots/gray.png" id="mascot" />
+        <label>
+            @Html.RadioButtonFor(m => m.Mascot_Image, "gray.png", new { @visibility = "hidden" })
+            <img src="~/Content/images/mascots/gray.png" id="mascot" />
+        </label>
     </div>
-    <br />
-    <div class="mascotDivButton">
-        @Html.RadioButtonFor(m => m.Mascot_Image, "black.png")
-    </div>
-    <div class="mascotDivButton">
-        @Html.RadioButtonFor(m => m.Mascot_Image, "brown.png")
-    </div>
-    <div class="mascotDivButton">
-        @Html.RadioButtonFor(m => m.Mascot_Image, "gray.png")
-    </div>
-    <br />
-        <button id="mascotButton"> Submit </button>
+    
+    <button id="mascotButton"> Submit </button>
 }
