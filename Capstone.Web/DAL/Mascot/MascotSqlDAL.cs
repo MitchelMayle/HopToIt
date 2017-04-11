@@ -15,7 +15,6 @@ namespace Capstone.Web.DAL.Mascot
         private const string SQL_PurchaseItem = "UPDATE mascot SET @itemName = 1 WHERE mascot.child_id = @child_id;";
         private const string SQL_ChangeCurrentItem = "UPDATE mascot SET @property = @itemName WHERE mascot.child_id = @child_id;";
        
-
         public MascotSqlDAL(string connectionString)
         {
             this.connectionString = connectionString;
@@ -76,6 +75,16 @@ namespace Capstone.Web.DAL.Mascot
                             Sombrero = Convert.ToBoolean(reader["sombrero"]),
                             TopHat = Convert.ToBoolean(reader["top_hat"]),
                         };
+
+                        if (mascot.CurrentHat == "")
+                        {
+                            mascot.CurrentHat = null;
+                        }
+
+                        if (mascot.CurrentBackground == "")
+                        {
+                            mascot.CurrentBackground = null;
+                        }
                     }
                     return mascot;
                 }
@@ -126,6 +135,5 @@ namespace Capstone.Web.DAL.Mascot
                 throw;
             }
         }
-   
     }
 }
