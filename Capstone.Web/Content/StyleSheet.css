@@ -209,6 +209,11 @@ body {
     margin: 2% 0 2% 0;
 }
 
+.closetSection{
+   display:inline-block;
+   margin: -8% 0% 60% 40%;
+}
+
 #activityhistorytable {
     background: white;
     margin-left: auto;
