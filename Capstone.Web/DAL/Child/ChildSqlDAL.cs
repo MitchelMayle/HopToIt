@@ -14,8 +14,8 @@ namespace Capstone.Web.DAL.Child
         private const string SQL_GetChild = "SELECT * FROM child WHERE child.username = @username;";
         private const string SQL_UpdateSeconds = "UPDATE child SET seconds = @seconds WHERE username = @userName;";
         private const string SQL_AddCarrot = "UPDATE child SET carrots = carrots + 1 WHERE username = @username;";
-        private const string SQL_GetLeadersByCarrots = "  Select child.username, sum(activity.seconds) as seconds, sum(activity.carrots) as carrots from Activity inner join child on child.child_id = activity.child_id group by child.username order by carrots desc;";
-        private const string SQL_GetLeadersBySteps = "  Select child.username, sum(activity.seconds) as seconds, sum(activity.carrots) as carrots from Activity inner join child on child.child_id = activity.child_id group by child.username order by carrots desc;";
+        private const string SQL_GetLeadersByCarrots = "  Select top 10 child.username, sum(activity.seconds) as seconds, sum(activity.carrots) as carrots from Activity inner join child on child.child_id = activity.child_id group by child.username order by carrots desc;";
+        private const string SQL_GetLeadersBySteps = "  Select top 10 child.username, sum(activity.seconds) as seconds, sum(activity.carrots) as carrots from Activity inner join child on child.child_id = activity.child_id group by child.username order by seconds desc;";
 
         public ChildSqlDAL(string connectionString)
         {
