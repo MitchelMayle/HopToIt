@@ -197,9 +197,6 @@ body {
         color: white;
     }
 
-#activitydiv {
-}
-
 .mascotDivButton {
     width: 15%;
     display: inline-block;
@@ -210,41 +207,29 @@ body {
     margin: 2% 0 2% 0;
 }
 
-.closetSection {
-    width: 60%;
+.closetWholeDiv {
+    border: solid #85a04f;
+    background-color: #f4e3ad;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    border-radius: 2%;
+    margin-top: 25%;
 }
 
-.closetItems {
+#closetItemDiv {
+    margin: 2%;
+    width: 20%;
+    display: inline-block;
+}
+
+.closetImg {
     width: 40%;
-    margin-left: auto;
+    display: inline-block;
 }
 
-#activityhistorytable {
-    background: white;
-    margin-left: auto;
-    margin-right: auto;
-    border: 7px solid #73583f;
-}
-
-    #activityhistorytable tr td {
-        border: 1px solid black;
-        width: 150px;
-    }
-
-    #activityhistorytable tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-/* Store View Styling */
-
-.storehatdiv h3 {
-    padding-top: 3%;
-    margin: 3%;
-    justify-content: center;
+#closetButton {
+    margin-Bottom: 2%;
 }
 
 .storehatdiv {
@@ -270,6 +255,31 @@ body {
     width: 20%;
     display: inline-block;
 }
+
+#activityhistorytable {
+    background: white;
+    margin-left: auto;
+    margin-right: auto;
+    border: 7px solid #73583f;
+}
+
+    #activityhistorytable tr td {
+        border: 1px solid black;
+        width: 150px;
+    }
+
+    #activityhistorytable tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+/* Store View Styling */
+
+.storehatdiv h3 {
+    padding-top: 3%;
+    margin: 3%;
+    justify-content: center;
+}
+
+
 
 .storeitemdiv h3 {
     margin: 3%;
