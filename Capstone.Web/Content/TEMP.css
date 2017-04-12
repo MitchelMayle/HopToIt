@@ -1,2 +1,49 @@
-﻿body {
+﻿#leaderboardtable {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border: 7px solid #73583f;
+}
+
+#leaderboardtable td {
+    border: 1px solid black;
+    width: 30%;
+}
+
+#leaderboardtable tr {
+
+}
+
+
+#leaderboardtable tr:nth-child(even) {
+    background-color: #f2f2f2;
+
+}
+
+.buttondiv{
+    display:inline-block;
+    width: 30%;
+ 
+
+}
+#leaderboardbutton{
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#leaderboardselectrank{
+
+    background-color: antiquewhite;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    border-radius: 3%;
+    
+
+}
+#seperatordiv{
+    width: 1px;
+    display: inline-block;
+  
 }
