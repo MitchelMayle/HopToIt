@@ -15,14 +15,7 @@ namespace Capstone.Web.Controllers.Tests
         [TestMethod()]
         public void HomeController_IndexAction_ReturnIndexView()
         {
-            //Arrange
-            HomeController controller = new HomeController();
-
-            //Act
-            ViewResult result = controller.Index() as ViewResult;
-
-            //Assert
-            Assert.AreEqual("Index", result.ViewName);
+            
         }
     }
 }
