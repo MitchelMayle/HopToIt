@@ -6,10 +6,22 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Leader Board</h2>
+
+<div id="leaderboardheading">
+    <h2>Leader Board</h2>
+    @if (Model.MinutesOption)
+    {
+        <p>(ranked by minutes)</p>
+    }
+    else
+    {
+        <p>(ranked by steps)</p>
+    }
+</div>
+
+
 @using (Html.BeginForm("LeaderBoard", "Home", FormMethod.Post))
 {
-
     <div id="leaderboardselectrank">
         <div class="buttondiv">
             <p>Rank by total Minutes</p>
@@ -22,10 +34,7 @@
         </div>
         <button id="leaderboardbutton"> Submit </button>
     </div>
-
 }
-
-
 <br />
 <br />
 <table id="leaderboardtable">
@@ -44,29 +53,14 @@
         </td>
     </tr>
 
-
     @for (int i = 0; i < Model.ChildList.Count; i++)
     {
         <tr>
             <td>@(i + 1) </td>
-
-
             <td>@((Model.ChildList[i].UserName).ToString()) </td>
-
-
-
             <td>@((Model.ChildList[i].Carrots).ToString("N0")) </td>
-
-
-
             <td>@((Model.ChildList[i].Seconds * 10).ToString("N0")) </td>
-
-
-
         </tr>
-
-
-
     }
 
 </table>

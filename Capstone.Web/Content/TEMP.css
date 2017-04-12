@@ -47,3 +47,8 @@
     display: inline-block;
   
 }
+#leaderboardheading p{
+
+    position: relative;
+    top: -20px;
+}

@@ -219,7 +219,7 @@ body {
     background: white;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid #73583f;
+    border: 7px solid #73583f;
 }
 
     #activityhistorytable tr td {
@@ -293,3 +293,9 @@ label > input { /* HIDE RADIO */
     label > input:checked + img { /* (RADIO CHECKED) IMAGE STYLES */
         border: 2px solid #77b940;
     }
+/*Choose Mascot Styling*/
+.chooseMascotDiv{
+    display: inline-block;
+    width: 25%;
+
+}

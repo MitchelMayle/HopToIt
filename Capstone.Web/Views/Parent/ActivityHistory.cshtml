@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ActivityHistory for @Model.UserName </h2>
+<h2>Activity History for @Model.UserName </h2>
 
 <table id="activityhistorytable">
     <tr>
@@ -19,11 +19,7 @@
             <td>@activity.Date.ToShortDateString()</td>
             <td>@((activity.Seconds * 10).ToString("N0")) Steps</td>
             <td>@(activity.Carrots.ToString("N0")) Minutes</td>
-
-
         </tr>
     }
-
-
 
 </table>

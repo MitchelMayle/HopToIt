@@ -11,19 +11,19 @@
 
 @using (Html.BeginForm("ChooseMascot", "Child", FormMethod.Post))
 {
-    <div class="mascotDiv">
+    <div class="chooseMascotDiv">
         <label>
             @Html.RadioButtonFor(m => m.Mascot_Image, "black.png", new { @visibility = "hidden" })
             <img src="~/Content/images/mascots/black.png" id="mascot" />
         </label>
     </div>
-    <div class="mascotDiv">
+    <div class="chooseMascotDiv">
         <label>
             @Html.RadioButtonFor(m => m.Mascot_Image, "brown.png", new { @visibility = "hidden" })
             <img src="~/Content/images/mascots/brown.png" id="mascot" />
         </label>
     </div>
-    <div class="mascotDiv">
+    <div class="chooseMascotDiv">
         <label>
             @Html.RadioButtonFor(m => m.Mascot_Image, "gray.png", new { @visibility = "hidden" })
             <img src="~/Content/images/mascots/gray.png" id="mascot" />
