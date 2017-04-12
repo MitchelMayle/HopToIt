@@ -164,6 +164,12 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult ChooseMascot(ChooseMascotModel chooseMascot)
         {
+            // validation redirect
+            if (!ModelState.IsValid)
+            {
+                return View("ChooseMascot", chooseMascot);
+            }
+
             // check if logged in
             if (Session["child"] == null)
             {
