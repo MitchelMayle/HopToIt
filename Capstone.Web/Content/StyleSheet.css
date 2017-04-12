@@ -232,6 +232,10 @@ body {
     margin-Bottom: 2%;
 }
 
+#storeButton {
+    margin: 2%;
+}
+
 .storehatdiv {
     border: solid #85a04f;
     background-color: #f4e3ad;
