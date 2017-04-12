@@ -296,6 +296,12 @@ label > input { /* HIDE RADIO */
 /*Choose Mascot Styling*/
 .chooseMascotDiv{
     display: inline-block;
-    width: 25%;
+    width: 15%;
+    Margin: 7%;
 
+}
+#mascotButton{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
