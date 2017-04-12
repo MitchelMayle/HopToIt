@@ -110,6 +110,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\gamestyles.css" />
+    <Content Include="Content\HomePageStyleSheet.css" />
     <Content Include="Content\images\adjusted_background.jpg" />
     <Content Include="Content\images\backgrounds\Background_beach_layer.png" />
     <Content Include="Content\images\backgrounds\Background_city_layer.png" />

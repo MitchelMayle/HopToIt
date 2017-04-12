@@ -1,0 +1,39 @@
+﻿#welcome {
+    color:#73583f;
+}
+
+h3 {
+    color: #85a04f;   
+}
+#tracker {
+    margin-bottom: 2%;
+}
+ .design_description {
+     color: #73583f;
+     font-size: large;  
+ }
+
+ .container{
+     background-color: white;
+     border: solid black;
+ }
+
+ .seconds_home {
+     width: 33%;
+     background-color: deeppink;
+ }
+ seconds_home {
+     width: 33%;
+     background-color: blue;
+ }
+ seconds_home {
+     width: 33%;
+     background-color: orange;
+ }
+ /*.row {
+     background-color: red;
+ }
+
+ .column{
+     display: inline-block;     
+ }*/
