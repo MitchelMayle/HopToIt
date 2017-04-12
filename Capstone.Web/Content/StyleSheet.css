@@ -259,7 +259,10 @@ body {
     width: 20%;
     display: inline-block;
 }
-
+#activityhistorytable thead{
+    font-weight: bolder;
+    background-color: #f2f2f2;
+}
 #activityhistorytable {
     background: white;
     margin-left: auto;
@@ -268,7 +271,7 @@ body {
 }
 
     #activityhistorytable tr td {
-        border: 1px solid black;
+        
         width: 150px;
     }
 
