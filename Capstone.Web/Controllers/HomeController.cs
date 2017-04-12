@@ -30,7 +30,7 @@ namespace Capstone.Web.Controllers
             {
                 ParentModel parent = Session["parent"] as ParentModel;
                 return PartialView("_ParentAuthenticated", parent);
-               
+
             }
             if (Session["child"] != null)
             {
@@ -50,17 +50,26 @@ namespace Capstone.Web.Controllers
 
         public ActionResult Leaderboard()
         {
-
             LeaderboardViewModel leaderboard = new LeaderboardViewModel();
-            leaderboard.ChildList = childDAL.GetLeadersByCarrots();
+
+            if (Session["leaderboard"] != null)
+            {
+                leaderboard = Session["leaderboard"] as LeaderboardViewModel;
+            }
+            else
+            {
+                leaderboard.ChildList = childDAL.GetLeadersBySteps();
+            }
+
 
             return View("LeaderBoard", leaderboard);
         }
         [HttpPost]
         public ActionResult Leaderboard(bool MinutesOption)
         {
+
             LeaderboardViewModel leaderboard = new LeaderboardViewModel();
-            if(MinutesOption)
+            if (MinutesOption)
             {
                 leaderboard.ChildList = childDAL.GetLeadersByCarrots();
             }
@@ -68,8 +77,9 @@ namespace Capstone.Web.Controllers
             {
                 leaderboard.ChildList = childDAL.GetLeadersBySteps();
             }
-
-            return View("LeaderBoard", leaderboard);
+            leaderboard.MinutesOption = MinutesOption;
+            Session["leaderboard"] = leaderboard;
+            return RedirectToAction("LeaderBoard", leaderboard);
         }
     }
 }

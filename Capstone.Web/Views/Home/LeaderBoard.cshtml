@@ -9,7 +9,7 @@
 <h2>Leader Board</h2>
 @using (Html.BeginForm("LeaderBoard", "Home", FormMethod.Post))
 {
-    @Html.RadioButtonFor(m => m.MinutesOption, true)    <p>Rank by total Minutes</p>
+    @Html.RadioButtonFor(m => m.MinutesOption, true) <p>Rank by total Minutes</p>
     @Html.RadioButtonFor(m => m.MinutesOption, false) <p>Rank by total Steps</p>
     
     <button> Submit </button>
