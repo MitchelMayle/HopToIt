@@ -73,7 +73,7 @@ namespace Capstone.Web.DAL.Mascot
                             Bow = Convert.ToBoolean(reader["bow"]),
                             BucketHat = Convert.ToBoolean(reader["bucket_hat"]),
                             Crown = Convert.ToBoolean(reader["crown"]),
-                            FlowerCrown = Convert.ToBoolean(reader["flower"]),
+                            FlowerCrown = Convert.ToBoolean(reader["flower_crown"]),
                             PropellerHat = Convert.ToBoolean(reader["propeller_hat"]),
                             Sombrero = Convert.ToBoolean(reader["sombrero"]),
                             TopHat = Convert.ToBoolean(reader["top_hat"]),
@@ -168,6 +168,7 @@ namespace Capstone.Web.DAL.Mascot
         {
             MascotModel mascot = new MascotModel();
             List<int> itemList = new List<int>();
+
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -181,14 +182,13 @@ namespace Capstone.Web.DAL.Mascot
 
                     while (reader.Read())
                     {
-
                         mascot.BaseballHat = Convert.ToBoolean(reader["baseball_hat"]);
                         mascot.Beanie = Convert.ToBoolean(reader["beanie"]);
                         mascot.Bonnet = Convert.ToBoolean(reader["bonnet"]);
                         mascot.Bow = Convert.ToBoolean(reader["bow"]);
                         mascot.BucketHat = Convert.ToBoolean(reader["bucket_hat"]);
                         mascot.Crown = Convert.ToBoolean(reader["crown"]);
-                        mascot.FlowerCrown = Convert.ToBoolean(reader["flower"]);
+                        mascot.FlowerCrown = Convert.ToBoolean(reader["flower_crown"]);
                         mascot.PropellerHat = Convert.ToBoolean(reader["propeller_hat"]);
                         mascot.Sombrero = Convert.ToBoolean(reader["sombrero"]);
                         mascot.TopHat = Convert.ToBoolean(reader["top_hat"]);
@@ -198,9 +198,8 @@ namespace Capstone.Web.DAL.Mascot
                         mascot.Forest = Convert.ToBoolean(reader["forest"]);
                         mascot.Mountain = Convert.ToBoolean(reader["mountain"]);
                         mascot.Ocean = Convert.ToBoolean(reader["ocean"]);
-
-
                     };
+
                     if (mascot.BaseballHat)
                     {
                         itemList.Add(1);
@@ -265,9 +264,7 @@ namespace Capstone.Web.DAL.Mascot
                     {
                         itemList.Add(16);
                     }
-
                 }
-
             }
 
             catch (Exception)
@@ -275,6 +272,7 @@ namespace Capstone.Web.DAL.Mascot
 
                 throw;
             }
+
             return itemList;
         }
     }
