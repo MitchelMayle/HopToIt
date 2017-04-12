@@ -41,13 +41,18 @@ h3 {
   
      
  }
+ .column{
+     width: 100%;
+     padding-bottom: 4%;
+ }
  .column1{
-     width:50%;
-     float:left;
+     width:100%;
+     padding-bottom: 4%;
+        
  }
 .column2 {
-    width:30%;
-    float:right;
+    width:100%;
+ 
 }
 #homeflexbox{
     display: flex;
