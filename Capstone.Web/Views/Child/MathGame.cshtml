@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "MathGame";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MathGame</h2>
+
+<p>Type in your answer.  Get five answers correct to earn a carrot.  Get all ten correct and earn two carrots.</p>
+
+@using (Html.BeginForm("GetQuiz", "Child", FormMethod.Post))
+{
+    for (int i = 0; i <= 10; i++)
+    {
+        <p>   i      </p>
+    }
+}
+
