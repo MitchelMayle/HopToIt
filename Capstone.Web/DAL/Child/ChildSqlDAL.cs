@@ -14,8 +14,8 @@ namespace Capstone.Web.DAL.Child
         private const string SQL_GetChild = "SELECT * FROM child WHERE child.username = @username;";
         private const string SQL_UpdateSeconds = "UPDATE child SET seconds = @seconds WHERE username = @userName;";
         private const string SQL_AddCarrot = "UPDATE child SET carrots = carrots + 1 WHERE username = @username;";
-        private const string SQL_GetLeadersByCarrots = "Select TOP 10 * from child order by carrots desc;";
-        private const string SQL_GetLeadersBySteps = "Select TOP 10 * from child order by seconds desc;";
+        private const string SQL_GetLeadersByCarrots = "Select TOP 10 child.username, sum(activity.seconds) as seconds, activity.carrots as carrots from Activity inner join child on child.child_id = activity.child_id group by activity.seconds, child.username, activity.carrots order by activity.carrots desc;";
+        private const string SQL_GetLeadersBySteps = "Select TOP 10 child.username, sum(activity.seconds) as seconds, activity.carrots as carrots from Activity inner join child on child.child_id = activity.child_id group by activity.seconds, child.username, activity.carrots order by activity.seconds desc;";
 
         public ChildSqlDAL(string connectionString)
         {
@@ -137,7 +137,7 @@ namespace Capstone.Web.DAL.Child
                     {
                         ChildModel child = new ChildModel()
                         {
-                            First_Name = Convert.ToString(reader["first_name"]),
+                            
                             Seconds = Convert.ToInt32(reader["seconds"]),
                             Carrots = Convert.ToInt32(reader["carrots"]),
                             UserName = Convert.ToString(reader["username"]),
@@ -170,7 +170,7 @@ namespace Capstone.Web.DAL.Child
                     {
                         ChildModel child = new ChildModel()
                         {
-                            First_Name = Convert.ToString(reader["first_name"]),
+                            
                             Seconds = Convert.ToInt32(reader["seconds"]),
                             Carrots = Convert.ToInt32(reader["carrots"]),
                             UserName = Convert.ToString(reader["username"]),

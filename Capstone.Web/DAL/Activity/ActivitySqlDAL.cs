@@ -12,8 +12,8 @@ namespace Capstone.Web.DAL.Activity
         private readonly string connectionString;
         private const string SQL_AddActivity = "Insert into activity VALUES (@child_id, @activity_date, @seconds, @carrots);";
         private const string SQL_ActivityToChildDB = "UPDATE child SET seconds = seconds + @seconds, carrots = carrots + @carrots WHERE child.child_id = @child_id;";
-        private const string SQL_GetSteps = "  Select TOP 10 child.username, sum(activity.seconds), activity.carrots from Activity inner join child on child.child_id = activity.child_id group by activity.seconds, child.username, activity.carrots order by activity.seconds desc;";
-        private const string SQL_GetMinutes = "  Select TOP 10 child.username, sum(activity.seconds), activity.carrots from Activity inner join child on child.child_id = activity.child_id group by activity.seconds, child.username, activity.carrots order by activity.carrots desc;";
+        private const string SQL_GetSteps = "Select SUM(seconds) from Activity where child_id =@child_id;";
+        private const string SQL_GetMinutes = "Select SUM(carrots) from Activity where child_id = @child_id;";
         private const string SQL_IdExists = "Select count(*) from activity where child_id = @child_id;";
         private const string SQL_GetActivities = "Select * from activity where child_id = @child_id order by activity_date asc;";
 
