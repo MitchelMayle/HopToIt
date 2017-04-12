@@ -106,7 +106,7 @@ button {
     padding-bottom: 30px;
     text-align: left;
     padding-left: 2%;
-    color:white;
+    color: white;
 }
 
 
@@ -132,9 +132,9 @@ button {
 /*Child Dashboard - takes from layeringsheet as well*/
 
 .childDashboard {
-     width:100%;
-     float:initial;
-     padding-left:37%;
+    width: 100%;
+    float: initial;
+    padding-left: 37%;
 }
 
 /*Parent Dashboard Child Profiles*/
@@ -211,8 +211,17 @@ body {
 }
 
 .closetSection {
-    display: inline-block;
-    margin: -8% 0% 60% 40%;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.closetItems {
+    width: 40%;
+    margin-left: auto;
 }
 
 #activityhistorytable {
@@ -294,8 +303,7 @@ label > input { /* HIDE RADIO */
         border: 2px solid #77b940;
     }
 /*Choose Mascot Styling*/
-.chooseMascotDiv{
+.chooseMascotDiv {
     display: inline-block;
     width: 25%;
-
 }

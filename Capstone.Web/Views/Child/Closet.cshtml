@@ -43,166 +43,155 @@ else
 
     @using (Html.BeginForm("Closet", "Child", FormMethod.Post))
     {
+
+        if (Model.Mascot.BaseballHat == true)
         {
-
-            <h2>Your Purchases</h2>
-
-            if (Model.Mascot.BaseballHat == true)
-            {
-                <div>
-                    <label>
-                        @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "BaseballCap_bunny.png", new { @visibility = "hidden" })
-                        <img class="storehatimg" src="~/Content/images/Resized/baseball_hat.png" />
-
-                    </label>
-                </div>
-            }
-            if (Model.Mascot.Beanie == true)
-            {
-                <div>
-                    <label>
-                        @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "beanie_bunny.png", new { @visibility = "hidden" })
-                        <img class="storehatimg" src="~/Content/images/Resized/beanie.png" />
-
-                    </label>
-                </div>
-            }
-
-            if (Model.Mascot.Bonnet == true)
-            {
-                <div>
-                    <label>
-                        @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "bonnet_bunny.png", new { @visibility = "hidden" })
-                        <img class="storehatimg" src="~/Content/images/Resized/bonnet.png" />
-
-                    </label>
-                </div>
-            }
-            if (Model.Mascot.Bow == true)
-            {
-                <div>
-                    <label>
-                        @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "Bow_bunny.png", new { @visibility = "hidden" })
-                        <img class="storehatimg" src="~/Content/images/Resized/bow.png" />
-
-                    </label>
-                </div>
-            }
-
-            if (Model.Mascot.BucketHat == true)
-            {
-                <div>
-                    <label>
-                        @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "BucketHat_bunny.png", new { @visibility = "hidden" })
-                        <img class="storehatimg" src="~/Content/images/Resized/bucket_hat.png" />
-                    </label>
-                </div>
-            }
-            if (Model.Mascot.Crown == true)
-            {
-                <div>
-                    <label>
-                        @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "Crown_bunny.png", new { @visibility = "hidden" })
-                        <img class="storehatimg" src="~/Content/images/Resized/crown.png" />
-                    </label>
-                </div>
-            }
-
-            if (Model.Mascot.FlowerCrown == true)
-            {
-                <div>
-                    <label>
-                        @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "FlowerCrown_bunny.png", new { @visibility = "hidden" })
-                        <img class="storehatimg" src="~/Content/images/Resized/flower_crown.png" />
-                    </label>
-                </div>
-            }
-
-            if (Model.Mascot.PropellerHat == true)
-            {
-                <div>
-                    <label>
-                        @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "propeller_bunny.png", new { @visibility = "hidden" })
-                        <img class="storehatimg" src="~/Content/images/Resized/propeller_hat.png" />
-                    </label>
-                </div>
-            }
-            if (Model.Mascot.Sombrero == true)
-            {
-                <div>
-                    <label>
-                        @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "sombrero_bunny.png", new { @visibility = "hidden" })
-                        <img class="storehatimg" src="~/Content/images/Resized/sombrero.png" />
-                    </label>
-                </div>
-            }
-            if (Model.Mascot.TopHat == true)
-            {
-                <div>
-                    <label>
-                        @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "TopHat_bunny.png", new { @visibility = "hidden" })
-                        <img class="storehatimg" src="~/Content/images/Resized/top_hat.png" />
-                    </label>
-                </div>
-            }
-            if (Model.Mascot.Beach == true)
-            {
-                <div>
-                    <label>
-                        @Html.RadioButtonFor(m => m.Mascot.CurrentBackground, "Background_beach_layer.png", new { @visibility = "hidden" })
-                        <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/beach.png" />
-                    </label>
-                </div>
-            }
-            if (Model.Mascot.City == true)
-            {
-                <div>
-                    <label>
-                        @Html.RadioButtonFor(m => m.Mascot.CurrentBackground, "Background_city_layer.png", new { @visibility = "hidden" })
-                        <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/city.png" />
-                    </label>
-                </div>
-            }
-            if (Model.Mascot.Desert == true)
-            {
-                <div>
-                    <label>
-                        @Html.RadioButtonFor(m => m.Mascot.CurrentBackground, "Background_desert_layer.png", new { @visibility = "hidden" })
-                        <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/desert.png" />
-                    </label>
-                </div>
-            }
-            if (Model.Mascot.Forest == true)
-            {
-                <div>
-                    <label>
-                        @Html.RadioButtonFor(m => m.Mascot.CurrentBackground, "background_forest_layer.png", new { @visibility = "hidden" })
-                        <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/forest.png" />
-                    </label>
-                </div>
-            }
-            if (Model.Mascot.Mountain == true)
-            {
-                <div>
-                    <label>
-                        @Html.RadioButtonFor(m => m.Mascot.CurrentBackground, "background_mountain_layer.png", new { @visibility = "hidden" })
-                        <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/mountain.png" />
-                    </label>
-                </div>
-            }
-            if (Model.Mascot.Ocean == true)
-            {
-                <div>
-                    <label>
-                        @Html.RadioButtonFor(m => m.Mascot.CurrentBackground, "background_ocean_layer.png", new { @visibility = "hidden" })
-                        <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/ocean.png" />
-                    </label>
-                </div>
-
-            }
-
+            <div class="closetItems">
+                <label>
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "BaseballCap_bunny.png", new { @visibility = "hidden" })
+                    <img class="storehatimg" src="~/Content/images/Resized/baseball_hat.png" />
+                </label>
+            </div>
+        }
+        if (Model.Mascot.Beanie == true)
+        {
+            <div class="closetItems">
+                <label>
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "beanie_bunny.png", new { @visibility = "hidden" })
+                    <img class="storehatimg" src="~/Content/images/Resized/beanie.png" />
+                </label>
+            </div>
         }
 
+        if (Model.Mascot.Bonnet == true)
+        {
+            <div class="closetItems">
+                <label>
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "bonnet_bunny.png", new { @visibility = "hidden" })
+                    <img class="storehatimg" src="~/Content/images/Resized/bonnet.png" />
+                </label>
+            </div>
+        }
+        if (Model.Mascot.Bow == true)
+        {
+            <div class="closetItems">
+                <label>
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "Bow_bunny.png", new { @visibility = "hidden" })
+                    <img class="storehatimg" src="~/Content/images/Resized/bow.png" />
+                </label>
+            </div>
+        }
+
+        if (Model.Mascot.BucketHat == true)
+        {
+            <div class="closetItems">
+                <label>
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "BucketHat_bunny.png", new { @visibility = "hidden" })
+                    <img class="storehatimg" src="~/Content/images/Resized/bucket_hat.png" />
+                </label>
+            </div>
+        }
+        if (Model.Mascot.Crown == true)
+        {
+            <div class="closetItems">
+                <label>
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "Crown_bunny.png", new { @visibility = "hidden" })
+                    <img class="storehatimg" src="~/Content/images/Resized/crown.png" />
+                </label>
+            </div>
+        }
+
+        if (Model.Mascot.FlowerCrown == true)
+        {
+            <div class="closetItems">
+                <label>
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "FlowerCrown_bunny.png", new { @visibility = "hidden" })
+                    <img class="storehatimg" src="~/Content/images/Resized/flower_crown.png" />
+                </label>
+            </div>
+        }
+
+        if (Model.Mascot.PropellerHat == true)
+        {
+            <div class="closetItems">
+                <label>
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "propeller_bunny.png", new { @visibility = "hidden" })
+                    <img class="storehatimg" src="~/Content/images/Resized/propeller_hat.png" />
+                </label>
+            </div>
+        }
+        if (Model.Mascot.Sombrero == true)
+        {
+            <div class="closetItems">
+                <label>
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "sombrero_bunny.png", new { @visibility = "hidden" })
+                    <img class="storehatimg" src="~/Content/images/Resized/sombrero.png" />
+                </label>
+            </div>
+        }
+        if (Model.Mascot.TopHat == true)
+        {
+            <div class="closetItems">
+                <label>
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentHat, "TopHat_bunny.png", new { @visibility = "hidden" })
+                    <img class="storehatimg" src="~/Content/images/Resized/top_hat.png" />
+                </label>
+            </div>
+        }
+        if (Model.Mascot.Beach == true)
+        {
+            <div class="closetItems">
+                <label>
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentBackground, "Background_beach_layer.png", new { @visibility = "hidden" })
+                    <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/beach.png" />
+                </label>
+            </div>
+        }
+        if (Model.Mascot.City == true)
+        {
+            <div class="closetItems">
+                <label>
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentBackground, "Background_city_layer.png", new { @visibility = "hidden" })
+                    <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/city.png" />
+                </label>
+            </div>
+        }
+        if (Model.Mascot.Desert == true)
+        {
+            <div class="closetItems">
+                <label>
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentBackground, "Background_desert_layer.png", new { @visibility = "hidden" })
+                    <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/desert.png" />
+                </label>
+            </div>
+        }
+        if (Model.Mascot.Forest == true)
+        {
+            <div class="closetItems">
+                <label>
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentBackground, "background_forest_layer.png", new { @visibility = "hidden" })
+                    <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/forest.png" />
+                </label>
+            </div>
+        }
+        if (Model.Mascot.Mountain == true)
+        {
+            <div class="closetItems">
+                <label>
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentBackground, "background_mountain_layer.png", new { @visibility = "hidden" })
+                    <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/mountain.png" />
+                </label>
+            </div>
+        }
+        if (Model.Mascot.Ocean == true)
+        {
+            <div class="closetItems">
+                <label>
+                    @Html.RadioButtonFor(m => m.Mascot.CurrentBackground, "background_ocean_layer.png", new { @visibility = "hidden" })
+                    <img class="storehatimg" src="~/Content/images/Resized_Backgrounds/ocean.png" />
+                </label>
+            </div>
+        }
 
         <br />
         <button>Select Item</button>
