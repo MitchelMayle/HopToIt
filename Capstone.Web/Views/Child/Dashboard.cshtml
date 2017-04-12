@@ -1,45 +1,43 @@
 ﻿@model Capstone.Web.Models.ChildModel
 
-
 @{
     ViewBag.Title = Model.First_Name + "'s Dashboard";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2> Welcome to your Dashboard @Model.First_Name! </h2>
+<div class="childDashboard">
+    @*only displays when mascot already exists*@
+    <p>@Html.ValidationMessage("mascot-exists")</p>
+    @if (Model.Mascot == null)
+    {
+        <div class="mascotDiv">
+            <img src="~/Content/images/mascots/default.png" id="mascot" />
+        </div>
+    }
+    else
+    {
+        <section id="parent">
+            @if (Model.Mascot.CurrentHat == null && Model.Mascot.CurrentBackground == null)
+            {
+                <div><img class="mascotImage" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" /></div>
+            }
+            else if (Model.Mascot.CurrentBackground == null)
+            {
+                <div><img class="mascotImage" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" /></div>
+                <div><img class="hatImage" src="~/Content/images/fitted_items/@Model.Mascot.CurrentHat" /></div>
 
-@*only displays when mascot already exists*@
-<p>@Html.ValidationMessage("mascot-exists")</p>
-
-@if (Model.Mascot == null)
-{
-    <div class="mascotDiv">
-        <img src="~/Content/images/mascots/default.png" id="mascot" />
-    </div>
-}
-else
-{
-    <section id="parent">
-        @if (Model.Mascot.CurrentHat == null && Model.Mascot.CurrentBackground == null)
-        {
-        <div><img class="mascotImage" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" /></div>
-        }
-        else if (Model.Mascot.CurrentBackground == null)
-        {
-        <div><img class="mascotImage" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" /></div>
-        <div><img class="hatImage" src="~/Content/images/fitted_items/@Model.Mascot.CurrentHat" /></div>
-
-        }
-        else if (Model.Mascot.CurrentHat == null)
-        {
-        <div><img class="mascotImage" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" /></div>
-        <div><img class="background image" src="~/Content/images/backgrounds/@Model.Mascot.CurrentBackground" />"/></div>
-        }
-        else
-        {
-        <div><img class="mascotImage" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" /></div>
-        <div><img class="hatImage" src="~/Content/images/fitted_items/@Model.Mascot.CurrentHat" /></div>
-        <div><img class="backgroundImage" src="~/Content/images/backgrounds/@Model.Mascot.CurrentBackground" /></div>
-        }
-    </section>
-}
+            }
+            else if (Model.Mascot.CurrentHat == null)
+            {
+                <div><img class="mascotImage" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" /></div>
+                <div><img class="background image" src="~/Content/images/backgrounds/@Model.Mascot.CurrentBackground" />"/></div>
+            }
+            else
+            {
+                <div><img class="mascotImage" src="~/Content/images/mascots/@Model.Mascot.Mascot_Image" /></div>
+                <div><img class="hatImage" src="~/Content/images/fitted_items/@Model.Mascot.CurrentHat" /></div>
+                <div><img class="backgroundImage" src="~/Content/images/backgrounds/@Model.Mascot.CurrentBackground" /></div>
+            }
+        </section>
+    }
+</div>

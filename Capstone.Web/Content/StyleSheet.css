@@ -106,6 +106,7 @@ button {
     padding-bottom: 30px;
     text-align: left;
     padding-left: 2%;
+    color:white;
 }
 
 
@@ -127,6 +128,13 @@ button {
     width: 100%;
     height: 100%;
     text-align: center;
+}
+/*Child Dashboard - takes from layeringsheet as well*/
+
+.childDashboard {
+     width:100%;
+     float:initial;
+     padding-left:37%;
 }
 
 /*Parent Dashboard Child Profiles*/
