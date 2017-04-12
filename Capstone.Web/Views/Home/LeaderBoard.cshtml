@@ -9,20 +9,67 @@
 <h2>Leader Board</h2>
 @using (Html.BeginForm("LeaderBoard", "Home", FormMethod.Post))
 {
-    @Html.RadioButtonFor(m => m.MinutesOption, true) <p>Rank by total Minutes</p>
-    @Html.RadioButtonFor(m => m.MinutesOption, false) <p>Rank by total Steps</p>
-    
-    <button> Submit </button>
 
-}
-
-@foreach (ChildModel child in @Model.ChildList)
-{
-
-    <div class="leaderdiv">
-        <h3>@child.UserName</h3>
-        <h2>@(child.Carrots) Total Active Minutes</h2>
-        <h2>@(child.Seconds * 10) Total Steps</h2>
+    <div id="leaderboardselectrank">
+        <div class="buttondiv">
+            <p>Rank by total Minutes</p>
+            @Html.RadioButtonFor(m => m.MinutesOption, true)
+        </div>
+        <div id="seperatordiv"></div>
+        <div class="buttondiv">
+            <p>Rank by total Steps</p>
+            @Html.RadioButtonFor(m => m.MinutesOption, false)
+        </div>
+        <button id="leaderboardbutton"> Submit </button>
     </div>
 
 }
+
+
+<br />
+<br />
+<table id="leaderboardtable">
+    <tr>
+        <td>
+            Rank
+        </td>
+        <td>
+            User Name
+        </td>
+        <td>
+            Total Active Minutes
+        </td>
+        <td>
+            Total Steps
+        </td>
+    </tr>
+
+
+    @for (int i = 0; i < Model.ChildList.Count; i++)
+    {
+        <tr>
+            <td>@(i + 1) </td>
+
+
+            <td>@((Model.ChildList[i].UserName).ToString()) </td>
+
+
+
+            <td>@((Model.ChildList[i].Carrots).ToString("N0")) </td>
+
+
+
+            <td>@((Model.ChildList[i].Seconds * 10).ToString("N0")) </td>
+
+
+
+        </tr>
+
+
+
+    }
+
+</table>
+
+<br />
+<br />

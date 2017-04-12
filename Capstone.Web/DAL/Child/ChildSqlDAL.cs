@@ -14,8 +14,8 @@ namespace Capstone.Web.DAL.Child
         private const string SQL_GetChild = "SELECT * FROM child WHERE child.username = @username;";
         private const string SQL_UpdateSeconds = "UPDATE child SET seconds = @seconds WHERE username = @userName;";
         private const string SQL_AddCarrot = "UPDATE child SET carrots = carrots + 1 WHERE username = @username;";
-        private const string SQL_GetLeadersByCarrots = "Select * from child order by carrots desc;";
-        private const string SQL_GetLeadersBySteps = "Select * from child order by seconds desc;";
+        private const string SQL_GetLeadersByCarrots = "Select TOP 10 * from child order by carrots desc;";
+        private const string SQL_GetLeadersBySteps = "Select TOP 10 * from child order by seconds desc;";
 
         public ChildSqlDAL(string connectionString)
         {
