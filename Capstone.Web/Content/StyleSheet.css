@@ -307,3 +307,12 @@ label > input { /* HIDE RADIO */
     display: inline-block;
     width: 25%;
 }
+    width: 15%;
+    Margin: 7%;
+
+}
+#mascotButton{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
