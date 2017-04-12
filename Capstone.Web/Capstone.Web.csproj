@@ -135,6 +135,7 @@
     <Content Include="Content\images\game\carrot.jpg" />
     <Content Include="Content\images\game\grass texture.jpg" />
     <Content Include="Content\images\game\grass.jpg" />
+    <Content Include="Content\images\game\x.jpg" />
     <Content Include="Content\images\hourglass.png" />
     <Content Include="Content\images\Resized\baseball_hat.png" />
     <Content Include="Content\images\Resized\beanie.png" />

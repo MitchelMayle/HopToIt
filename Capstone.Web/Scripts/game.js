@@ -71,6 +71,7 @@ function checkNextStep() {
         $("h2").text("Game Over");
         $("h2").addClass("gameover");
         bunny.removeClass("bunny");
+        bunny.addClass("x");
     }
     else if (bunny.hasClass("carrot")) {
         $("h2").text("You won 1 carrot!");
@@ -84,6 +85,7 @@ function restart() {
     $("#gameboard td:first").addClass("bunny");
     $("h2").text("Bunny Adventure").removeClass("gameover");
     $("h2").text("Bunny Adventure").removeClass("gamewin");
+    $("td").filter(".x").removeClass("x");
 }
 
 function addCarrot() {
