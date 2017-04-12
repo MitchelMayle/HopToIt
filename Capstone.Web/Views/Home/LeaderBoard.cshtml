@@ -38,20 +38,22 @@
 <br />
 <br />
 <table id="leaderboardtable">
-    <tr>
-        <td>
-            Rank
-        </td>
-        <td>
-            User Name
-        </td>
-        <td>
-            Total Active Minutes
-        </td>
-        <td>
-            Total Steps
-        </td>
-    </tr>
+    <thead id="leaderboardhead">
+        <tr>
+            <td id="rank">
+                Rank
+            </td>
+            <td class="leadercolumn">
+                User Name
+            </td>
+            <td class="leadercolumn">
+                Total Active Minutes
+            </td>
+            <td class="leadercolumn">
+                Total Steps
+            </td>
+        </tr>
+    </thead>
 
     @for (int i = 0; i < Model.ChildList.Count; i++)
     {

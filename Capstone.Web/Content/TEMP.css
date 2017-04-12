@@ -3,12 +3,13 @@
     margin-right: auto;
     background-color: white;
     border: 7px solid #73583f;
+    width: 75%;
 }
 
-#leaderboardtable td {
+/*#leaderboardtable td {
     border: 1px solid black;
     width: 30%;
-}
+*/
 
 #leaderboardtable tr {
 
@@ -51,4 +52,14 @@
 
     position: relative;
     top: -20px;
+}
+#rank{
+    width: 15%;
+   
+}
+
+#leaderboardhead{
+
+    font-weight: bolder;
+    background-color:  #f2f2f2; 
 }
