@@ -15,19 +15,16 @@ h3 {
      padding:.25%;
  }
 
- .homecontainer{
+  .homecontainer{
      background-color:#77b940;
      color:white;
      font-family:Arial, Helvetica, sans-serifl;
      border:5px double #73583f;
      display:inline-block;
-     width:40%;
+     width:48%;
      padding: 3%;   
-     margin-left:8%;
      margin-bottom:2%;
      float:left;
-     height:inherit;
-
  }
 
  .row{
@@ -37,12 +34,11 @@ h3 {
      border:5px double #73583f;
      font: #73583f;
      display:inline-block;
-     width:40%;
+     width:48%;
      padding: 2.5%;
      margin-bottom:2%;
-     margin-right:8%;
-     float:right;
-     height:inherit;
+     float: right;
+  
      
  }
  .column1{
@@ -52,4 +48,15 @@ h3 {
 .column2 {
     width:30%;
     float:right;
+}
+#homeflexbox{
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    width: 70%;
+
+}
+#homeseperatordiv{
+    display: inline-block;
+    width: 6%;
 }
